@@ -1,0 +1,20 @@
+#aulas {
+    float: left;
+}
+
+#conteudo {
+    margin-left: 200px;
+}
+
+.aula {
+    color: grey;
+    cursor: not-allowed;
+}
+
+.aula-aberta {
+    color: black;
+    cursor: pointer;
+}
+body{
+  background-color:#ffd215;
+}
