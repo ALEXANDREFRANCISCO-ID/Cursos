@@ -51,3 +51,10 @@ function atualizarBotoes(index) {
 }
 
 
+
+
+document.querySelectorAll('button.proximo').forEach(button => {
+  button.addEventListener('click', function() {
+    window.scrollTo(0, 0);
+  });
+});
