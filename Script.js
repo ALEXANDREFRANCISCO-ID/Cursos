@@ -1,43 +1,7 @@
-const botoesProximo = document.querySelectorAll('.proximo');
-let aulaAtual = 0;
-
-botoesProximo.forEach((botao, index) => {
-  botao.addEventListener('click', () => {
-    if (index === aulaAtual) {
-      aulaAtual++;
-      mostrarAula(aulaAtual);
-    }
-  });
-});
-
-function mostrarAula(index) {
-  const aulas = document.querySelectorAll('section');
-  aulas.forEach((aula, i) => {
-    if (i === index) {
-      aula.style.display = 'block';
-    } else {
-      aula.style.display = 'none';
-    }
-  });
-
-  atualizarBotoes(aulaAtual);
-}
-
-function atualizarBotoes(index) {
-  botoesProximo.forEach((botao, i) => {
-    if (i === index) {
-      botao.disabled = false;
-    } else {
-      botao.disabled = true;
-    }
-  });
-}
-
-  
 
 
 
-
+//edição 
 
 
 
@@ -50,9 +14,47 @@ function atualizarBotoes(index) {
   outputFrame.contentWindow.document.close();
 }
 
+//Fim de edição 
+const aulas = document.querySelectorAll("section");
+let aulaAtual = 0;
+
+const btnAnterior = document.getElementsByClassName("anterior");
+const btnProximo = document.getElementsByClassName("proximo");
+
+for (let i = 0; i < btnAnterior.length; i++) {
+  btnAnterior[i].addEventListener("click", function() {
+    if (aulaAtual > 0) {
+      aulas[aulaAtual].classList.add("hidden");
+      aulaAtual--;
+      aulas[aulaAtual].classList.remove("hidden");
+    }
+    if (aulaAtual === 0) {
+      btnAnterior[i].disabled = true;
+    }
+    btnProximo[i].disabled = false;
+  });
+}
+
+for (let i = 0; i < btnProximo.length; i++) {
+  btnProximo[i].addEventListener("click", function() {
+    if (aulaAtual < aulas.length - 1) {
+      aulas[aulaAtual].classList.add("hidden");
+      aulaAtual++;
+      aulas[aulaAtual].classList.remove("hidden");
+    }
+    if (aulaAtual === aulas.length - 1) {
+      btnProximo[i].disabled = true;
+    }
+    btnAnterior[i].disabled = false;
+  });
+}
 
 
-
+document.querySelectorAll('button.anterior').forEach(button => {
+  button.addEventListener('click', function() {
+    window.scrollTo(0, 0);
+  });
+});
 document.querySelectorAll('button.proximo').forEach(button => {
   button.addEventListener('click', function() {
     window.scrollTo(0, 0);
