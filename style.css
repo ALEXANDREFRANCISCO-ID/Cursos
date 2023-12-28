@@ -1,3 +1,6 @@
+.hidden {
+  display: none;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -36,11 +39,9 @@ main {
   padding: 20px;
 }
 
-section {
-  display: none;
-}
 
-section:first-of-type {
+
+section{
   display: block;
 }
 
@@ -48,10 +49,6 @@ button.proximo {
   margin-top: 10px;
 }
 
-button.proximo[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 div {
   display: flex;
   flex-direction: column;
@@ -90,7 +87,7 @@ iframe {
     background-color: #4CAF50;
     color: white;
     border: none;
-    cursor: pointer;
+    
   }
   iframe {
     width: 100%;
