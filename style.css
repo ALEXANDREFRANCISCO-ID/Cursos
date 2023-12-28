@@ -1,20 +1,99 @@
-#aulas {
-    float: left;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-#conteudo {
-    margin-left: 200px;
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
-.aula {
-    color: grey;
-    cursor: not-allowed;
+nav {
+  background-color: #eee;
+  padding: 10px;
 }
 
-.aula-aberta {
-    color: black;
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  display: none;
+}
+
+section:first-of-type {
+  display: block;
+}
+
+button.proximo {
+  margin-top: 10px;
+}
+
+button.proximo[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+textarea {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+iframe {
+  height: 200px;
+  border: 1px solid black;
+}
+.logo1{
+  width:100%;
+  height:130px;
+}
+
+  div {
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+  textarea {
+    width: 100%;
+   min-height: 100px;
+    padding: 10px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     cursor: pointer;
-}
-body{
-  background-color:#ffd215;
-}
+  }
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+  }
