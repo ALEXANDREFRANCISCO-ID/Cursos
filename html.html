@@ -1,0 +1,3196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de Programação - Aulas</title>
+  <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body readonly>
+  <header>
+    <h1 class="c">codeATOES</h1>
+    <h1>Aulas de HTML </h1>
+  </header>
+  <nav id="topo">
+    <ul>
+      <li><a href=".html">Aula 01</a></li>
+      <li><a href="aula02.html">Aula 02</a></li>
+      <ul>
+
+      
+      
+      
+      
+      
+      
+      
+      <!-- Adicione os links para as 100 aulas -->
+    </ul>
+  </nav>
+  <main>
+    
+    
+    <section>
+      <h2>HTML INTRODUÇÃO</h2>
+      <p>
+      
+      HTML (Linguagem de Marcação de Hipertexto) é o código que você usa para estruturar uma página web e seu conteúdo. Por exemplo, o conteúdo pode ser estruturado em parágrafos, em uma lista com marcadores ou usando imagens e tabelas. Como o título sugere, este artigo fornecerá uma compreensão básica do HTML e suas funções.<br>
+      <br>
+     <h2> Então, o que é HTML?</h2>
+      HTML não é uma linguagem de programação; é uma linguagem de marcação, usada para definir a estrutura do seu conteúdo. HTML consiste de uma série de elementos, que você usa para delimitar ou agrupar diferentes partes do conteúdo para que ele apareça ou atue de determinada maneira. As tags anexas podem transformar uma palavra ou imagem num hiperlink, pode colocar palavras em itálico, pode aumentar ou diminuir a fonte e assim por diante. Por exemplo, veja a seguinte linha de conteúdo: 
+      </p>
+<div class="code-editor-container">
+  <textarea id="lesson1-input" class="code-input"><p>Eu faço curso no CodeATOES </p></textarea>
+  <button onclick="runCode('lesson1')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson1-output" class="output-frame"></iframe>
+</div>
+
+
+
+      <p>
+        vimos parágrafo colocando-a em uma tag de parágrafo: </p>
+        
+      <img src="Logo1.jpg" class="logo1">
+      <p>Estrutura de um elemento HTML, 
+Vamos explorar esse parágrafo mais profundamente.
+
+</p> 
+
+
+  <p>As principais partes de um elemento são:
+  
+  <h3>A tag de abertura: </h3>
+  Consiste no nome do elemento (no caso, p), envolvido em parênteses angulares de abertura e fechamento. Isso demonstra onde o elemento começa, ou onde seu efeito se inicia — nesse caso, onde é o começo do parágrafo.<br>
+  <h3>A tag de fechamento:</h3> Isso é a mesma coisa que a tag de abertura, exceto que inclui uma barra antes do nome do elemento. Isso demonstra onde o elemento acaba — nesse caso, onde é o fim do parágrafo. Esquecer de incluir uma tag de fechamento é um dos erros mais comuns de iniciantes e pode levar a resultados estranhos.<br>
+  <h3>O conteúdo: </h3>Esse é o conteúdo do elemento, que nesse caso é apenas texto.<br>
+  <h3>O elemento: </h3>A tag de abertura, a de fechamento, e o conteúdo formam o elemento.<br>
+  Elementos também podem ter atributos, que parecem assim:</p> 
+      <img src="Logo2.jpg" class="logo1">
+      <p>Atributos contém informação extra sobre o elemento que você não quer que apareça no conteúdo real. Aqui, class é o nome do atributo e editor-note é o valor do atributo. O atributo class permite que você forneça ao elemento um identificador que possa ser usado posteriormente para aplicar ao elemento informações de estilo e outras coisas.
+      
+      Um atributo sempre deve ter:
+      <br>
+      Um espaço entre ele e o nome do elemento (ou o atributo anterior, se o elemento já tiver um).<br>
+      O nome do atributo, seguido por um sinal de igual.<br>
+      Aspas de abertura e fechamento, envolvendo todo o valor do atributo</p> 
+      
+          
+    <div class="vid">
+      <p>fale com tutores sobre esse tema</p>
+    </div>
+    
+      
+       <button class="anterior" disabled>Aula Anterior</button>
+        <button class="proximo">Próxima Aula</button>
+        
+        
+        
+        
+        
+        
+    </section>
+    <section class="hidden">
+      <h2>COMPOSIÇÃO DE UM CORPO HTML </h2>
+      <p>A Composição  de um documento HTML
+      Isso resume o básico dos elementos HTML individuais, mas eles não são úteis por si só. Agora vamos ver como elementos individuais são combinados para formar uma página HTML inteira. Vamos visitar novamente os códigos que colocamos no exemplo de index.html</p>
+      
+      
+      
+      <div>
+ <p> veja essa actividade abaixo :</p><br>
+ 
+ 
+ 
+ 
+<div class="code-editor-container">
+  <textarea id="lesson2-input" class="code-input">
+    <p><!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Minha página de teste</title>
+  </head>
+  <body>
+<h1>Olá </h1><br>
+<p>Este é meu primeiro site</p>
+  </body>
+</html>
+ </p>
+  </textarea>
+  <button onclick="runCode('lesson2')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson2-output" class="output-frame"></iframe>
+</div>
+</div>
+
+<p> No exemplo acima temos :
+<ul>
+  <li>
+    "&lt;!DOCTYPE htm&gt;" — o doctype. É a parte inicial obrigatória do documento. Nas névoas do tempo, quando o HTML era novo (por volta de 1991/2), doctypes eram criados para agir como links para um conjunto de regras que a página HTML tinha que seguir para ser considerada um bom HTML, o que poderia significar checagem automática de erros e outras coisas úteis. No entanto, atualmente, eles não fazem muito sentido e são basicamente necessários apenas para garantir que o documento se comporte corretamente. Isso é tudo que você precisa saber agora.</li><br>
+<li>&lt;html&gt; &lt;/html&gt— o elemento &lt;html&gt;. Esse elemento envolve todo o conteúdo da página e às vezes é conhecido como o elemento raiz.
+</li>
+<br>
+<li>&lt;head&gt;  &lt;/head&gt;  — o elemento &lt;head&gt;. Esse elemento age como um recipiente de tudo o que você deseja incluir em uma página HTML que não é o conteúdo que você quer mostrar para quem vê sua página. Isso inclui coisas como palavras-chave e uma descrição que você quer que apareça nos resultados de busca, CSS para dar estilo ao conteúdo, declarações de conjuntos de caracteres e etc.</li><br>
+<li>&lt;meta charset="utf-8"&gt; — esse elemento define o conjunto de caracteres que seu documento deve usar para o UTF-8, que inclui praticamente todos os caracteres da grande maioria dos idiomas escritos. Essencialmente, agora ele pode manipular qualquer conteúdo textual que você possa colocar. Não há razão para não definir isso e assim pode ajudar a evitar alguns problemas no futuro.</li><br>
+<li>&lt;title&gt;  &lt;/title&gt;; — o elemento &lt;title&gt;. Ele define o título da sua página, que é o título que aparece na guia do navegador onde sua página é carregada. Ele também é usado para descrever a página quando você a adiciona aos favoritos.</li><br>
+<li>
+&lt;body&gt;  &lt;/body&gt; — o elemento &lt;body&gt;. Contém todo o conteúdo que você quer mostrar ao público que visita sua página, seja texto, imagens, vídeos, jogos, faixas de áudio reproduzíveis ou qualquer outra coisa. </li>
+</ul>
+
+       <button class="anterior" >Aula Anterior</button>
+  <button class="proximo">Próxima Aula</button>
+
+
+
+
+      
+    </section>
+    
+    
+    
+    
+        <section class="hidden">
+      <h1>Aula 03</h1>
+      <h2>Imagem</h2>
+      <p>Vamos voltar nossa atenção para o elemento &lt;img&gt; novamente:</p>
+      
+      <div class="code-editor-container">
+  <textarea id="lesson3-input" class="code-input">
+<img src="icon.png" alt="Minha imagem de teste" />
+
+    
+    
+  </textarea>
+  <button onclick="runCode('lesson3')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson3-output" class="output-frame"></iframe>
+</div>
+<p>Como dissemos antes, isso incorpora uma imagem na nossa página na posição que aparece. Isso é feito pelo atributo src (source), que contém o caminho para nosso arquivo de imagem.
+<br>
+Incluímos também um atributo alt (alternative). Neste atributo, você especifica um texto descritivo para usuários que não podem ver a imagem, possivelmente devido aos seguintes motivos:
+<ul>
+<li>
+Eles são deficientes visuais. Usuários com deficiências visuais significativas costumam usar ferramentas chamadas leitores de tela para ler o texto alternativo para eles.</li><br><li>
+Algo deu errado, fazendo com que a imagem não seja exibida. Por exemplo, tente alterar deliberadamente o caminho dentro do atributo src para torná-lo incorreto. Se você salvar e recarregar a página, você deve ver algo assim no lugar da imagem:</li></ul>
+      
+            <div class="code-editor-container">
+  <textarea id="lesson3.1-input" class="code-input">
+<img src="Erro.png" alt="Minha imagem de teste, não foi encontrado a foto " />
+
+    
+    
+  </textarea>
+  <button onclick="runCode('lesson3.1')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson3.1-output" class="output-frame"></iframe>
+</div>
+      
+      
+       <button class="anterior" >Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    
+    
+</p>
+        </section>
+    
+    
+    
+    
+    <section class="hidden">
+      <h1>Aula 4</h1>
+      <h2>Marcando o texto </h2>
+      <p>Essa seção abordará alguns dos elementos HTML essenciais que você usará para marcar o texto.</p>
+      <ul>
+        <li><a href=".cabeçalho">CABEÇALHO</a></li>
+        <li><a href="parágrafo.html">PARÁGRAFO</a></li>
+        <li><a href="lista.html">LISTAS</a></li>
+       <li><a href="Link.html">LINKS</a></li> </ul>
+      <br>
+      <h3 class="cabeçalho">
+        CABEÇALHOS</h3>
+        <P>Os elementos de cabeçalhos permitem especificar que certas partes do seu conteúdo são títulos ou subtítulos. Da mesma forma que um livro tem o título principal e os capítulos possuem títulos e subtítulos, um documento HTML também tem. HTML contém 6 níveis de título, &lt;h1&gt; à &lt;h6&gt;  embora você normalmente só use de 3 a 4.
+        
+        
+        </P>
+        
+        
+            <div class="code-editor-container">
+  <textarea id="lesson4-input" class="code-input"><!-- 4 níveis de título -->
+<h1>Meu título principal</h1>
+<h2>Meu título de alto nível</h2>
+<h3>Meu subtítulo</h3>
+<h4>Meu segundo subtítulo</h4>
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4-output" class="output-frame"></iframe>
+</div><br>
+      <h2>Parágrafo</h2>
+      <p>Parágrafo
+      Como explicado acima, os elementos &lt;p&gt; são para conter parágrafos de texto; você os usará com frequência ao marcar um conteúdo de texto regular:</p>
+        
+
+ <div class="code-editor-container">
+  <textarea id="lesson4.1-input" class="code-input">
+<p>Este é um parágrafo simples</p>
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4.1')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4.1-output" class="output-frame"></iframe>
+</div>
+      
+<h2>LISTAS</h2>
+<p>Listas
+Muito do conteúdo da web é de listas e o HTML tem elementos especiais para elas. Listas de marcação sempre consistem em pelo menos 2 elementos. Os tipos mais comuns de lista são ordenadas e não ordenadas:
+<ol><li>
+Listas não ordenadas são para listas onde a ordem dos itens não importa, como uma lista de compras, por exemplo. Essas são envolvidas em um elemento  &lt;ul&gt; </li><br>
+<li>
+   Ordenadas são para listas onde a ordem dos itens importa, como uma receita. Essas são envolvidas em um elemento  &lt;ol&gt;</li><br>
+    Cada item dentro das listas é posto dentro de um elemento &lt;li&gt; (item de lista).
+<br>
+      Por exemplo, se nós quisermos tornar uma parte de um parágrafo numa lista:</li>
+</ol>
+
+<div class="code-editor-container">
+  <textarea id="lesson4.2-input" class="code-input">
+<p>
+  Na CodeATOES , somos uma comunidade global de tecnólogos, pensadores e
+  construtores trabalhando para os jovens Moçambicano
+</p>
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4.2')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4.2-output" class="output-frame"></iframe>
+</div>
+<p>Nós podemos fazer assim:</p>
+
+<div class="code-editor-container">
+  <textarea id="lesson4.3-input" class="code-input">
+
+  <p>Na CodeATOES, somos uma comunidade global de</p>
+
+<ul>
+  <li>tecnólogos</li>
+  <li>pensadores</li>
+  <li>construtores</li>
+</ul>
+
+<p>trabalhando para jovens Moçambicano </p>
+
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4.3')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4.3-output" class="output-frame"></iframe>
+</div>
+<h2>LINKS</h2>
+<p>
+Links são muito importantes — eles são o que faz da web ser de fato uma REDE! Para adicionar um link, precisamos usar um elemento simples — &lt;a&gt; — "a" é a forma abreviada de "âncora". Para transformar o texto do seu parágrafo em um link, siga estas etapas:</a>
+<ol>
+  <li>Escolha algum texto. Nós escolhemos o texto "Entre no curso CodeATOE"S ".</li>
+  <li>Envolva o texto em um elemento  &lt;a&gt;  , assim: </li>
+</ol>
+
+<div class="code-editor-container">
+  <textarea id="lesson4.4-input" class="code-input">
+
+  <a>Entre no curso CodeATOES</a>
+ 
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4.4')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4.4-output" class="output-frame"></iframe>
+</div>
+<p>
+Dê ao elemento &lt;a&gt; um atributo href, como mostrado abaixo:</p>
+<div class="code-editor-container">
+  <textarea id="lesson4.5-input" class="code-input">
+
+  <a href="">Entre no curso CodeATOES</a>
+ 
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4.5')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4.5-output" class="output-frame"></iframe>
+</div>
+<p>Preencha o valor desse atributo com o endereço da Web que você deseja vincular o link:
+<div class="code-editor-container">
+  <textarea id="lesson4.6-input" class="code-input">
+
+  <a href="www.codeatoes.com">Entre no curso CodeATOES</a>
+ 
+
+    
+  </textarea>
+  <button onclick="runCode('lesson4.6')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson4.6-output" class="output-frame"></iframe>
+</div>
+
+  <button class="anterior" >Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    
+    
+</p>
+</p>
+</p>
+    </section>
+    
+       <section class="hidden">
+      <h2>Aula 05</h2>
+      <h3>Tabelas</h3>
+      <p>
+        
+        Uma tarefa muito comum em HTML é estruturar os dados tabulares, e há vários elementos e atributos próprios para essa finalidade. Em conjunto com a linguagem CSS para estilização, o HTML torna fácil a exibição de tabelas com informação na Web, tais como o seu plano de lições escolares, o horário na sua piscina local, ou estatísticas sobre os seus dinossauros favoritos ou seu time de futebol favorito. Este módulo te guia por tudo que você precisa saber sobre a estruturação de dados tabulares utilizando o HTML.
+        <br>
+        Pré-requisitos
+        Antes de iniciar este módulo, você deverá ter domínio dos básicos de HTML — consulte</p>
+
+<p>Exemplo de tabela HTML5 simples:</p>
+
+<p>Passo 1: Abra o seu editor de texto favorito e crie um novo arquivo HTML.
+</p><p>
+Passo 2: Digite o seguinte código HTML:
+</p>
+
+
+
+<div class="code-editor-container">
+  <textarea id="lesson5-input" class="code-input">
+ 
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabela HTML5</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+        </tr>
+        <tr>
+            <td>João</td>
+            <td>Silva</td>
+        </tr>
+        <tr>
+            <td>Maria</td>
+            <td>Santos</td>
+        </tr>
+    </table>
+</body>
+</html>
+</textarea>
+  <button onclick="runCode('lesson5')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson5-output" class="output-frame"></iframe>
+</div>
+
+<p>
+Passo 3: Salve o arquivo com a extensão ".html" (por exemplo, "tabela.html").
+</p><p>
+Passo 4: Abra o arquivo no seu navegador e você verá a tabela com nome e sobrenome.</p>
+
+
+<p>
+
+Ela é criada usando a tag `&lt;table&gt;` e os dados são inseridos usando as tags &lt;table&gt; (linha) e `&lt;table&gt;` (células).</p>
+
+<h4>Exemplo de tabela HTML5 avançada:</h4>
+<p>
+Passo 1: Siga os passos 1 e 2 do exemplo anterior.</p>
+
+<p>Passo 2: Digite o seguinte código HTML:</p>
+
+
+<div class="code-editor-container">
+  <textarea id="lesson5.1-input" class="code-input">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabela HTML5 Avançada</title>
+</head>
+<body>
+    <table>
+        <caption>Lista de Alunos</caption>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>João</td>
+                <td>Silva</td>
+                <td>Engenharia</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>Santos</td>
+                <td>Arquitetura</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+</textarea>
+  <button onclick="runCode('lesson5.1')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson5.1-output" class="output-frame"></iframe>
+</div>
+ 
+<p>
+Passo 3: Salve o arquivo com a extensão ".html" (por exemplo, "tabela_avancada.html").
+<br>
+Passo 4: Abra o arquivo no seu navegador e você verá a tabela com níveis de cabeçalho e corpo.
+</p>
+
+        
+        <p>As tabelas HTML permitem criar tabelas bidimensionais feitas de linhas e colunas. Nesta lição, você aprenderá tudo o que precisa saber sobre tabelas HTML.
+        </p><p>
+        Resultados de aprendizagem
+        Ao final desta lição, você será capaz de fazer o seguinte:
+        </p><p>
+        Crie tabelas HTML avançadas.
+        Tabelas HTML
+        Alguns dados realmente precisam ser exibidos em uma tabela. As tabelas HTML podem ser menos usadas do que botões, links, listas e tudo o mais que você aprendeu até agora, mas há alguns casos em que elas são a ferramenta perfeita . <br>Alguns dos recursos mais avançados podem ser um pouco complicados de configurar corretamente, mas começar a usar tabelas é muito fácil. Você cria uma tabela com &lt;table&gt;&lt;/table&gt;tags e depois coloca os elementos de linhas, colunas, cabeçalhos ou qualquer outra coisa que seja possível dentro desses elementos da tabela.
+        <br>
+        Por exemplo:</p>
+        
+
+<div class="code-editor-container">
+  <textarea id="lesson5.2-input" class="code-input">
+    <style>
+    table, td, th {
+    border: 1px solid black;
+    } </style>
+ <table>
+  <tr>
+    <th>primeiro quadro </th>
+    <th>Segundo quadro </th>
+  </tr>
+  <tr>
+    <td>Olá eu sou estudante </td>
+    <td>Olá eu também sou!</td>
+  </tr>
+</table>
+
+</textarea>
+  <button onclick="runCode('lesson5.2')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson5.2-output" class="output-frame"></iframe>
+</div>
+ 
+
+
+
+      
+       <button class="anterior" >Aula Anterior</button>
+        <button class="proximo">Próxima Aula</button>
+    </section>
+    
+    
+    
+    <!--tema 6-->
+    <section class="hidden">
+      <h2>Aula 06</h2>
+      <h3>html Style</h3>
+      
+      <p>
+
+Em HTML, os estilos são usados para controlar a aparência e o layout dos elementos em uma página da web. Os estilos são definidos usando a linguagem CSS (Cascading Style Sheets), que permite especificar propriedades como cor, tamanho da fonte, margens, preenchimento e muito mais.<br>
+      </p><p>
+Existem diferentes maneiras de aplicar estilos em HTML:</p>
+<ol>
+<li> Estilos internos: Os estilos internos são definidos dentro do próprio documento HTML usando a tag `&lt;style&gt;`. Os estilos internos são especificados no cabeçalho do documento e afetam todos os elementos dentro desse documento. Eles são aplicados usando seletores de elementos, IDs ou classes.
+</li>
+
+<div class="code-editor-container">
+  <textarea id="lesson6.2-input" class="code-input">
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #meu-paragrafo {
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <p id="meu-paragrafo">Este é um parágrafo de exemplo.</p>
+</body>
+</html>
+</textarea>
+  <button onclick="runCode('lesson6.2')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson6.2-output" class="output-frame"></iframe>
+</div>
+
+
+<li>Estilos embutidos: Os estilos embutidos são aplicados diretamente a um elemento HTML usando o atributo `style`. Os estilos embutidos afetam apenas o elemento em que estão definidos e substituem quaisquer estilos definidos externamente.</li>
+<p> veja o exemplo :</p>
+
+<div class="code-editor-container">
+  <textarea id="lesson5.3-input" class="code-input">
+<!DOCTYPE html>
+<html>
+<body>
+  
+  <p id="meu-paragrafo" style="color: red; font-size: 20px;">Este é um parágrafo de exemplo.</p>
+  <p style="color: blue"> My color is blue. </p>
+  <p style="color: red"> My color is red. </p>
+  <p style="color: green"> My color is green. </p>
+  <p style="color: yellow"> My color is yellow. </p>
+  <p style="color: pink"
+</body>
+</html> 
+
+</textarea>
+  <button onclick="runCode('lesson5.3')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson5.3-output" class="output-frame"></iframe>
+</div>
+
+
+
+
+<li>Folhas de estilo externas: As folhas de estilo externas são arquivos CSS separados que contêm todas as regras de estilo para um documento HTML. Esses arquivos CSS são vinculados ao documento HTML usando a tag `&lt;link&gt;` no cabeçalho do documento. As folhas de estilo externas permitem reutilizar estilos em vários documentos HTML e facilitam a manutenção e atualização dos estilos.</li>
+
+<div class="code-editor-container">
+  <textarea id="lesson5.3-input" class="code-input">
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+</textarea>
+  <button onclick="runCode('lesson5.3')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson5.3-output" class="output-frame"></iframe>
+</div>
+
+
+
+
+<li>
+Ao aplicar estilos, você pode usar seletores para direcionar elementos específicos. Os seletores podem ser baseados em elementos HTML, classes, IDs, atributos e muito mais. Você pode definir várias propriedades de estilo para cada seletor, como cor, tamanho da fonte, margens, preenchimento, bordas e outros.
+</li><li>
+Em resumo, estilos em HTML são usados para controlar a aparência dos elementos em uma página da web, permitindo que você personalize cores, fontes, tamanhos e layout. O CSS é a linguagem usada para definir os estilos, e eles podem ser aplicados internamente, embutidos ou externamente por meio de folhas de estilo. </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+       <button class="anterior" >Aula Anterior</button>
+        <button class="proximo">Próxima Aula</button>
+    </section>
+    
+    
+    
+    
+    
+    
+        <section class="hidden">
+      <h2>Aula 07</h2>
+      <h3>HTML Cores</h3>
+      <p>
+      Em HTML, as cores são usadas para definir a aparência visual dos elementos em uma página da web. As cores podem ser aplicadas a texto, fundos, bordas e outros elementos HTML. Existem várias formas de especificar cores em HTML, incluindo:
+      <ol><li>
+     Nomes de cores pré-definidos: HTML possui uma lista de nomes de cores pré-definidos que podem ser usados diretamente. Alguns exemplos comuns são "vermelho" (red), "azul" (blue), "verde" (green), entre outros. Esses nomes de cores são escritos em letras minúsculas.
+     
+<div class="code-editor-container">
+  <textarea id="lesson7.1-input" class="code-input">
+    
+    
+<p style="color: red;">Este texto é vermelho.</p>
+<p style="color: blue;">Este texto é azul.</p>
+<p style="color: green;">Este texto é verde.</p>
+
+</textarea>
+  <button onclick="runCode('lesson7.1')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson7.1-output" class="output-frame"></iframe>
+</div>
+
+
+      </li>
+      
+      
+      <li>
+      
+     Valores hexadecimais: Os valores hexadecimais são uma forma de especificar cores usando uma combinação de números e letras. Eles começam com o símbolo "#" seguido por seis dígitos hexadecimais. Os dois primeiros dígitos representam a intensidade de vermelho (RR), os dois seguintes representam a intensidade de verde (GG) e os dois últimos representam a intensidade de azul (BB). Por exemplo, "#FF0000" representa vermelho, "#00FF00" representa verde e "#0000FF" representa azul.
+      <div class="code-editor-container">
+  <textarea id="lesson7.2-input" class="code-input">
+    
+    
+<p style="color: #FF0000;">Este texto é vermelho.</p>
+<p style="color: #0000FF;">Este texto é azul.</p>
+<p style="color: #00FF00;">Este texto é verde.</p>
+
+</textarea>
+  <button onclick="runCode('lesson7.2')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson7.2-output" class="output-frame"></iframe>
+</div></li>
+
+      3. Valores RGB: Os valores RGB são outra forma de especificar cores em HTML. RGB significa Red (vermelho), Green (verde) e Blue (azul). Os valores RGB são expressos como "rgb(R, G, B)", onde R, G e B são números inteiros entre 0 e 255 que representam a intensidade de cada componente de cor. Por exemplo, "rgb(255, 0, 0)" representa vermelho, "rgb(0, 255, 0)" representa verde e "rgb(0, 0, 255)" representa azul.
+      
+       <div class="code-editor-container">
+  <textarea id="lesson7.3-input" class="code-input">
+    
+    
+<p style="color: rgb(255, 0, 0);">Este texto é vermelho.</p>
+<p style="color: rgb(0, 0, 255);">Este texto é azul.</p>
+<p style="color: rgb(0, 255, 0);">Este texto é verde.</p>
+
+
+
+</textarea>
+  <button onclick="runCode('lesson7.3')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson7.3-output" class="output-frame"></iframe>
+</div>
+      
+      
+      <p>
+      
+      Em resumo, as cores em HTML são usadas para definir a aparência visual dos elementos em uma página da web. Existem várias formas de especificar cores, incluindo nomes de cores pré-definidos, valores hexadecimais e valores RGB. A escolha do método depende das suas necessidades e preferências de design.</p>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <button class="anterior" >Aula Anterior</button>
+        <button class="proximo">Próxima Aula</button>
+        
+
+    </section>
+    
+    
+
+
+
+
+
+
+    <section class="hidden">
+      <h2>Aula 8</h2>
+      <h3>HTML FORMATAÇÃO DE TEXTO </h3>
+      <P><ol><li>
+             Negrito:
+            A tag `&lt;strong&gt;` ou `< `&lt;b&gt;` é usada para enfatizar ou destacar o texto em negrito. Por exemplo:
+       
+                       <div class="code-editor-container">
+  <textarea id="lesson8.1-input" class="code-input">
+    
+                <p>Este é um texto <strong>em negrito</strong>.</p>
+                </textarea>
+                <button onclick="runCode('lesson8.1')" class="run-button">Click aqui para Executar</button>
+                <iframe id="lesson8.1-output" class="output-frame"></iframe>
+                </div>
+                
+        </li>
+               <li>Itálico:
+                A tag `&lt;i&gt;` ou `&lt;em&gt;` é usada para enfatizar ou destacar o texto em itálico. Por exemplo:
+        
+                           <div class="code-editor-container">
+  <textarea id="lesson82-input" class="code-input">
+    
+                    <p>Este é um texto <em>em itálico</em>.</p>
+                    
+                    </textarea>
+  <button onclick="runCode('lesson82')" class="run-button">Click aqui para Executar</button>
+  <iframe id="lesson82-output" class="output-frame"></iframe>
+</div>
+        </li>
+                    <li>Sublinhado:
+                    A tag `&lt;u&gt;` é usada para sublinhar o texto. Por exemplo:
+               <div class="code-editor-container">
+  <textarea id="lesson83-input" class="code-input">
+    
+                     
+                      <p>Este é um texto <u>sublinhado</u>.</p>
+                      
+                      
+                      
+                      </textarea>
+                      <button onclick="runCode('lesson83')" class="run-button">Click aqui para Executar</button>
+                      <iframe id="lesson83-output" class="output-frame"></iframe>
+                      </div>
+                     
+        </li>
+                      <li>
+                      A tag `&lt;s&gt;` ou `&lt;del&gt;` é usada para exibir o texto com uma linha no meio, indicando que foi riscado. Por exemplo:
+               <div class="code-editor-container">
+  <textarea id="lesson84-input" class="code-input">
+    
+                          
+                          <p>Este é um texto <s>tachado</s>.</p>
+                          
+                          
+                          
+                          </textarea>
+                          <button onclick="runCode('lesson84')" class="run-button">Click aqui para Executar</button>
+                          <iframe id="lesson84-output" class="output-frame"></iframe>
+                          </div>
+                          </li>
+        
+                          <li>Superscrito:
+                          A tag `&lt;sub&gt;` é usada para exibir o texto em formato de sobrescrito. Por exemplo:
+        
+                                   <div class="code-editor-container">
+  <textarea id="lesson85-input" class="code-input">
+    
+                            <p>E=mc<sup>2</sup></p>
+                            </textarea>
+                            <button onclick="runCode('lesson85')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="lesson85-output" class="output-frame"></iframe>
+                            </div>
+                            </li>
+        
+<li>Tamanho da fonte:
+A propriedade CSS `font-size` permite definir o tamanho da fonte do texto. Você pode especificar o tamanho usando valores absolutos (por exemplo, `px` para pixels) ou valores relativos (por exemplo, `%` para porcentagem). Por exemplo:
+<br>
+       <div class="code-editor-container">
+  <textarea id="lesson8f5-input" class="code-input">
+    
+
+<p style="font-size: 16px;">Este é um texto com tamanho de fonte de 16 pixels.</p>
+<p style="font-size: 120%;">Este é um texto com tamanho de fonte aumentado em 20%.</p>
+</textarea>
+<button onclick="runCode('lesson8f5')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson8f5-output" class="output-frame"></iframe>
+</div>
+</li>
+
+
+<li>Família da fonte:
+A propriedade CSS `font-family` permite especificar a família de fontes a ser usada para o texto. Você pode fornecer múltiplas opções de fonte separadas por vírgulas, para que o navegador use a primeira opção disponível. Por exemplo:
+
+<br>
+       <div class="code-editor-container">
+  <textarea id="lesson86-input" class="code-input">
+    
+<p style="font-family: Arial, sans-serif;">Este é um texto com a fonte Arial ou uma fonte sans-serif.</p></textarea>
+<button onclick="runCode('lesson86')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson86-output" class="output-frame"></iframe>
+</div>
+
+</li>
+
+
+<li> Alinhamento do texto:
+A propriedade CSS `text-align` permite alinhar o texto horizontalmente. Os valores comuns são `left` (esquerda), `right` (direita), `center` (centro) e `justify` (justificado). Por exemplo:
+
+       <div class="code-editor-container">
+  <textarea id="lesson87-input" class="code-input">
+    
+<p style="text-align: center;">Este é um texto centralizado.</p>
+</textarea>
+<button onclick="runCode('lesson87')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson87-output" class="output-frame"></iframe>
+</div>
+</li>
+<li> Espaçamento entre linhas:
+A propriedade CSS `line-height` permite controlar o espaçamento entre linhas do texto. Você pode usar valores absolutos ou valores relativos para definir a altura da linha. Por exemplo:
+       <div class="code-editor-container">
+  <textarea id="lesson88-input" class="code-input">
+    
+
+<p style="line-height: 1.5;">Este é um texto com espaçamento entre linhas aumentado.</p>
+</textarea>
+<button onclick="runCode('lesson88')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson88-output" class="output-frame"></iframe>
+</div>
+</li>
+
+<li>
+
+1. Decoração de texto:
+Existem algumas propriedades CSS que permitem adicionar decorações ao texto, como sublinhado, tachado (riscado) e realce. Por exemplo:
+
+       <div class="code-editor-container">
+  <textarea id="lesson89-input" class="code-input">
+    
+<p style="text-decoration: underline;">Este é um texto sublinhado.</p>
+<p style="text-decoration: line-through;">Este é um texto tachado.</p>
+<p style="text-decoration: overline;">Este é um texto com linha superior.</p>
+<p style="text-decoration: underline line-through;">Este é um texto com sublinhado e tachado.</p>
+</textarea>
+<button onclick="runCode('lesson89')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson89-output" class="output-frame"></iframe>
+</div>
+
+
+</li>
+<li> Espaçamento entre palavras:
+A propriedade CSS `word-spacing` permite controlar o espaçamento entre as palavras em um texto. Por exemplo:
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson80-input" class="code-input">
+    
+<p style="word-spacing: 5px;">Este é um texto com espaçamento de 5 pixels entre as palavras.</p>
+</textarea>
+<button onclick="runCode('lesson80')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson80-output" class="output-frame"></iframe>
+</div>
+
+
+</li>
+
+<li>Transformação de texto:
+A propriedade CSS `text-transform` permite transformar o texto em maiúsculas, minúsculas ou aplicar capitalização. Por exemplo:
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson801-input" class="code-input">
+    
+
+<p style="text-transform: uppercase;">Este é um texto em maiúsculas.</p>
+<p style="text-transform: lowercase;">ESTE É UM TEXTO EM MINÚSCULAS.</p>
+<p style="text-transform: capitalize;">este é um texto com capitalização.</p>
+</textarea>
+<button onclick="runCode('lesson801')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson801-output" class="output-frame"></iframe>
+</div>
+</li>
+
+<li>Recuo de texto:
+A propriedade CSS `text-indent` permite adicionar um recuo inicial ao texto do parágrafo. Por exemplo:
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson703-input" class="code-input">
+    
+<p style="text-indent: 20px;">Este é um texto com recuo de 20 pixels.</p>
+
+</textarea>
+<button onclick="runCode('lesson703')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson703-output" class="output-frame"></iframe>
+</div>
+</li>
+<li>
+Espaçamento entre letras:
+A propriedade CSS `letter-spacing` permite controlar o espaçamento entre as letras em um texto. Por exemplo:
+
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson713-input" class="code-input">
+    
+<p style="letter-spacing: 2px;">Este é um texto com espaçamento de 2 pixels entre as letras.</p>
+</textarea>
+<button onclick="runCode('lesson713')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson713-output" class="output-frame"></iframe>
+</div>
+</li>
+
+<li>
+Espaçamento entre linhas:
+A propriedade CSS `line-height` permite controlar o espaçamento entre linhas do texto. Você pode usar valores absolutos ou valores relativos para definir a altura da linha. Por exemplo:
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson723-input" class="code-input">
+    
+
+<p style="line-height: 1.5;">Este é um texto com espaçamento entre linhas aumentado.</p>
+</textarea>
+<button onclick="runCode('lesson723')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson723-output" class="output-frame"></iframe>
+</div>
+<li>
+
+<li>Espaçamento entre caracteres:
+A propriedade CSS `letter-spacing` permite controlar o espaçamento entre os caracteres de um texto. Por exemplo:
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson7p3-input" class="code-input">
+    
+<p style="letter-spacing: 2px;">Este é um texto com espaçamento entre caracteres aumentado.</p>
+</textarea>
+<button onclick="runCode('lesson7p3')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson7p3-output" class="output-frame"></iframe>
+</div>
+</li>
+
+<li>Alinhamento vertical:
+A propriedade CSS `vertical-align` permite alinhar o texto verticalmente dentro de um elemento, como uma célula de tabela. Por exemplo:
+
+
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson7o3-input" class="code-input">
+    
+<td style="vertical-align: middle;">Texto alinhado verticalmente ao centro.</td>
+</textarea>
+<button onclick="runCode('lesson7o3')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson7o3-output" class="output-frame"></iframe>
+</div>
+</li>
+
+<li>Sombra de texto:
+A propriedade CSS `text-shadow` permite adicionar sombra ao texto. Você pode especificar a cor da sombra, o deslocamento horizontal e vertical e o desfoque. Por exemplo:
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson7u3-input" class="code-input">
+    
+<p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Este é um texto com sombra.</p>
+</textarea>
+<button onclick="runCode('lesson7u3')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson7u3-output" class="output-frame"></iframe>
+</div>
+</li>
+<li> Quebra de texto:
+A propriedade CSS `word-wrap` controla a quebra de texto para que ele não ultrapasse os limites do elemento. Por exemplo:
+
+
+
+
+
+       <div class="code-editor-container">
+  <textarea id="lesson743-input" class="code-input">
+    
+<p style="word-wrap: break-word;">Este é um texto longo que será quebrado caso necessário para caber dentro do contêiner.</p>
+</textarea>
+<button onclick="runCode('lesson743')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesson743-output" class="output-frame"></iframe>
+</div>
+
+</li></ol>
+    
+    
+    
+    
+    
+    
+    
+    
+      <button class="anterior" >Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    </section>
+    
+    
+    
+    
+    
+    
+    <section class="hidden">
+      <h2>Aula 9</h2>
+      <h3>Section</h3>
+        <p>A tag &lt;section&gt; em HTML é um elemento de bloco que representa uma seção tematicamente relacionada de conteúdo em um documento. Ela é usada para dividir e organizar o conteúdo em partes distintas e significativas, permitindo uma melhor estruturação e compreensão do documento.
+
+A tag `&lt;section&gt;` é usada para agrupar conteúdo relacionado logicamente, como um capítulo em um livro, uma seção em um artigo ou uma área específica de uma página. Ela ajuda a criar uma hierarquia semântica no documento e pode ser útil para navegadores, mecanismos de busca e leitores de tela entenderem a estrutura e o contexto do conteúdo.
+
+<p>Aqui está um exemplo de uso da tag&lt;section&gt;:
+</p>
+  <div class="code-editor-container">
+  <textarea id="lessonq-input" class="code-input">
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de uso de <section></title>
+</head>
+<body>
+  <section>
+    <h1>Introdução</h1>
+    <p>Este é o conteúdo introdutório do meu documento.</p>
+  </section>
+
+  <section>
+    <h2>Seção 1</h2>
+    <p>Este é o conteúdo da primeira seção.</p>
+  </section>
+  
+  
+
+  <section>
+    <h2>Seção 2</h2>
+    <p>Este é o conteúdo da segunda seção.</p>
+  </section>
+</body>
+</html>
+</textarea>
+<button onclick="runCode('lessonq')" class="run-button">Click aqui para Executar</button>
+<iframe id="lessonq-output" class="output-frame"></iframe>
+</div>
+<br>
+<p>
+Neste exemplo, temos três seções tematicamente relacionadas. Cada `&lt;section&gt;` envolve o título e o conteúdo específico daquela seção. Isso ajuda a organizar o conteúdo e fornecer uma estrutura clara para os leitores e mecanismos de busca.
+
+É importante mencionar que o uso da tag &lt;section&gt; não implica em nenhum estilo ou apresentação específica. Ela fornece um significado semântico ao conteúdo, mas a aparência visual deve ser controlada por meio de CSS.
+<br>
+Em resumo, a tag `&lt;section&gt;` é usada para agrupar e organizar seções tematicamente relacionadas de conteúdo em um documento HTML, fornecendo uma estrutura clara e semântica para o conteúdo.
+&lt;section&gt;.<br>
+      <button class="anterior" >Aula Anterior</button>
+      <button class="proximo" >Próxima Aula</button>
+    </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <section class="hidden">
+      <h2>Aula 10</h2>
+      <h3>DIVS</h3><p>
+        <br>
+        
+      A tag `&lt;div&gt;` em HTML é um elemento genérico de divisão ou contêiner que não possui um significado semântico específico. Ela é usada para agrupar e organizar partes do conteúdo dentro de um documento HTML.</>
+<br>
+Para criar dois &lt;div&gt; com cores diferentes, você pode usar CSS para aplicar estilos diferentes a cada um deles. Aqui está um exemplo:
+  <div class="code-editor-container">
+  <textarea id="lesso3-input" class="code-input">
+
+
+<div class="div-azul">
+  Este é um div azul.
+  
+</div>
+
+<div class="div-verde">
+  Este é um div verde.
+</div></textarea>
+<button onclick="runCode('lesso3')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesso3-output" class="output-frame"></iframe>
+</div>
+
+<p>
+Em seguida, você pode usar CSS para definir as cores dos ``&lt;div&gt;</p>
+<br>
+<div class="code-editor-container">
+  <textarea id="lesso-input" class="code-input">
+
+<style >
+.div-azul {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+
+.div-verde {
+  background-color: green;
+  color: white;
+  padding: 10px;
+}</style>
+<div class="div-azul">
+  Este é um div azul.
+  
+</div>
+
+<div class="div-verde">
+  Este é um div verde.
+</div>
+</textarea>
+<button onclick="runCode('lesso')" class="run-button">Click aqui para Executar</button>
+<iframe id="lesso-output" class="output-frame"></iframe>
+</div>
+ 
+
+Neste exemplo, a classe CSS `.div-azul` define um &lt;div&gt;com fundo azul e texto branco, enquanto a classe `.div-verde` define um &lt;div&gt;com fundo verde e texto branco. Os estilos CSS aplicados a cada classe determinam a aparência dos ` &lt;div&gt;`.
+<div>
+Lembre-se de que, para que os estilos sejam aplicados corretamente, você precisa incluir o CSS em seu documento HTML, seja usando uma tag`&lt;style&gt; dentro do cabeçalho `<head>` ou vinculando um arquivo de estilo externo usando a tag `<link>`.
+
+Assim, você pode criar quantos &lt;div&gt; quiser e aplicar estilos diferentes a cada um deles, permitindo personalizar a aparência de cada `&lt;div&gt; individualmente.</div>
+<br>
+
+      <button class="anterior" >Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    </section>
+    
+
+    
+    
+      <section class="hidden">
+      <h2>Aula 11</h2>
+      
+      <h3>HTMLJavaScript</h3>
+      
+    <p>  JavaScript (JS) é uma linguagem de script usada para tornar uma página da web dinâmica e mais interativa.
+      <br>
+      JS é comumente usado para validação de formulários, conteúdo dinâmico, efeitos e manipulação de imagens.
+      
+      JavaScript em HTML
+      
+      Para usar JS em HTML, podemos fazer o seguinte:<p>
+        <p>
+          Use o elemento &lt;script type="text/javascript"&gt; com o atributo type especificando JS e coloque as instruções de script dentro dele.<bt>
+<ul>
+<li> Use o atributo src do elemento &lt;script&gt; que aponta para outro arquivo JS, por exemplo. &lt;script src="my-script.js"&gt;&lt;/script&lt;
+</li><li>
+Lembrar! A extensão dos arquivos JS é ".js". Escreva apenas instruções de script dentro de um arquivo JS, não coloque a tag &lt;script&gt;&lt;/script&gt; dentro dele. !</li>
+<p>
+Aprenda JavaScript
+<br>
+Aqui estão alguns exemplos simples de uso de JavaScript em HTML.
+<br>. Exemplo de caixa de alerta:</>
+
+<div class="code-editor-container">
+  <textarea id="le-input" class="code-input">
+<script type="text/javascript"> alert("Olá, sou uma caixa de alerta.");
+</script>
+</textarea>
+<button onclick="runCode('le')" class="run-button">Click aqui para Executar</button>
+<iframe id="le-output" class="output-frame"></iframe>
+</div>
+  
+
+
+
+<div class="code-editor-container">
+  <textarea id="leysso-input" class="code-input"> 
+<body>
+  <p id="sample"> Olá Família CodeATOES ! </p>
+  <button onclick="changeContent();"> trocar texto </button>
+  
+  <script type="text/javascript">
+    function changeContent() {
+      document.getElementById("sample").innerHTML = "O tutor é muito bom .";
+    }
+  </script>
+</textarea>
+<button onclick="runCode('leysso')" class="run-button">Click aqui para Executar</button>
+<iframe id="leysso-output" class="output-frame"></iframe><br>
+</div>
+ 
+
+
+<h4>Estilos dinâmicos   </h4>
+<div class="code-editor-container">
+  <textarea id="l-input" class="code-input"> 
+  
+  
+  
+<p id="sample"> Olá família CodeATOES ! </p>
+  <button onclick="changeStyles();"> Mudar </button>
+  
+  <script type="text/javascript">
+    function changeStyles() {
+      document.getElementById("sample").style.fontSize = "20px";
+      document.getElementById("sample").style.fontStyle = "italic";
+      document.getElementById("sample").style.color = "gold";
+    }
+  </script>
+    
+  
+</textarea>
+<button onclick="runCode('l')" class="run-button">Click aqui para Executar</button>
+<iframe id="l-output" class="output-frame"></iframe>
+</div>
+ 
+ 
+  
+
+<h5>Imagens dinâmicas </h5>
+<div class="code-editor-container">
+  <textarea id="esso-input" class="code-input"> 
+<img src="IMAGEM/carla.png" style="max-width: 100%; height: auto;" id="sample" class="1" />
+  <br />
+  <button onclick="changeImage();"> Trocar imagem </button>
+  
+  <script type="text/javascript">
+    function changeImage() {
+      document.getElementById("sample").src = "IMAGEM/icon.png";
+    }
+  </script>
+</textarea>
+<button onclick="runCode('esso')" class="run-button">Click aqui para Executar</button>
+<iframe id="esso-output" class="output-frame"></iframe>
+</div>
+  
+
+
+
+          
+      <button class="anterior" >Aula Anterior</button>
+      <button class="proximo" >Próxima Aula</button>
+    </section>
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <section class="hidden">
+      <h2>Aula 12</h2>
+      <h3>Formulários</h3>
+      
+        <p>
+      
+Alguns sites e praticamente todas as aplicações web necessitam obter informações enviadas pelos usuários.<br><br> Por exemplo, considere uma empresa que deseja receber os pedidos dos seus clientes<br><br>
+      através do seu site. O site dessa empresa precisa oferecer alguma forma de interação que possibilite
+      o recebimento de dados fornecidos pelos usuários.
+      Para tornar os sites e as aplicações web mais interativos, podemos utilizar formulários. Através<br><br>
+      dos formulários, os usuários podem enviar informações aos Web Servers.<br>
+      Para criar um formulário, devemos utilizar o elemento form. Esse elemento possui um atributo
+      chamado action. <br>O valor desse atributo indica para qual endereço os dados do formulário serão
+      enviados.<br>
+      <p>todo código fica dentro da tag form </p>
+      <div class="code-editor-container">
+  <textarea id="esso-input" class="code-input"> 
+<form action=" pagina . html ">
+         ...
+</form>
+  </textarea>
+      </div>
+  <p>Lembre-se </p>
+      <div>
+        <p>Os formulários são compostos por caixas de texto, checkboxes, radios, caixas de seleção, botões,
+        entre outros componentes. <p>
+      </div>
+      
+      
+      
+      <button class="anterior">Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    </section>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <section class="hidden">
+      <h2>Aula 13</h2>
+      <h3>Caixas de texto</h3>
+      <p>Geralmente, os formulários possuem uma ou mais caixas de texto. As caixas de texto são adicionadas nos documentos HTML através do elemento input. Esse elemento possui um atributo chamado type. Para definir uma caixa de texto, o valor do atributo type deve ser text. Normalmente, o
+input é definido pelos navegadores como inline-level element.</p>
+
+
+<p>Exemplo :</p>
+   <div class="code-editor-container">
+     <textarea id="essoj-input" class="code-input">
+       
+ <input type =" text ">
+ 
+</textarea>
+<button onclick="runCode('essoj')" class="run-button">Click aqui para Executar</button>
+<iframe id="essoj-output" class="output-frame"></iframe>
+</div>
+
+<p>
+Considere um formulário com diversas caixas de texto. Quando as informações preenchidas
+nesse formulário chegarem ao Web Server, certamente, ele precisará saber o que foi preenchido em
+cada caixa. Por isso, é necessário identificar esses dados. O atributo name do elemento input é
+utilizado para resolver esse problema.</p>
+
+   <div class="code-editor-container">
+     <textarea id="essom-input" class="code-input">
+       
+ <input type =" text ">
+ <input type =" text " name =" cidade ">
+</textarea>
+<button onclick="runCode('essom')" class="run-button">Click aqui para Executar</button>
+<iframe id="essom-output" class="output-frame"></iframe>
+</div>
+
+
+
+
+
+      <button class="anterior" >Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    </section>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <section class="hidden">
+        <h2>Aula 14</h2>
+        <h3>Rótulos</h3>
+        
+        <p>Nos formulários, os rótulos são fundamentais para informar aos usuários quais dados devem ser
+        preenchidos. Para adicionar um rótulo, devemos utilizar o elemento label. Os textos dos rótulos são
+        definidos no conteúdo desse elemento.<p>
+          
+          <div class="code-editor-container">
+     <textarea id="5-input" class="code-input">
+       
+    <label> Nome : </ label>
+    <input type=" text " name=" nome">
+    
+    </textarea>
+<button onclick="runCode('5')" class="run-button">Click aqui para Executar</button>
+<iframe id="5-output" class="output-frame"></iframe>
+</div>
+
+            <p>Para melhorar a acessibilidade dos documentos HTML, os rótulos devem ser explicitamente as-
+            sociados aos campos dos formulários. Para estabelecer esse vínculo, o primeiro passo é identificar
+            os campos através do atributo id. O segundo passo é definir o atributo for do elemento label com o
+            identificador do campo correspondente ao rótulo.
+            </p>
+            
+            
+ <div class="code-editor-container">
+     <textarea id="80p-input" class="code-input">
+       
+            
+ <label for=" nome_id "> Nome : </ label
+ <input type="text" name="nome " id="nome_id ">
+        
+          </textarea>
+<button onclick="runCode('80p')" class="run-button">Click aqui para Executar</button>
+<iframe id="80p-output" class="output-frame"></iframe>
+</div>
+
+      
+      
+      
+      
+      
+        
+        
+        <button class="anterior">Aula Anterior</button>
+        <button class="proximo">Próxima Aula</button>
+      </section>
+      
+      
+      
+      
+        <section class="hidden">
+          <h2>Aula 15</h2>
+          <h3>
+           Placeholders
+          </h3>
+          <p>
+Como vimos, os rótulos são utilizados para informar aos usuários quais dados devem ser preen-
+
+chidos nos formulários. Além dos rótulos, podemos utilizar placeholders para dar dicas ou exemplos
+do conteúdo que desejamos em cada caixa de entrada. Um placeholder é criado através do atributo
+placeholder do elemento input.
+          </p>
+          
+           <div class="code-editor-container">
+     <textarea id="0p-input" class="code-input">
+       
+          
+<label for=" nome_id "> Nome : </ label >
+<input id=" nome_id " type =" text " name =" nome " placeholder =" Digite o seu nome aqui ">
+
+          </textarea>
+          <button onclick="runCode('0p')" class="run-button">Click aqui para Executar</button>
+          <iframe id="0p-output" class="output-frame"></iframe>
+          </div>
+
+
+
+          <button class="anterior">Aula Anterior</button>
+          <button class="proximo">Próxima Aula</button>
+        </section>
+        
+        
+        
+        
+        
+          <section class="hidden">
+            <h2>Aula 16</h2>
+            
+          <h3>  Botões de submit</h3>
+           <p> Para adicionar um botão de submit em um formulário, podemos utilizar o elemento input com
+            type igual a submit. Esse tipo de botão envia os dados do formulário para o Web Server. Os textos
+            desses botões são definidos com o atributo value.
+           </p>
+            <div class="code-editor-container">
+     <textarea id="0o-input" class="code-input">
+       
+           
+             <input id=" botao_id " type=" submit " value=" enviar ">
+            
+              </textarea>
+          <button onclick="runCode('0o')" class="run-button">Click aqui para Executar</button>
+          <iframe id="0o-output" class="output-frame"></iframe>
+          </div>
+
+           <p> Outra forma de adicionar um botão de submit em um documento HTML é utilizar o elemento
+button com type igual a submit. Diferentemente do elemento input, o elemento button permite a
+criação de botões com imagens além de texto.
+           </p>
+           
+            <div class="code-editor-container">
+     <textarea id="ip-input" class="code-input">
+       
+           
+           <button id=" botao_id " type =" submit ">
+Enviar
+<img src="submit.png" alt=" Enviar ">
+</button >
+
+              </textarea>
+          <button onclick="runCode('ip')" class="run-button">Click aqui para Executar</button>
+          <iframe id="ip-output" class="output-frame"></iframe>
+          </div>
+
+            
+            <button class="anterior">Aula Anterior</button>
+            <button class="proximo">Próxima Aula</button>
+          </section>  
+          
+          
+          
+          
+          
+          
+            <section class="hidden">
+              <h2>Aula 16</h2>
+<h3>Checkboxes e Radios</h3>
+
+
+             <p> Para adicionar um checkbox em um formulário, devemos utilizar o elemento input com type
+              igual a checkbox. Ao utilizar esse componente, é importante definir um valor para o atributo value.
+              No envio do formulário, esse valor é transmitido ao Web Server se o checkbox correspondente estiver
+              marcado.</p>
+               <div class="code-editor-container">
+                 <textarea id="kp-input" class="code-input">
+              
+              
+              <input id=" sim_id " name=" newsletter " type="checkbox " value=" sim ">              </textarea>
+                            <button onclick="runCode('kp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="kp-output" class="output-frame"></iframe>
+                            </div>
+              
+             <p> Eventualmente é interessante agrupar um determinado conjunto de checkboxes. Por exemplo,
+              considere um formulário que coleta as linguagens de programação que os usuários conhecem. Para
+              cada linguagem, podemos definir um checkbox. Para agrupar esses checkboxes, basta definir o atri-
+              buto name com o mesmo valor para eles.</p>
+               <div class="code-editor-container">
+                 <textarea id="iu-input" class="code-input">
+              
+               <input id=" java_id " type="checkbox " value=" java " name=" linguagens ">
+              <input id=" csharp_id " type="checkbox " value=" csharp " name=" linguagens ">
+               <input id=" php_id " type="checkbox " value=" php " name=" linguagens ">
+               <input id=" ruby_id " type="checkbox " value=" ruby " name=" linguagens ">
+               <input id=" perl_id " type="checkbox " value=" perl " name=" linguagens ">
+                             </textarea>
+                             <button onclick="runCode('iu')" class="run-button">Click aqui para Executar</button>
+                             <iframe id="iu-output" class="output-frame"></iframe>
+                             </div>
+              
+              <p> Checkboxes
+              Para adicionar um radio em um formulário, devemos utilizar o elemento input com type igual a
+              radio. Ao utilizar esse componente, é importante definir um valor para o atributo value. No envio
+              do formulário, esse valor é transmitido ao Web Server se o radio correspondente estiver marcado.</>
+               <div class="code-editor-container">
+                 <textarea id="qp-input" class="code-input">
+              
+              <input id=" masculino_id " name=" sexo " type=" radio " value=" masculino ">
+              
+                            </textarea>
+                            <button onclick="runCode('qp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="qp-output" class="output-frame"></iframe>
+                            </div>
+              
+             <p> Eventualmente é interessante agrupar um determinado conjunto de radios. Por exemplo, considere um formulário que coleta o time preferido dos usuários. Para cada time, podemos definir um
+              radio. Para agrupar esses radios, basta definir o atributo name com o mesmo valor para eles.
+             </p>
+               <div class="code-editor-container">
+                 <textarea id="rp-input" class="code-input">
+              
+              
+               <input id=" sp_id " type=" radio " value="sao - paulo " name="time - preferido ">
+               
+               <input id=" barcelona_id " type=" radio " value=" barcelona " name="time - preferido ">
+               
+               <input id=" milan_id " type=" radio " value=" milan " name="time - preferido ">
+               
+               <input id=" mu_id " type=" radio " value=" manchester - united " name="time - preferido ">
+               
+              <input id=" bdm_id " type=" radio " value=" bayern -de - munique " name="time - preferido ">
+                            </textarea>
+                            <button onclick="runCode('rp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="rp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+              
+<h4>Radios</h4>
+             <p> Por padrão, quando um formulário é exibido para os usuários, os checkboxes e os radios não estão marcados. Algumas vezes, desejamos que determinados checkboxes e radios estejam marcados
+              quando os formulários são apresentados aos usuários. Para resolver esse problema, podemos utilizar
+              o atributo checked do elemento input. Esse atributo não precisa de valor.</p>
+              
+              
+               <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+              <input id=" java_id " type="checkbox " value=" java " name=" linguagens " checked>
+               <input id=" sp_id " type=" radio " name="time - preferido " value="sao - paulo " checked>
+              
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+              
+              
+              <button class="anterior">Aula Anterior</button>
+              <button class="proximo">Próxima Aula</button>
+            </section>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <section class="hidden">
+              <h2>Aula 17</h2>
+              <h3>Drop-down list</h33>
+              
+              <p>
+              Muitos formulários permitem que os usuários selecionem um ou mais itens de uma lista de op-
+              ções. Essa seleção pode ser realizada através de um drop-down list. Para adicionar esse tipo de com-
+              ponente, devemos utilizar o elemento select. Normalmente, o select é definido pelos navegadores
+              como inline-level element.</p>
+              
+                <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+<select id=" estados_id " name=" estado ">
+   ...
+ </select>
+
+                            </textarea>
+                
+                            </div>
+              <p>As opções devem ser definidas no conteúdo do elemento select e elas são adicionadas com o ele-
+              mento option. O conteúdo do elemento option é exibido para os usuários. Esse elemento possui um
+              atributo chamado value. Quando o formulário for enviado, o valor do atributo value é transmitido
+              ao Web Server se a opção correspondente foi selecionada pelo usuário. Se esse atributo não estiver
+              definido, o conteúdo do elemento option é transmitido ao Web Server se a opção correspondente foi
+              selecionada pelo usuário.</p>
+              
+              <div class="code-editor-container">
+                 <textarea id="nl-input" class="code-input">
+
+<select id=" estados_id " name =" estado ">
+<option value ="SP"> Maputo  </option >
+ <option value ="RJ"> Nampula  </option >
+<option value ="RS"> Zambézia </option >
+<option value ="RN"> Manica </option >
+</ select >
+
+                            </textarea>
+                            <button onclick="runCode('nl')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="nl-output" class="output-frame"></iframe>
+                            </div>
+              
+              <p>Por padrão, apenas um item de um drop-down list pode ser selecionado pelos usuários. Mas,
+              utilizando o atributo multiple, um ou mais itens podem ser selecionados. Geralmente, mantendo a
+              tecla CTRL pressionada, os usuários poderão escolher dois ou mais itens.</p>
+              <div class="code-editor-container">
+                 <textarea id="yup-input" class="code-input">
+
+<select id=" estados_id " name =" estado " multiple =" multiple ">
+<option value ="SP"> Sofala </option >
+<option value ="RJ"> Gaza </option >
+<option value ="RS"> África do Sul  </option >
+<option value ="PR"> Matola </option >
+<option value ="RN"> Tete</option >
+<option value ="BA"> Niassa </option >
+</select >
+
+                            </textarea>
+                            <button onclick="runCode('yup')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="yup-output" class="output-frame"></iframe>
+                            </div>
+                            <p>Nos drop-down lists com muitas opções, é interessante agrupar as opções em categorias. Esse
+                            agrupamento pode ser realizado com o elemento optgroup. Esse elemento possui um atributo cha-
+                            mado label. O valor desse atributo é exibido no drop-down list.</p>
+              
+              <div class="code-editor-container">
+                 <textarea id="trp-input" class="code-input">
+
+<select id=" estados_id " name=" estado ">
+   <optgroup label=" Região Sudeste ">
+     <option value ="SP"> Mopeia </option >
+ <option value ="RJ"> Rio zave </option >
+</optgroup >
+<optgroup label =" Região Sul">
+<option value ="RS"> Lago  Niassa </option >
+<option value ="PR"> Rio Minapo </option >
+</optgroup >
+<optgroup label =" Região Nordeste ">
+<option value ="RN"> Vanduzi </option >
+<option value ="BA"> Munhava </option >
+</optgroup >
+ </select >
+
+                            </textarea>
+                            <button onclick="runCode('trp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="trp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+              <button class="anterior">Aula Anterior</button>
+              <button class="proximo">Próxima Aula</button>
+            </section>
+    
+
+    
+    
+    
+  <section class="hidden">
+    <h2>continuação</h2>
+<h3>Drop-down list com itens pré-selecionados<h3>
+  <p>Quando um drop-down list é exibido para os usuários, opções podem estar por padrão seleciona-
+  das. O atributo selected do elemento option define as opções que devem estar selecionadas quando
+  um drop-down list é exibido para os usuários. Esse atributo não precisa de valor.</p>
+  
+    
+                  <div class="code-editor-container">
+                 <textarea id="tr-input" class="code-input">
+
+<select id=" estados_id " name=" estado ">
+   <optgroup label=" Região Sudeste ">
+     <option value ="SP" selected> Mopeia </option >
+ <option value ="RJ"> Rio zave </option >
+</optgroup >
+<optgroup label =" Região Sul">
+<option value ="RS" selected> Lago  Niassa </option >
+<option value ="PR"> Rio Minapo </option >
+</optgroup >
+<optgroup label =" Região Nordeste ">
+<option value ="RN"> Vanduzi </option >
+<option value ="BA"> Munhava </option >
+</optgroup >
+ </select >
+
+                            </textarea>
+                            <button onclick="runCode('tr')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="tr-output" class="output-frame"></iframe>
+                            </div>
+              
+    
+    <h3>Exercício </h3>
+    <p>Escreva seu código e executa </p>
+                   <div class="code-editor-container">
+                 <textarea id="vk-input" class="code-input">
+
+Aqui 
+
+                            </textarea>
+                            <button onclick="runCode('vk')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vk-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 17</h2>
+    <h3>Fieldset</h3>
+    <p>Os campos de um formulário muito longo podem ser agrupados logicamente com o elemento
+    fieldset. No conteúdo desse elemento, podemos utilizar o elemento legend para definir a legenda do
+    fieldset. Normalmente, o fieldset é definido pelos navegadores como block-level element.</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vop-input" class="code-input">
+
+<fieldset>
+  <legend> Dados Pessoais </legend>
+    ...
+    </fieldset>
+    <fieldset>
+      <legend> Formação </legend>
+         ...
+         </ fieldset>
+        <fieldset>
+           <legend> Experiência </legend>
+             ...
+             </fieldset>
+
+                            </textarea>
+                            <button onclick="runCode('vop')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vop-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 18</h2>
+   <h3> Campos ou botões desabilitados</h3>
+    <p>Eventualmente, determinados campos ou botões de um formulário devem ser desabilitados.
+    Para desabilitar um campo ou botão, podemos utilizar o atributo disabled dos elementos input,
+    select, textarea e button. Esse atributo não precisa de valor.</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vlp-input" class="code-input">
+
+<button type="button " disabled>
+   Botão desabilitado
+  <img src=" botao .png" alt=" Botão desabilitado ">
+   </button>
+
+                            </textarea>
+                            <button onclick="runCode('vlp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vlp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 19</h2>
+   <h3> Campos fixos</h3>
+   <p>Eventualmente, determinados campos de um formulário devem ser fixo, ou seja, os usuários não
+   podem alterar o conteúdo. Para fixar o conteúdo de um campo, podemos utilizar o atributo readonly
+   dos elementos input e textarea. Esse atributo não precisa de valor.
+   </p>
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vpy-input" class="code-input">
+
+<input id=" nome_id " name=" nome " type=" text " value=" Marcelo Martins " readonly>
+
+ <textarea readonly>
+Gostaria de efetuar a matrícula no CodeATOES  - Formação Desenvolvedor Javascript  .
+</textarea >
+
+                            </textarea>
+                            <button onclick="runCode('vpy')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vpy-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 20</h2>
+    <h3>Markup
+    extra   </h3>
+    <h4>Comentários HTML </h4>
+    <p>
+      &lt;!--       --&gt;
+      <br>
+     <p> Se você quiser adicionar um comentário ao
+      seu código que não será visível no navegador
+      do usuário, você pode adicionar o texto entre
+      esses caracteres:</p><br><br>
+      <br><br>
+        &lt;!--    comentários aqui    --&gt;
+        <br><br>
+       <p> É uma boa idéia para adicionar comentários ao
+        seu código porque, não importa como você está
+        familiarizado com a página no momento de
+        escrevê-lo, quando você voltar a ele mais tarde
+        (ou se alguém precisa de olhar para o código),
+        Comentários irá torná-lo muito mais fácil de
+        entender</p>.<br><br>
+       <p> Embora os comentários não são visíveis para os
+        usuários na janela principal do navegador, eles
+        podem ser vistos por qualquer pessoa que olha
+        para o código-fonte por trás da página.</p><br>
+        <p>Em uma página de comprimento muitas vezes
+        você vai ver comentários usados ​para indicar
+        onde seções da página iniciar ou fim, e passar
+        notas para ajudar alguém que está olhando para
+        o código de compreendê-lo.
+        Os comentários também podem ser usados
+        ​em torno de blocos de código para parar
+        esse código seja exibido no navegador. No
+        exemplo à esquerda, o link de e-mail foi
+        comentada.</p><br>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="rt-input" class="code-input">
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Título da Página</title>
+</head>
+<body>
+  <!-- Este é um comentário explicando o propósito deste parágrafo -->
+  <p>Este é um parágrafo de exemplo.</p>
+</body>
+</html>
+                            </textarea>
+                            <button onclick="runCode('rt')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="rt-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 21</h2>
+    <h3>atributo id</h3>
+    
+    <p>Cada elemento HTML pode levar o identidade atributo.
+    Ele é usado para identificar exclusivamente
+    esse elemento de outros elementos na página.
+    Seu valor deve começar com uma letra ou um
+    sublinhado (não um número ou qualquer outro
+    caractere). É importante que há dois
+    elementos na mesma página têm o mesmo
+    valor para o seu identidade</p><br>
+    
+    <p>
+      <!--Tab to edit-->
+    <p>O atributo "id" em HTML é usado para fornecer uma identificação única a um elemento na página. Ele é usado para referenciar esse elemento de forma exclusiva por meio de estilos CSS, scripts JavaScript ou links internos.
+    </p>
+      Aqui está um exemplo de uso do atributo "id" em um elemento HTML:
+      
+    
+                   <div class="code-editor-container">
+                 <textarea id="yr-input" class="code-input">
+
+      
+      <h1 id="titulo">Título da Página</h1>
+                                  </textarea>
+                            <button onclick="runCode('yr')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="yr-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+      <p>Neste exemplo, o atributo "id" é aplicado a um elemento de cabeçalho `&lt;h1&gt;`. O valor do atributo "id" é definido como "titulo". Agora, esse elemento tem uma identificação única na página.</p>
+      
+        <p>
+O atributo "id" deve ser exclusivo dentro de um documento HTML. Ou seja, não pode haver dois elementos com o mesmo valor de "id" na mesma página.
+        </p>
+      
+        <p>
+        Você pode usar o atributo "id" para se referir a um elemento específico em seu CSS ou JavaScript. Por exemplo, para estilizar o elemento com o id "titulo" usando CSS, você pode fazer o seguinte:
+      
+      </p>
+       
+    
+                   <div class="code-editor-container">
+                 <textarea id="gf-input" class="code-input">
+
+        <style>
+          #titulo {
+            color: blue;
+            font-size: 24px;
+          }
+        </style>
+                                   </textarea>
+                            <button onclick="runCode('gf')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="gf-output" class="output-frame"></iframe>
+                            </div>
+              
+   
+        <p>
+          <!--Tab to edit-->
+          Dessa forma, todos os estilos definidos dentro da regra CSS com seletor "#titulo" serão aplicados ao elemento com o id "titulo".
+        </p>
+      
+        <p>
+          <!--Tab to edit-->
+          Além disso, o atributo "id" também é usado em links internos para criar âncoras. Por exemplo, para criar um link que leva o usuário diretamente para o elemento com o id "titulo", você pode usar o seguinte código:
+        </p>
+      
+      
+      
+      
+        
+    
+                   <div class="code-editor-container">
+                 <textarea id="h-input" class="code-input">
+
+        <a href="#titulo">Ir para o Título</a>
+                                    </textarea>
+                            <button onclick="runCode('h')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="h-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+        <p>
+          <!--Tab to edit-->
+          Ao clicar no link, a página será rolada automaticamente até o elemento com o id "titulo".
+        </p>
+      
+        <div>
+          <p>
+            <!--Tab to edit-->
+            Em resumo, o atributo "id" é usado para fornecer uma identificação única a um elemento HTML, permitindo referenciá-lo de forma exclusiva por meio de estilos CSS, scripts JavaScript ou links internos.
+          </p>
+        </div> 
+    </p>
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="b-input" class="code-input">
+
+      
+      <h1 id="titulo">Título da Página</h1>
+
+
+        <style>
+          #titulo {
+            color: blue;
+            font-size: 24px;
+          }
+        </style>
+                            </textarea>
+                            <button onclick="runCode('b')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="b-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 23</h2>
+    <h3>Atributo Class</h3>
+    <p>
+      <!--Tab to edit-->
+      O atributo "class" em HTML é usado para fornecer uma ou mais classes a um elemento. As classes são usadas para agrupar elementos que compartilham características semelhantes, permitindo que você aplique estilos CSS ou manipule esses elementos com JavaScript de forma mais eficiente e organizada.
+      <br>
+        <!--Tab to edit-->
+      </br>
+      
+      Aqui está um exemplo de uso do atributo "class" em um elemento HTML:
+      <br>
+        <!--Tab to edit-->
+      </br>
+       <div class="code-editor-container">
+         <textarea id="jy-input" class="code-input">
+      <p class="destaque">Este é um parágrafo de destaque.</p>
+                                  </textarea>
+                            <button onclick="runCode('jy')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="jy-output" class="output-frame"></iframe>
+                            </div>
+              
+      <br>
+        <!--Tab to edit-->
+      </br>
+      Neste exemplo, o atributo "class" é aplicado a um elemento de parágrafo `&lt;p&gt;`. O valor do atributo "class" é definido como "destaque". Agora, esse elemento faz parte da classe "destaque".
+      <br>
+        <!--Tab to edit-->
+      </br>
+        Você também pode atribuir várias classes a um único elemento, separando-as por espaços:
+      <br>
+        <!--Tab to edit-->
+      </br>
+         <div class="code-editor-container">
+           <textarea id="rwq-input" class="code-input">
+      <p class="destaque importante">Este é um parágrafo de destaque e importante.</p>
+                                  </textarea>
+                            <button onclick="runCode('rwq')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="rwq-output" class="output-frame"></iframe>
+                            </div>
+              
+      <br>
+        <!--Tab to edit-->
+      </br>
+      Neste caso, o elemento de parágrafo possui as classes "destaque" e "importante".
+      <br>
+        <!--Tab to edit-->
+      </br>
+      No CSS, você pode selecionar elementos com base em suas classes para aplicar estilos específicos. Por exemplo:
+      <br>
+        <!--Tab to edit-->
+      </br>
+      
+       <div class="code-editor-container">
+         <textarea id="Vnb-input" class="code-input">
+      <style>
+        .destaque {
+          color: blue;
+          font-weight: bold;
+        }
+      
+        .importante {
+          font-size: 20px;
+        }
+      </style>
+                            </textarea>
+                            <button onclick="runCode('vnb')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vnb-output" class="output-frame"></iframe>
+                            </div>
+              
+      <br>
+        <!--Tab to edit-->
+      </br>
+      Nesse exemplo, todos os elementos com a classe "destaque" terão a cor azul e a fonte em negrito, enquanto os elementos com a classe "importante" terão um tamanho de fonte de 20 pixels.
+      <br>
+        <!--Tab to edit-->
+      </br>
+      Além disso, o atributo "class" também é comumente usado para selecionar elementos em JavaScript. Por exemplo, você pode usar JavaScript para manipular elementos com uma determinada classe e executar ações específicas neles.
+      <br>
+        <!--Tab to edit-->
+      </br>
+      Em resumo, o atributo "class" é usado para agrupar elementos que compartilham características semelhantes, permitindo a aplicação de estilos CSS ou manipulação com JavaScript. Ele oferece uma maneira flexível e poderosa de selecionar e trabalhar com elementos específicos em uma página.
+    </p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vup-input" class="code-input">
+
+ <p class="destaque importante">Este é um parágrafo de destaque e importante.</p>
+ 
+  <style>
+    .destaque {
+      color: blue;
+      font-weight: bold;
+    }
+ 
+    .importante {
+      font-size: 20px;
+    }
+  </style>
+ 
+
+                            </textarea>
+                            <button onclick="runCode('vup')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vup-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 24</h2>
+    <h3>Elementos de bloco</h3>
+    
+    
+    <p>
+      <!--Tab to edit-->
+      Em HTML, existem elementos que são considerados elementos de bloco. Esses elementos são utilizados para estruturar e organizar o conteúdo de uma página web em blocos separados. Eles geralmente começam em uma nova linha e ocupam toda a largura disponível horizontalmente.
+<br>
+  <!--Tab to edit-->
+</br>
+
+1. &lt;div&gt;: O elemento &lt;div&gt;é um contêiner genérico que é usado para agrupar outros elementos em um bloco. É frequentemente usado para criar seções ou divisões lógicas em uma página.
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+
+<div>
+  <!-- Conteúdo aqui -->
+</div>
+</div>
+
+2. &lt;p&gt;: O elemento &lt;p&gt; é usado para representar um parágrafo de texto.
+ <div class="code-editor-container">
+   <textarea id="vupo-input" class="code-input">
+
+<p>Este é um parágrafo.</p>
+
+                            </textarea>
+                            <button onclick="runCode('vupo')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vupo-output" class="output-frame"></iframe>
+                            </div>
+              
+3. &lt;h1&gt; a &lt;h1&gt;: Os elementos de cabeçalho &lt;j1&gt; a &lt;h6&gt; são usados para representar os diferentes níveis de títulos na página, sendo &lt;h1&gt; o mais importante e &lt;div&gt; o menos importante.
+ <div class="code-editor-container">
+   <textarea id="vz-input" class="code-input">
+
+<h1>Título Principal</h1>
+<h2>Título Secundário</h2>
+
+                            </textarea>
+                            <button onclick="runCode('vz')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vz-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+4.  &lt;ul&gt;>`: O elemento  &lt;ul&gt;é usado para criar uma lista não ordenada, onde os itens da lista são marcados com marcadores (pontos, círculos, etc.).
+
+ <div class="code-editor-container">
+   <textarea id="vurp-input" class="code-input">
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+                            </textarea>
+                            <button onclick="runCode('vurp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vurp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+5.  &lt;ol&gt;: O elemento &lt;ol&gt; é usado para criar uma lista ordenada, onde os itens da lista são numerados.
+
+ <div class="code-editor-container">
+   <textarea id="4p-input" class="code-input">
+<ol>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ol>
+
+                            </textarea>
+                            <button onclick="runCode('4p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="4p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+6.  &lt;blockquote&gt;: O elemento &lt;blockquote &gt; é usado para representar uma citação em bloco, geralmente recuado e com uma formatação visual específica.
+
+ <div class="code-editor-container">
+   <textarea id="v3p-input" class="code-input">
+<blockquote>
+  <p>Esta é uma citação em bloco.</p>
+</blockquote>
+
+                            </textarea>
+                            <button onclick="runCode('v3p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v3p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+7. &lt;header&gt;: O elemento  &lt;header&gt; é usado para representar o cabeçalho de uma seção ou da página inteira.
+
+     <div class="code-editor-container">
+       <textarea id="v4p-input" class="code-input">
+    <header>
+      <h1>Logo da Empresa</h1>
+      <nav>
+        <!-- Menu de navegação aqui -->
+      </nav>
+    </header>
+    
+                            </textarea>
+                            <button onclick="runCode('v4p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v4p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+    8. &lt;footer&gt;: O elemento  &lt;footer&gt;é usado para representar o rodapé de uma seção ou da página inteira.
+
+        <div class="code-editor-container">
+          <textarea id="v0p-input" class="code-input">
+        <footer>
+          <p>&copy; 2023 Nome da Empresa. Todos os direitos reservados.</p>
+        </footer
+                            </textarea>
+                            <button onclick="runCode('v0p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v0p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+        
+        
+        
+
+        9. &lt;section&gt;: O elemento  &lt;section&gt; é usado para agrupar conteúdo relacionado em uma seção temática.
+
+             <div class="code-editor-container">
+               <textarea id="v2p-input" class="code-input">
+            <section>
+              <h2>Sobre Nós</h2>
+              <p>Texto sobre a empresa...</p>
+            </section>
+            
+                            </textarea>
+                            <button onclick="runCode('v2p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v2p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+            10.  &lt;article&gt;: O elemento  &lt;article&gt; é usado para representar um conteúdo independente e autossuficiente, como um blog post ou um artigo de notícias.
+
+                <div class="code-editor-container">
+                  <textarea id="v9p-input" class="code-input">
+                <article>
+                  <h2>Título do Artigo</h2>
+                  <p>Conteúdo do artigo...</p>
+                </article>
+                
+                            </textarea>
+                            <button onclick="runCode('v9p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v9p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+                11.  &lt;aside&gt;: O elemento &lt;aside&gt; é usado para representar conteúdo relacionado, mas que é considerado secundário ou complementar em relação ao conteúdo principal.
+
+                     <div class="code-editor-container">
+                       <textarea id="v10p-input" class="code-input">
+                    <aside>
+                      <h3>Anúncios</h3>
+                      <p>Texto de anúncios...</p>
+                    </aside>
+                    
+                            </textarea>
+                            <button onclick="runCode('v10p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v10p-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+                    12. &Lt;figure&gt; e &lt;figcaption&gt;: O elemento &lt;figure&gt; é usado para encapsular conteúdo multimídia, como imagens, vídeos ou gráficos, enquanto o elemento &lt;figcaption&gt; é usado para fornecer uma legenda para esse conteúdo.
+
+                            <div class="code-editor-container">
+                              <textarea id="v1up-input" class="code-input">
+                            <figure>
+                              <img src="imagem.jpg" alt="Descrição da imagem">
+                              <figcaption>Legenda da imagem</figcaption>
+                            </figure>
+                            
+                            </textarea>
+                            <button onclick="runCode('v1up')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v1up-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+                     
+                     <br>
+                       <!--Tab to edit-->
+                     </br>       ```
+
+
+13.&lt; nav&gt;: O elementob&lt; nav&gt; é usado para criar uma seção de navegação, como um menu de navegação.
+
+     <div class="code-editor-container">
+       <textarea id="vyp-input" class="code-input">
+    <nav>
+      <ul>
+        <li><a href="#">Página Inicial</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+   
+                            </textarea>
+                            <button onclick="runCode('vyp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vyp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+    14. &lt; main&gt;: O elemento &lt; main&gt; é usado para envolver o conteúdo principal de uma página, excluindo cabeçalhos, rodapés e elementos de navegação.
+
+         <div class="code-editor-container">
+           <textarea id="vup9-input" class="code-input">
+        <main>
+          <h1>Título Principal</h1>
+          <p>Conteúdo principal da página...</p>
+        </main>
+        
+                            </textarea>
+                            <button onclick="runCode('vup9')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vup9-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+        15. &lt;form&lt; : O elemento &lt;form &gt; é usado para criar um formulário de entrada de dados.
+
+             <div class="code-editor-container">
+               <textarea id="mup-input" class="code-input">
+            <form>
+              <label for="nome">Nome:</label>
+              <input type="text" id="nome" name="nome">
+              <br>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email">
+              <br>
+              <input type="submit" value="Enviar">
+            </form>
+            
+                            </textarea>
+                            <button onclick="runCode('mup')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="mup-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+
+            16. &lt;table &gt;: O elemento &lt; table&gt; é usado para criar uma tabela de dados.
+
+                <div class="code-editor-container">
+                  <textarea id="vu9p-input" class="code-input">
+                <table>
+                  <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                  </tr>
+                  <tr>
+                    <td>Item 1</td>
+                    <td>R$ 10,00</td>
+                  </tr>
+                  <tr>
+                    <td>Item 2</td>
+                    <td>R$ 15,00</td>
+                  </tr>
+                </table>
+                                            </textarea>
+                            <button onclick="runCode('vu9p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vu9p-output" class="output-frame"></iframe>
+                            </div>
+              
+
+                17. &lt;blockquote&gt;: O elemento &lt;blockquote&gt; é usado para representar uma citação em bloco.
+
+                     <div class="code-editor-container">
+                       <textarea id="vu7p-input" class="code-input">
+                    <blockquote>
+                      <p>Esta é uma citação em bloco.</p>
+                      <cite>Autor da Citação</cite>
+                    </blockquote>
+                                                </textarea>
+                            <button onclick="runCode('vu7p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vu7p-output" class="output-frame"></iframe>
+                            </div>
+              
+<br>
+  <!--Tab to edit-->
+</br>
+                    18. &lt;ANDRESS &gt;: O elemento &lt; andress &gt; é usado para fornecer informações de contato, como o endereço físico, e-mail, número de telefone, etc.
+
+                         <div class="code-editor-container">
+                           <textarea id="vu4p-input" class="code-input">
+                        <address>
+                          <p>Nome da Empresa</p>
+                          <p>Rua Exemplo, 123</p>
+                          <p>Cidade, Estado</p>
+                        </address>
+                                                    </textarea>
+                            <button onclick="runCode('vu4p')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vu4p-output" class="output-frame"></iframe>
+                            </div>
+              
+<br>
+  <!--Tab to edit-->
+</br>
+                        
+19. &lt;fieldset &gt; e &lt;legend  &gt;: O elemento &lt;fieldset  &gt; é usado para agrupar elementos relacionados em um formulário, enquanto &lt;legend &gt; é usado para fornecer uma legenda ou título para o &lt; fieldset &gt;
+
+ <div class="code-editor-container">
+   <textarea id="v9up-input" class="code-input">
+<fieldset>
+  <legend>Informações Pessoais</legend>
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome">
+  <br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+</fieldset>
+                            </textarea>
+                            <button onclick="runCode('v9up')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v9up-output" class="output-frame"></iframe>
+                            </div>
+              
+
+&lt;video &gt;: O elemento &lt;video &gt; é usado para incorporar e reproduzir vídeos em uma página.
+
+ <div class="code-editor-container">
+   <textarea id="v77up-input" class="code-input">
+<video src="video.mp4" controls>
+  Seu navegador não suporta o elemento de vídeo.
+</video>
+                            </textarea>
+                            <button onclick="runCode('v77up')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v77up-output" class="output-frame"></iframe>
+                            </div>
+              
+
+&lt;audio &gt;: O elemento &lt;audio &gt; é usado para incorporar e reproduzir arquivos de áudio em uma página.
+
+ <div class="code-editor-container">
+   <textarea id="v87up-input" class="code-input">
+<audio src="audio.mp3" controls>
+  Seu navegador não suporta o elemento de áudio.
+</audio>
+                            </textarea>
+                            <button onclick="runCode('v87up')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="v87up-output" class="output-frame"></iframe>
+                            </div>
+              
+
+ &lt;canvas &gt;: O elemento &lt;canvas &gt; é usado para desenhar gráficos, animações e imagens usando JavaScript e a API Canvas.
+
+ <div class="code-editor-container">
+   <textarea id="1up-input" class="code-input">
+<canvas id="meu-canvas" width="400" height="200"></canvas>
+                            </textarea>
+                            <button onclick="runCode('1up')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="1up-output" class="output-frame"></iframe>
+                            </div>
+              
+ &lt;iframe  &gt;: O elemento &lt; iframe &gt; é usado para incorporar uma página web ou um documento dentro de outra página.
+
+ <div class="code-editor-container">
+   <textarea id="vump-input" class="code-input">
+<iframe src="pagina.html" width="600" height="400"></iframe>
+
+                            </textarea>
+                            <button onclick="runCode('vump')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vump-output" class="output-frame"></iframe>
+                            </div>
+              
+
+24. &lt;pre &gt;: O elemento &lt;pre &gt; é usado para exibir texto pré-formatado, preservando espaços em branco e quebras de linha.
+
+
+
+ <div class="code-editor-container">
+   <textarea id="nnp-input" class="code-input">
+<pre>
+  Texto pré-formatado
+  com espaços em branco e
+  quebras de linha preservadas.
+</pre>
+                            </textarea>
+                            <button onclick="runCode('nnp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="nnp-output" class="output-frame"></iframe>
+                            </div>
+              
+
+25. &lt;     details  &gt; e  &lt; summary&gt;: O elemento &lt;     details  &gt; é usado para criar um elemento de detalhes que pode ser aberto ou fechado, e  &lt;summary&gt; é usado para fornecer um resumo ou título para o &lt;     details  &gt;.
+. 
+
+ <div class="code-editor-container">
+   <textarea id="nnt-input" class="code-input">
+<details>
+  <summary>Clique para exibir mais informações</summary>
+  <p>Conteúdo adicional...</p>
+</details>
+                            </textarea>
+                            <button onclick="runCode('nnt')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="nnt-output" class="output-frame"></iframe>
+                            </div>
+              
+
+    </p>
+    <p>
+      <!--Tab to edit-->
+      Faz auto avaliação 
+    </p>
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+Aqui 
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+  
+  
+  
+    <section class="hidden">
+    <h2>Aula 25</h2>
+    <h3>Iframe </h3>
+    <p>
+      <!--Tab to edit-->
+      O elemento &lt;     iframe  &gt;.  é usado em HTML para incorporar uma página web ou documento dentro de outra página. Essa tag permite exibir o conteúdo de um documento externo dentro de uma janela delimitada na página atual. Isso é útil, por exemplo, quando você deseja incorporar um vídeo do YouTube, um mapa do Google Maps ou um widget de mídia social em seu site.
+      <br>
+        <!--Tab to edit-->
+      </br>
+        Aqui está um exemplo básico de uso do elemento `<iframe>`:
+      
+           <div class="code-editor-container">
+             <textarea id="vmmp-input" class="code-input">
+               
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="560" height="315"></iframe>
+                                      </textarea>
+                            <button onclick="runCode('vmmp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vmmp-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+          Nesse exemplo, usamos o atributo `src` para especificar o URL do documento externo que queremos incorporar. No caso acima, é um vídeo do YouTube. O atributo `width` define a largura do iframe em pixels, e o atributo `height` define a altura em pixels.
+      <br>
+        <!--Tab to edit-->
+      </br>
+          Você também pode ajustar outras opções, como definir uma largura ou altura em porcentagem, definir uma borda, permitir ou desabilitar rolagem, entre outros.
+      
+          <div class="code-editor-container">
+            <textarea id="iiup-input" class="code-input">
+              
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387..."></iframe>
+                                      </textarea>
+                            <button onclick="runCode('iiup')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="iiup-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+         <p> No exemplo acima, estamos incorporando um mapa do Google Maps usando o atributo `src`. O URL especificado no `src` é gerado pelo Google Maps ao compartilhar um mapa específico</p>
+      <br>
+        <!--Tab to edit-->
+      </br>
+          Lembre-se de que nem todos os sites permitem a incorporação de seu conteúdo por meio do &lt;     iframe  &gt;. . Alguns sites possuem políticas de segurança que impedem a exibição de seu conteúdo em outros domínios. Portanto, é importante verificar a documentação ou as diretrizes do site para garantir que a incorporação <br>
+            <!--Tab to edit-->
+          </br>seja permitida.
+      
+            Além disso, é importante considerar a responsividade ao usar &lt;     iframe  &gt;. Você pode ajustar as dimensões do &lt;     iframe  &gt;.  e usar técnicas de design responsivo para garantir que o conteúdo incorporado seja exibido corretamente em diferentes dispositivos e tamanhos de tela.
+            <br>
+              <!--Tab to edit-->
+            </br>
+            
+               Atributo `sandbox`: O atributo `sandbox` permite restringir as permissões do conteúdo exibido no &lt;     iframe  &gt;. Isso é útil para garantir a segurança, impedindo que o conteúdo incorporado acesse recursos perigosos ou execute scripts maliciosos. Você pode definir várias restrições separadas por espaços, como `allow-scripts`, `allow-forms`, `allow-same-origin`, entre outros.
+            
+                 <div class="code-editor-container">
+                   <textarea id="vg-input" class="code-input">
+                     
+                <iframe src="pagina.html" sandbox="allow-scripts"></iframe>
+               
+                                        </textarea>
+                            <button onclick="runCode('vg')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vg-output" class="output-frame"></iframe>
+                            </div>
+              
+                Atributo `frameborder`: O atributo `frameborder` especifica se a borda ao redor do &lt;  iframe     &gt; deve ser exibida ou não. Defina o valor como `0` para não exibir a borda e `1` para exibir a borda.
+            
+                   <div class="code-editor-container">
+                     <textarea id="kk-input" class="code-input">
+                       
+                  <iframe src="pagina.html" frameborder="0"></iframe>
+                                              </textarea>
+                            <button onclick="runCode('kk')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="kk-output" class="output-frame"></iframe>
+                            </div>
+              
+            
+                  Atributo `scrolling`: O atributo `scrolling` determina se uma barra de rolagem deve ser exibida no &lt;    iframe   &gt; quando o conteúdo excede suas dimensões. O valor `auto` exibe a barra de rolagem apenas quando necessário, `yes` sempre exibe a barra de rolagem e `no` nunca exibe a barra de rolagem.
+            
+                    <div class="code-editor-container">
+                      <textarea id="kkk-input" class="code-input">
+                        
+                    <iframe src="pagina.html" scrolling="auto"></iframe>
+                                                </textarea>
+                            <button onclick="runCode('kkk')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="kkk-output" class="output-frame"></iframe>
+                            </div>
+              
+            
+                    Atributo `allowfullscreen`: O atributo `allowfullscreen` permite que o conteúdo do &lt;    iframe   &gt; seja exibido em modo de tela cheia quando ativado. Isso é comumente usado para vídeos incorporados.
+            
+                      <div class="code-editor-container">
+                        <textarea id="vkkp-input" class="code-input">
+                      <iframe src="video.mp4" allowfullscreen></iframe>
+                                                  </textarea>
+                            <button onclick="runCode('vkkp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vkkp-output" class="output-frame"></iframe>
+                            </div>
+              
+            
+                       Atributo `name`: O atributo `name` é usado para fornecer um nome ao &lt;    iframe   &gt;. Isso pode ser útil para referenciar o &lt;     iframe  &gt; em JavaScript ou em outros elementos da página.
+            
+                          <div class="code-editor-container">
+                            <textarea id="vttp-input" class="code-input">
+                              
+                          <iframe src="pagina.html" name="meu-iframe"></iframe>
+                                                      </textarea>
+                            <button onclick="runCode('vttp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vttp-output" class="output-frame"></iframe>
+                            </div>
+              
+            
+                          Essas são algumas opções e atributos adicionais que você pode utilizar com o elemento &lt;     iframe  &gt; em HTML. Lembre-se de sempre verificar a documentação e as diretrizes dos serviços ou sites que você está incorporando para garantir o uso correto e adequado do `&lt;   iframe    &gt;. 
+    </p>
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+Faça auto exercício aqui 
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>continuação</h2>
+    <p>iframe </p>
+    
+    <br>
+      <!--Tab to edit-->
+    </br>
+    <p>
+      <!--Tab to edit-->
+      Com prazer! Aqui estão mais informações sobre o uso do elemento &lt;    iframe   &gt; em HTML:
+      
+        Comunicação entre o conteúdo do &lt;     iframe  &gt; e a página pai: É possível estabelecer uma comunicação bidirecional entre o conteúdo dentro do &lt;    iframe   &gt; e a página pai que o incorpora. Isso é feito usando a API `postMessage()`. O conteúdo do &lt;    iframe   &gt; pode enviar mensagens para a página pai e vice-versa, permitindo a troca de dados e interações entre os dois contextos.
+      
+              Atributo `srcdoc`: Em vez de especificar um URL no atributo `src`, você também pode usar o atributo `srcdoc` para fornecer diretamente o conteúdo HTML que deve ser exibido dentro do &lt;   iframe    &gt; Isso é útil quando você deseja incorporar um conteúdo simples sem precisar criar um arquivo HTML separado.
+      
+                 <div class="code-editor-container">
+                   <textarea id="vmmp-input" class="code-input">
+                     
+                <iframe srcdoc="<h1>Conteúdo do iframe</h1>"></iframe>
+                                            </textarea>
+                            <button onclick="runCode('vmmp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vmmp-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+                 Atributo `loading`: O atributo `loading` especifica o comportamento de carregamento do &lt;    iframe   &gt;. Os valores possíveis são `eager`, `lazy` e `auto`. O valor padrão é `auto`, que permite ao navegador decidir quando carregar o conteúdo do &lt;   iframe    &gt;. O valor `eager` carrega o conteúdo imediatamente, enquanto o valor `lazy` adia o carregamento até que o &lt;    iframe   &gt; esteja prestes a ser exibido na tela.
+      
+                       <div class="code-editor-container">
+                         <textarea id="vtutp-input" class="code-input">
+                           
+                      <iframe src="pagina.html" loading="lazy"></iframe>
+                                                 </textarea>
+                            <button onclick="runCode('vtutp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vtutp-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+                       Atributo `allow`: O atributo `allow` é usado para especificar as permissões para recursos específicos dentro do &lt;iframe &gt;. Por exemplo, você pode permitir o uso de câmera, microfone ou geolocalização dentro do &lt;      iframe &gt;. Cada recurso é especificado separadamente.
+      
+                           <div class="code-editor-container">
+                             <textarea id="vjp-input" class="code-input">
+                               
+                          <iframe src="pagina.html" allow="camera; microphone; geolocation"></iframe>
+                                                      </textarea>
+                            <button onclick="runCode('vjp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vjp-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+                           Responsividade do &lt;iframe &gt;: Para garantir que o &lt;iframe &gt; seja responsivo e se ajuste corretamente em diferentes tamanhos de tela, você pode aplicar técnicas de design responsivo. Uma abordagem comum é definir a largura como `100%` para que o &lt;iframe&gt; se ajuste automaticamente ao contêiner pai.
+      
+                                 <div class="code-editor-container">
+                                   <textarea id="vutp-input" class="code-input">
+                                     
+                                <iframe src="pagina.html" style="width: 100%; height: 400px;"></iframe>
+                                                            </textarea>
+                            <button onclick="runCode('vutp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vutp-output" class="output-frame"></iframe>
+                            </div>
+              
+      
+                                Lembre-se de considerar as implicações de segurança ao incorporar conteúdo externo por meio do `&lt;iframe &gt;`. Sempre verifique a origem e a confiabilidade do conteúdo que você está incorporando para evitar possíveis vulnerabilidades ou exploits.
+      
+                         
+    </p>
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+Faça auto exercício aqui 
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 26</h2>
+    <h3>Mets</h3>
+    <p>
+      <!--Tab to edit-->
+      A tag `&lt;meta&gt;` é usada em HTML para fornecer metadados sobre um documento HTML. Os metadados são informações sobre o documento que não são exibidas diretamente na página, mas fornecem informações úteis para os navegadores da web, mecanismos de busca e outros aplicativos que processam o documento.
+
+Existem diferentes atributos que podem ser usados com a tag &lt;meta&gt;. Aqui estão alguns dos atributos mais comuns:
+
+- `charset`: Especifica a codificação de caracteres usada no documento.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta charset="UTF-8">
+</div>
+
+- `name` e `content`: São usados juntos para fornecer informações específicas sobre o documento, como o título, descrição, palavras-chave, autor, entre outros.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta name="description" content="Uma breve descrição do conteúdo do documento">
+<meta name="keywords" content="palavra-chave1, palavra-chave2, palavra-chave3">
+<meta name="author" content="Nome do autor">
+</div>
+
+- `http-equiv` e `content`: São usados para fornecer informações adicionais sobre o documento ou para definir comportamentos específicos do navegador. Por exemplo, você pode definir a taxa de atualização automática da página ou especificar uma página de redirecionamento.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta http-equiv="refresh" content="5;url=outra-pagina.html">
+</div>
+
+Além desses atributos, existem muitos outros atributos e valores possíveis que podem ser usados com a tag &lt;meta&gt;. Eles permitem fornecer informações adicionais sobre a linguagem do documento, criar instruções para mecanismos de busca, definir a exibição em dispositivos móveis, controlar o cache, entre outros.
+
+É importante observar que nem todos os atributos da tag &lt; meta &gt; são relevantes para todos os cenários. A escolha dos atributos a serem usados depende do objetivo e das necessidades específicas do documento e do site.
+
+Os elementos &lt;meta&gt; são incluídos na seção &lt;title&gt; do documento HTML, geralmente antes do título da página (definido pela tag &lt;title &gt;). Eles não são visíveis para os usuários, mas fornecem informações importantes para os navegadores e outros agentes que processam o documento.
+
+<br>
+  <!--Tab to edit-->
+</br>
+
+1. Atributo `viewport`: O atributo `viewport` é usado para controlar a exibição e o dimensionamento da página em dispositivos móveis. Ele define as dimensões visíveis da página e o nível de zoom inicial. O valor típico é `width=device-width, initial-scale=1.0`.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</div>
+
+2. Atributo `robots`: O atributo `robots` é usado para instruir os mecanismos de busca sobre como indexar e rastrear o conteúdo da página. Ele pode ser usado para permitir ou bloquear o acesso de mecanismos de busca, definir a indexação ou seguir os links na página.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta name="robots" content="index,follow">
+</div>
+3. Atributo `og` (Open Graph): O atributo `og` é usado para fornecer metadados que são usados quando um link para a página é compartilhado em redes sociais, como Facebook, Twitter e LinkedIn. Esses metadados incluem título, descrição, imagem, tipo de conteúdo, entre outros.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta property="og:title" content="Título da Página">
+<meta property="og:description" content="Descrição da Página">
+<meta property="og:image" content="caminho/para/imagem.jpg">
+</div>
+
+4. Atributo `twitter` (Twitter Card): O atributo `twitter` é usado para fornecer metadados específicos do Twitter quando um link para a página é compartilhado nessa plataforma. Isso inclui título, descrição, imagem, tipo de cartão, entre outros.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta name="twitter:title" content="Título da Página">
+<meta name="twitter:description" content="Descrição da Página">
+<meta name="twitter:image" content="caminho/para/imagem.jpg">
+</div>
+5. Atributo `theme-color`: O atributo `theme-color` é usado para definir a cor de tema predominante da página no navegador móvel. Essa cor pode ser exibida na barra de endereço ou em outros elementos da interface do usuário.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta name="theme-color" content="#ff0000">
+</div>
+
+6. Atributo `referrer`: O atributo `referrer` especifica as informações de referência que são enviadas quando um usuário navega para outra página a partir do link na página atual. Ele controla a quantidade de informações de referência (como URL da página atual) que são enviadas para o servidor da página de destino.
+
+ <div class="code-editor-container">
+   <textarea id="vup-input" class="code-input">
+<meta name="referrer" content="no-referrer">
+</div>
+
+Esses são apenas alguns exemplos dos atributos que podem ser usados com a tag &lt; meta &gt; Existem outros atributos e diretrizes disponíveis para atender a diferentes necessidades e finalidades.
+
+Lembre-se de que a escolha e o uso adequado dos atributos `&lt;meta&gt;` dependem das necessidades e dos requisitos específicos do seu projeto. É sempre recomendado consultar a documentação relevante e seguir as melhores práticas para obter os resultados desejados.
+
+
+
+
+    </p>
+    
+    
+    
+    
+    
+
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+  
+    <section class="hidden">
+    <h2>Aula 8</h2>
+    <p>Rótulos</p>
+    
+    
+    
+    
+    
+                   <div class="code-editor-container">
+                 <textarea id="vp-input" class="code-input">
+
+
+
+                            </textarea>
+                            <button onclick="runCode('vp')" class="run-button">Click aqui para Executar</button>
+                            <iframe id="vp-output" class="output-frame"></iframe>
+                            </div>
+              
+              
+              
+    <button class="anterior">Aula Anterior</button>
+    <button class="proximo">Próxima Aula</button>
+  </section> 
+ 
+  <section class="hidden">
+      <h2>Aula 8</h2>
+      <p>Rótulos</p>
+      <button class="anterior">Aula Anterior</button>
+      <button class="proximo">Próxima Aula</button>
+    </section>  
+    
+    
+    
+    
+    
+    
+    <section class="hidden">
+        <h2>Aula 8</h2>
+        <p>Rótulos</p>
+        <button class="anterior">Aula Anterior</button>
+        <button class="proximo">Próxima Aula</button>
+      </section>  
+      
+      
+      
+      
+      
+
+
+<section class="hidden">
+          <h2>Aula 8</h2>
+          <p>Rótulos</p>
+          <button class="anterior">Aula Anterior</button>
+          <button class="proximo">Próxima Aula</button>
+        </section> 
+        
+        
+        
+        
+        <section class="hidden">
+            <h2>Aula 8</h2>
+            <p>Rótulos</p>
+            <button class="anterior">Aula Anterior</button>
+            <button class="proximo">Próxima Aula</button>
+          </section>
+    
+    
+    
+    
+    
+    
+    
+    <!-- Adicione as 100 seções para as aulas -->
+  </main>
+  <script src="Script.js"></script>
+</body>
+</html>
