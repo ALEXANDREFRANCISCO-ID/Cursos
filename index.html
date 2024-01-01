@@ -1,90 +1,31 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Certificado</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
-</head>
-<body>
-  <!--Tab to edit-->
-  <script>
-  
-  
-  // Criar um novo documento jspdf
-  const doc = new jsPDF('landscape');
-  
-  // Definir as configurações do risco retangular
-  const rectColor = 'orange';
-  const rectWidth = 20;
-  const innerRectWidth = 5;
-  
-  // Definir a posição inicial do certificado
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const pageHeight = doc.internal.pageSize.getHeight();
-  const centerX = pageWidth / 2;
-  const centerY = pageHeight / 2;
-  
-  // Desenhar o risco retangular externo
-  doc.setLineWidth(rectWidth);
-  doc.setDrawColor(rectColor);
-  doc.rect(centerX - 100, centerY - 50, 200, 100);
-  
-  // Desenhar o risco retangular interno
-  doc.setLineWidth(innerRectWidth);
-  doc.rect(centerX - 95, centerY - 45, 190, 90);
-  
-  // Adicionar o logo
-  const logoImage = new Image();
-  logoImage.src = 'icon.png';
-  logoImage.onload = function() {
-    const logoWidth = 80;
-    const logoHeight = (logoImage.height * logoWidth) / logoImage.width;
-    const logoX = centerX - (logoWidth / 2);
-    const logoY = centerY - (logoHeight / 2);
-  
-    doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
-  
-    // Adicionar o texto "Certificamos que"
-    doc.setFontSize(24);
-    doc.text('Certificamos que', centerX, centerY - 30, { align: 'center' });
-  
-    // Adicionar o nome
-    const nome = 'Nome do Aluno';
-    doc.setFontSize(36);
-    doc.text(nome, centerX, centerY + 20, { align: 'center' });
-  
-    // Adicionar o texto da descrição do curso
-    const descricaoCurso ='concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
-    doc.setFontSize(18);
-    doc.text(descricaoCurso, centerX, centerY + 80, { align: 'center', maxWidth: 500 });
-  
-    // Adicionar as assinaturas
-    const assinaturaEsquerda = new Image();
-    assinaturaEsquerda.src = "icon.png";
-    assinaturaEsquerda.onload = function() {
-      const assinaturaWidth = 100;
-      const assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
-      const assinaturaX = centerX - 200;
-      const assinaturaY = centerY + 120;
-  
-      doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
-      doc.setFontSize(12);
-      doc.text("Alexandre Francisco", assinaturaX, assinaturaY + assinaturaHeight + 15, { align: 'center' });
-  
-      const assinaturaDireita = new Image();
-      assinaturaDireita.src = "icon.png" ;
-      assinaturaDireita.onload = function() {
-        doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 200, assinaturaY, assinaturaWidth, assinaturaHeight);
-        doc.setFontSize(12);
-        doc.text("Carlota Lassir Nage", assinaturaX + 200, assinaturaY + assinaturaHeight + 15, { align: 'center' });
-  
-        // Salvar o certificado como PDF
-        doc.save('certificado.pdf');
-      };
+<script>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Certificado</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+  </head>
+  <body>
+    <!--Tab to edit-->
+    <script>
+    
+    
+    // Criar um novo documento pdfmake
+    const docDefinition = {
+      content: [
+        { text: 'Certificamos que', fontSize: 24, alignment: 'center', margin: [0, 0, 0, 30] },
+        { text: 'Nome do Aluno', fontSize: 36, alignment: 'center', margin: [0, 0, 0, 30] },
+        { text: 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online', fontSize: 18, alignment: 'center', margin: [0, 0, 0, 30] },
+        { text: 'Alexandre Francisco', fontSize: 12, alignment: 'center', margin: [0, 0, 0, 30] },
+        { text: 'Carlota Lassir Nage', fontSize: 12, alignment: 'center' }
+      ]
     };
-  };
-   
-  </script>
-</body>
-</html>
+    
+    // Gerar o certificado como PDF
+    pdfMake.createPdf(docDefinition).download('certificado.pdf');
+     
+    </script>
+  </body>
+  </html>
+</script>
