@@ -78,7 +78,7 @@ document.getElementById("registroForm").addEventListener("submit", function(e) {
   
     localStorage.setItem("usuario", JSON.stringify(usuario));
   
-    window.location.href = "pagina.html";
+    window.location.href = "html.html";
 });
 
 
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var usuario = JSON.parse(localStorage.getItem("usuario"));
   
     if (!usuario) {
-        window.location.href = "index.html";
+        window.location.href = "cadastro.html";
     }
   
     // Restante do seu código para a página de destino...
