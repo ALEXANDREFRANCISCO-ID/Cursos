@@ -1,110 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Exemplo de uso do PDFmake</title>
-    <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.68/build/pdfmake.min.js"></script
-  </head>
-  <body>
-  <script>
-    <!--Tab to edit-->
-    <script>
-    
-    
-    const pdfMake = require('pdfmake');
+<head>
+  <title>Cadastro</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Cadastro</h1>
+  
+  <form id="cadastroForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome">
 
-// Definir o conteúdo do certificado
-const certificateContent = [
-  {
-    text: 'Certificado de Conclusão',
-    fontSize: 20,
-    alignment: 'center',
-    margin: [0, 0, 0, 20]
-  },
-  {
-    text: 'Certificamos que',
-    fontSize: 16,
-    alignment: 'center',
-    margin: [0, 0, 0, 10]
-  },
-  {
-    text: 'Nome do Aluno',
-    fontSize: 18,
-    alignment: 'center',
-    bold: true,
-    margin: [0, 0, 0, 30]
-  },
-  {
-    text: 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido de 03 de Janeiro a 4 de Março online.',
-    fontSize: 14,
-    alignment: 'left',
-    margin: [0, 0, 0, 30]
-  },
-  {
-    columns: [
-      {
-        width: '50%',
-        text: 'Alexandre Francisco\nTutor CodeATOES',
-        fontSize: 12,
-        alignment: 'center'
-      },
-      {
-        width: '50%',
-        text: 'Carlota Lassir Nage\nDiretora Adjunta CodeATOES',
-        fontSize: 12,
-        alignment: 'center'
-      }
-    ]
-  }
-];
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
 
-// Definir o layout do certificado
-const certificateLayout = {
-  defaultStyle: {
-    fontSize: 12,
-    margin: [0, 5, 0, 5]
-  },
-  pageMargins: [40, 40, 40, 40],
-  background: function (currentPage) {
-    const pageWidth = 595.28;
-    const pageHeight = 841.89;
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha">
 
-    return {
-      canvas: [
-        {
-          type: 'rect',
-          x: (pageWidth - 20) / 2,
-          y: (pageHeight - 100) / 2,
-          w: 20,
-          h: 100,
-          color: '#FFA500',
-          opacity: 0.5
-        },
-        {
-          type: 'rect',
-          x: (pageWidth - 20) / 2 + 5,
-          y: (pageHeight - 100) / 2 + 5,
-          w: 10,
-          h: 90,
-          color: '#000000',
-          opacity: 0.5
-        }
-      ]
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script">
+  document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita o envio do formulário
+
+  var nome = document.getElementById('nome').value;
+  var email = document.getElementById('email').value;
+  var senha = document.getElementById('senha').value;
+
+  // Verifica se os campos foram preenchidos
+  if (nome && email && senha) {
+    // Cria o objeto de usuário
+    var usuario = {
+      nome: nome,
+      email: email,
+      senha: senha
     };
+
+    // Salva o objeto de usuário no armazenamento local
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+
+    // Redireciona para a próxima página
+    window.location.href = 'proxima_pagina.html';
+  } else {
+    alert('Por favor, preencha todos os campos.');
   }
-};
+});
 
-// Gerar o certificado em PDF
-const docDefinition = {
-  content: certificateContent,
-  ...certificateLayout
-};
-
-const printer = new pdfMake();
-const pdfDoc = printer.createPdfKitDocument(docDefinition);
-
-pdfDoc.pipe(fs.createWriteStream('certificado.pdf'));
-pdfDoc.end();
-    </script>
-  </body>
-  </html>
-</script>
+  
+  </script>
+</body>
+</html>
