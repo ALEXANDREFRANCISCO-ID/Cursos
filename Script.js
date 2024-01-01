@@ -60,3 +60,34 @@ document.querySelectorAll('button.proximo').forEach(button => {
     window.scrollTo(0, 0);
   });
 });
+
+
+
+document.getElementById("registroForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+  
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+  
+    var usuario = {
+        nome: nome,
+        email: email,
+        senha: senha
+    };
+  
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+  
+    window.location.href = "pagina.html";
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var usuario = JSON.parse(localStorage.getItem("usuario"));
+  
+    if (!usuario) {
+        window.location.href = "index.html";
+    }
+  
+    // Restante do seu código para a página de destino...
+});
