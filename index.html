@@ -1,18 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Página de Cadastro</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Cadastro e Pagamento</title>
+   <style>
+       body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#register-form, #payment-form, #success-message, #error-message {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input, button {
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px 10px;
+}
+
+#success-message, #error-message {
+    color: white;
+    background-color: #27ae60;
+    padding: 10px;
+}
+
+#error-message {
+    background-color: #c0392b;
+}
+
+   </style>
 </head>
 <body>
-    <h1>Página de Cadastro</h1>
-    <form id="registroForm">
-        <input type="text" id="nome" placeholder="Nome" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="senha" placeholder="Senha" required>
-        <button type="submit">Registrar</button>
-    </form>
-    
-    <script src="Script.js"></script>
+    <h1>Cadastro e Pagamento</h1>
+
+    <div id="register-form">
+        <h2>Cadastro</h2>
+        <input type="text" id="name" placeholder="Nome"><br>
+        <input type="text" id="email" placeholder="Email"><br>
+        <input type="text" id="phone" placeholder="Telefone"><br>
+        <button onclick="register()">Cadastrar</button>
+    </div>
+
+    <div id="payment-form" style="display:none;">
+        <h2>Pagamento</h2>
+        <input type="text" id="mpesa-number" placeholder="Número da conta Mpesa"><br>
+        <button onclick="processPayment()">Pagar</button>
+    </div>
+
+    <div id="success-message" style="display:none;">
+        <h2>Pagamento efetuado com sucesso!</h2>
+        <p>Você pode acessar a página agora.</p>
+    </div>
+
+    <div id="error-message" style="display:none;">
+        <h2>Falha no pagamento!</h2>
+        <p>Você precisa fazer o pagamento para acessar a página.</p>
+    </div>
+
+    <script">
+    function register() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("phone", phone);
+
+    document.getElementById("register-form").style.display = "none";
+    document.getElementById("payment-form").style.display = "block";
+}
+
+function processPayment() {
+    var mpesaNumber = document.getElementById("mpesa-number").value;
+
+    // Aqui você pode adicionar a lógica de pagamento via Mpesa
+// Importar o módulo 'request' para fazer requisições HTTP
+const request = require('request');
+
+// URL da API de pagamento M-pesa
+const apiUrl = 'https://api.m-pesa.com/payment';
+
+// Dados do pagamento
+const amount = 100; // Valor do pagamento
+const phoneNumber = '849431020'; // Número de telefone do cliente
+
+// Gerar um número de transação único
+const transactionId = Math.floor(Math.random() * 1000000000);
+
+// Construir o payload da requisição
+const payload = {
+  amount: amount,
+  phoneNumber: phoneNumber,
+  transactionId: transactionId
+};
+
+// Enviar a requisição para a API de pagamento
+request.post(apiUrl, { json: payload }, (error, response, body) => {
+  if (error) {
+    console.error('Erro ao realizar o pagamento:', error);
+  } else if (response.statusCode !== 200) {
+    console.error('Falha na requisição:', response.statusCode, body);
+  } else {
+    console.log('Pagamento realizado com sucesso:', body);
+  }
+});
+
+    var paid = true; // Altere para false para testar a lógica de não pagamento
+
+    if (paid) {
+        document.getElementById("payment-form").style.display = "none";
+        document.getElementById("success-message").style.display = "block";
+        document.getElementById("error-message").style.display = "none";
+    } else {
+        document.getElementById("payment-form").style.display = "none";
+        document.getElementById("success-message").style.display = "none";
+        document.getElementById("error-message").style.display = "block";
+    }
+}
+
+var name = localStorage.getItem("name");
+var email = localStorage.getItem("email");
+var phone = localStorage.getItem("phone");
+
+if (name && email && phone) {
+    document.getElementById("register-form").style.display = "none";
+    document.getElementById("payment-form").style.display = "block";
+}
+
+    </script>
 </body>
 </html>
