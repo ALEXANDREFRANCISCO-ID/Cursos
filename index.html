@@ -9,8 +9,7 @@
 <body>
   <!--Tab to edit-->
   <script>
-  // Importar a biblioteca jspdf
-  import jsPDF from 'jspdf';
+  
   
   // Criar um novo documento jspdf
   const doc = new jsPDF('landscape');
@@ -56,13 +55,13 @@
     doc.text(nome, centerX, centerY + 20, { align: 'center' });
   
     // Adicionar o texto da descrição do curso
-    const descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
+    const descricaoCurso ='concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
     doc.setFontSize(18);
     doc.text(descricaoCurso, centerX, centerY + 80, { align: 'center', maxWidth: 500 });
   
     // Adicionar as assinaturas
     const assinaturaEsquerda = new Image();
-    assinaturaEsquerda.src = 'icon'.png';
+    assinaturaEsquerda.src = "icon.png";
     assinaturaEsquerda.onload = function() {
       const assinaturaWidth = 100;
       const assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
@@ -74,7 +73,7 @@
       doc.text("Alexandre Francisco", assinaturaX, assinaturaY + assinaturaHeight + 15, { align: 'center' });
   
       const assinaturaDireita = new Image();
-      assinaturaDireita.src = 'icon.png';
+      assinaturaDireita.src = "icon.png" ;
       assinaturaDireita.onload = function() {
         doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 200, assinaturaY, assinaturaWidth, assinaturaHeight);
         doc.setFontSize(12);
