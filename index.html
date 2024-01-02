@@ -1,96 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exemplo jspdf</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Certificado</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-
-  <meta charset="UTF-8">
-  
-  <title>Certifique-se </title>
 </head>
-
 <body>
-    
-
 <script>
+    function gerarCertificado() {
+        var doc = new jsPDF();
+        
+        // Título
+        doc.setFontSize(20);
+        doc.text("Certificado de Conclusão", 105, 30, null, null, 'center');
+        
+        // Risco retangular
+        doc.setFillColor("orange");
+        doc.rect(45, 40, 120, 10, "F");
+        
+        // Conteúdo centralizado
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Certificamos que", 105, 55, null, null, 'center');
+        doc.text("João da Silva", 105, 65, null, null, 'center');
+        doc.setFont("helvetica", "normal");
+        doc.text("concluiu com sucesso o curso em programação, ministrado pelo CodeATOES,", 105, 75, null, null, 'center');
+        doc.text("no âmbito do projeto Programador Moçambicano e de atividade de inclusão", 105, 82, null, null, 'center');
+        doc.text("pela tecnologia, decorrido de 03 de Janeiro a 4 de Março online.", 105, 89, null, null, 'center');
+        
+        // Logos de assinatura
+        var tutorImage = new Image();
+        tutorImage.src = 'path/to/tutor_signature.png';
+        var diretoraImage = new Image();
+        diretoraImage.src = 'path/to/director_signature.png';
+        
+        doc.addImage(tutorImage, 'PNG', 30, 100, 50, 20);
+        doc.text("Alexandre Francisco", 30, 130, null, null, 'center');
+        doc.text("Tutor CodeATOES", 30, 137, null, null, 'center');
 
-
-// Criar instância do jsPDF
-var doc = new jsPDF('landscape');
-
-// Desenhar o retângulo laranja
-doc.setFillColor(255, 165, 0);
-doc.rect(10, 10, doc.internal.pageSize.getWidth() - 20, 10, 'F');
-
-// Adicionar logo png
-var imgData = 'icon.png';
-
-// Configurações para centralizar o conteúdo
-var pageWidth = doc.internal.pageSize.getWidth();
-var pageHeight = doc.internal.pageSize.getHeight();
-var textWidth = pageWidth - 50;
-var startX = (pageWidth - textWidth) / 2;
-var startY = (pageHeight - 25) / 2;
-
-// Adicionar título "Certificado de Conclusão"
-doc.setFontSize(20);
-doc.setFontStyle("bold");
-doc.text("Certificado de Conclusão", startX, startY);
-
-// Adicionar linha "Certificamos que [nome] concluiu com sucesso..."
-doc.setFontSize(14);
-doc.setFontStyle("normal");
-var nome = "João Silva";
-var curso = "programação";
-var duracao = "3 meses";
-var projeto = "programador Moçambicano";
-var datas = "15 a 30 de Novembro";
-var text = "Certificamos que " + nome + " concluiu com sucesso o curso em " + curso + ", ministrado pelo CodeATOES, no âmbito do projeto " + projeto + " e de atividade de inclusão pela tecnologia, decorrido aos dias " + datas + " online.";
-doc.text(text, startX, startY + 25);
-
-// Adicionar assinaturas e logos
-var logo1 = 'icon.png';
-var assinatura1 = "Alexandre Francisco tutor CodeATOES";
-var logo2 = 'path_to_logo2.png';
-var assinatura2 = "Carlota Lassir Nage Directora Adjunta CodeATOES";
-
-// Adicionar imagens e texto das assinaturas
-doc.addImage(logo1, startX, pageHeight - 40, 40, 40);
-doc.text(assinatura1, startX, pageHeight - 30, { align: "center" });
-
-doc.addImage(logo2, pageWidth - 50, pageHeight - 40, 40, 40);
-doc.text(assinatura2, pageWidth - textWidth, pageHeight - 30, { align: "center" });
-
-// Adicionar botão para baixar certificado
-if (nome == "João Silva") {
-  // Se o nome estiver na lista de estudantes
-  doc.setFontSize(16);
-  doc.setTextColor(0, 0, 255);
-
-  var downloadButton = "<button onclick='downloadCertificate()'>Baixar Certificado</button>";
-  doc.fromHTML(
-    "<div id='downloadButtonDiv'>" + downloadButton + "</div>",
-    startX,
-    startY + 100,
-    { align: "center" },
-    function () {
-      var downloadButtonDiv = document.getElementById("downloadButtonDiv");
-      downloadButtonDiv.style.display = "none";
-      doc.save('certificado.pdf');
+        doc.addImage(diretoraImage, 'PNG', 130, 100, 50, 20);
+        doc.text("Carlota Lassir Nage", 130, 130, null, null, 'center');
+        doc.text("Diretora Adjunta CodeATOES", 130, 137, null, null, 'center');
+        
+        doc.save("certificado.pdf");
     }
-  );
-}
-
-// Função chamada quando o botão é clicado
-function downloadCertificate() {
-  alert('Certificado baixado com sucesso!');
-}
-
-// Salvar o documento como PDF
-doc.save('certificado.pdf');
-
-
-    </script>
+</script>
+<form>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+    <label for="curso">Curso:</label>
+    <input type="text" id="curso" name="curso" required><br><br>
+    <label for="duracao">Duração:</label>
+    <input type="text" id="duracao" name="duracao" required><br><br>
+    <button type="submit" onclick="gerarCertificado()">Baixar Certificado</button>
+</form>
 </body>
 </html>
