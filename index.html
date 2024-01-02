@@ -8,86 +8,45 @@
 
 <body>
 <script>
-// Criar um novo documento jspdf
-var doc = new jsPDF('l', 'pt', 'a4');
 
-// Definir as configurações do risco retangular
-var rectColor = 'orange';
-var rectWidth = 20;
-var rectMargin=10;
-var innerRectWidth = 5;
+// Criar um novo documento
+var doc = new jsPDF('landscape');
 
-// Definir a posição inicial do certificado
-var pageWidth = doc.internal.pageSize.getWidth();
-var pageHeight = doc.internal.pageSize.getHeight();
-var centerX = pageWidth / 2;
-var centerY = pageHeight / 2;
+// Adicionar um retângulo laranja
+doc.setFillColor(255, 165, 0);
+doc.rect(50, 100, 750, 10, 'F');
 
-// Desenhar o risco retangular externo
-doc.setLineWidth(rectWidth);
-doc.setDrawColor(rectColor);
-doc.rect(centerX - 300, centerY - 200, 600, 400);
+// Adicionar texto "certificado de conclusão"
+doc.setFontSize(20);
+doc.text("Certificado de Conclusão", 375, 150, 'center');
 
+// Adicionar texto "certificamos que"
+doc.setFontSize(14);
+doc.text("Certificamos que", 375, 180, 'center');
 
+// Adicionar nome
+var nome = "Alexandre Francisco ";
+doc.text(nome, 375, 200, 'center');
 
-// Adicionar o logo
-var logoImage = new Image();
-logoImage.src = 'icon.png';
-logoImage.onload = function() {
-  var logoWidth = 200;
-  var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
-  var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 180;
+// Adicionar texto "concluiu com sucesso o curso em programacao..."
+var texto = "Concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias online";
+doc.text(texto, 375, 230, 'center');
 
-  doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
+// Adicionar assinatura à esquerda
+doc.setFontStyle('italic');
+doc.setFontType('underline');
+doc.text("Alexandre Francisco", 200, 300, 'center');
+doc.setFontStyle('normal');
+doc.text("Alexandre Francisco\nTutor CodeATOES", 200, 320, 'center');
 
-  // Adicionar o texto "Certificado de Conclusão"
-  doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 100, { align: 'center' });
+// Adicionar assinatura à direita
+doc.setFontStyle('italic');
+doc.setFontType('underline');
+doc.text("Carlota Lassir Nage", 550, 300, 'center');
+doc.setFontStyle('normal');
+doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", 550, 320, 'center');
 
-  // Adicionar o texto "Certificamos que"
-  doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 30, { align: 'center' });
-
-  // Adicionar o nome
-  var nome = 'Nome do Aluno';
-  doc.setFontSize(24);
-  doc.text(nome, centerX, centerY, { align: 'center' });
-
-  // Adicionar o texto da descrição do curso
-  var descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
-  doc.setFontSize(16);
-  doc.text(descricaoCurso, centerX, centerY + 50, { align: 'center', maxWidth: 500 });
-
-  // Adicionar as assinaturas
- // Assinaturas
-doc.setFont('cursive');
-doc.setFontSize(18);
-
-var assinaturaEsquerdaX = assinaturaX;
-var assinaturaEsquerdaY = assinaturaY + assinaturaHeight + 10;
-doc.text("Assinatura do Tutor", assinaturaEsquerdaX, assinaturaEsquerdaY, { align: 'center' });
-
-doc.setFont('normal');
-doc.setFontSize(12);
-doc.text("Alexandre Francisco", assinaturaEsquerdaX, assinaturaEsquerdaY + 20, { align: 'center' });
-doc.text("Tutor-Codeatoes", assinaturaEsquerdaX, assinaturaEsquerdaY + 40, { align: 'center' });
-
-var assinaturaDireitaX = assinaturaX + 300;
-var assinaturaDireitaY = assinaturaY + assinaturaHeight + 10;
-doc.setFont('cursive');
-doc.setFontSize(18);
-doc.text("Assinatura da Diretora Adjunta", assinaturaDireitaX, assinaturaDireitaY, { align: 'center' });
-
-doc.setFont('normal');
-doc.setFontSize(12);
-doc.text("Carlota Lassir Nage", assinaturaDireitaX, assinaturaDireitaY + 20, { align: 'center' });
-doc.text("Diretora Adjunta CodeATOES", assinaturaDireitaX, assinaturaDireitaY + 40, { align: 'center' });
-
-      // Salvar o certificado como PDF
-      doc.save('certificado.pdf');
-    };
-   
-   
+// Salvar o documento
+doc.save('certificado.pdf');
           </script>                                                                </
 </html>
