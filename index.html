@@ -16,6 +16,8 @@ var rectColor = 'orange';
 var rectWidth = 20;
 var innerRectWidth = 5;
 var Margin = 10;
+    var rectX=X+Margin ;
+    var rectY=Y+Margin ;
 // Definir a posição inicial do certificado
 var pageWidth = doc.internal.pageSize.getWidth();
 var pageHeight = doc.internal.pageSize.getHeight();
@@ -35,7 +37,7 @@ doc.rect(centerX - 295, centerY - 195, 590, 390);
 var logoImage = new Image();
 logoImage.src = 'icon.png';
 logoImage.onload = function() {
-  var logoWidth = 200;
+  var logoWidth = 100;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   var logoX = centerX - (logoWidth / 2);
   var logoY = centerY - 180;
@@ -43,12 +45,12 @@ logoImage.onload = function() {
   doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
   // Adicionar o texto "Certificado de Conclusão"
-  doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 10, { align: 'center' });
+  doc.setFontSize(35);
+  doc.text('Certificado de Conclusão', centerX, centerY - 50, { align: 'center' });
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 10, { align: 'center' });
+  doc.text('Certificamos que', centerX, centerY - 50, { align: 'center' });
 
   // Adicionar o nome
   var nome = 'Nome do Aluno';
@@ -71,7 +73,7 @@ logoImage.onload = function() {
 
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
     doc.setFontSize(14);
-    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 50, { align: 'center' });
 
     var assinaturaDireita = new Image();
     assinaturaDireita.src = 'icon.png';
@@ -81,7 +83,7 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('ceo.pdf');
+      doc.save('c.pdf');
     };
   };
 };
