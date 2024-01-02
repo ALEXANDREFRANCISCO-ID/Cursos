@@ -16,8 +16,6 @@ var rectColor = 'orange';
 var rectWidth = 20;
 var innerRectWidth = 5;
 var Margin = 10;
-    var rectX=X+Margin ;
-    var rectY=Y+Margin ;
 // Definir a posição inicial do certificado
 var pageWidth = doc.internal.pageSize.getWidth();
 var pageHeight = doc.internal.pageSize.getHeight();
@@ -63,10 +61,17 @@ logoImage.onload = function() {
   doc.text(descricaoCurso, centerX, centerY + 10, { align: 'center', maxWidth: 500 });
 
   // Adicionar as assinaturas
-  var assinaturaEsquerda = new Image();
-  assinaturaEsquerda.src = 'icon.png';
-  assinaturaEsquerda.onload = function() {
-    var assinaturaWidth = 150;
+  doc.addFont('cursiveFont.ttf', 'Cursive', 'normal');
+
+// Definir a fonte para o nome cursivo
+doc.setFont('Cursive');
+
+// Definir o tamanho da fonte e o estilo sublinhado para o nome cursivo
+doc.setFontSize(14);
+doc.setFontStyle('underline');
+
+// Adicionar o nome em letras cursivas com sublinhado
+doc.text('Alexandre Francisco', x, y);
     var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
     var assinaturaX = centerX - 10;
     var assinaturaY = centerY + 10;
