@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="pdfmake.min.js "></script>
+<<script src="vfs_fonts.js "></script>
   <title></title>
 </head>
 
@@ -120,7 +122,6 @@ const docDefinition = {
 // Gerar o certificado em PDF
 pdfMake.createPdf(docDefinition).download('certificado.pdf');
 </script>
-<script src="pdfmake.min.js"></script>
-<script src="vfs_fonts.js"></script>
+
 </body>
 </html>
