@@ -6,52 +6,67 @@
 </head>
 <body>
 <script>
-    function gerarCertificado() {
-        var doc = new jsPDF();
-        
-        // Título
-        doc.setFontSize(20);
-        doc.text("Certificado de Conclusão", 105, 30, null, null, 'center');
-        
-        // Risco retangular
-        doc.setFillColor("orange");
-        doc.rect(45, 40, 120, 10, "F");
-        
-        // Conteúdo centralizado
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "bold");
-        doc.text("Certificamos que", 105, 55, null, null, 'center');
-        doc.text("João da Silva", 105, 65, null, null, 'center');
-        doc.setFont("helvetica", "normal");
-        doc.text("concluiu com sucesso o curso em programação, ministrado pelo CodeATOES,", 105, 75, null, null, 'center');
-        doc.text("no âmbito do projeto Programador Moçambicano e de atividade de inclusão", 105, 82, null, null, 'center');
-        doc.text("pela tecnologia, decorrido de 03 de Janeiro a 4 de Março online.", 105, 89, null, null, 'center');
-        
-        // Logos de assinatura
-        var tutorImage = new Image();
-        tutorImage.src = 'path/to/tutor_signature.png';
-        var diretoraImage = new Image();
-        diretoraImage.src = 'path/to/director_signature.png';
-        
-        doc.addImage(tutorImage, 'PNG', 30, 100, 50, 20);
-        doc.text("Alexandre Francisco", 30, 130, null, null, 'center');
-        doc.text("Tutor CodeATOES", 30, 137, null, null, 'center');
+    // Criando um documento PDF
+var doc = new jsPDF('landscape');
+var x = 0;
+var y = 0;
 
-        doc.addImage(diretoraImage, 'PNG', 130, 100, 50, 20);
-        doc.text("Carlota Lassir Nage", 130, 130, null, null, 'center');
-        doc.text("Diretora Adjunta CodeATOES", 130, 137, null, null, 'center');
-        
-        doc.save("certificado.pdf");
-    }
-</script>
-<form>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required><br><br>
-    <label for="curso">Curso:</label>
-    <input type="text" id="curso" name="curso" required><br><br>
-    <label for="duracao">Duração:</label>
-    <input type="text" id="duracao" name="duracao" required><br><br>
-    <button type="submit" onclick="gerarCertificado()">Baixar Certificado</button>
-</form>
-</body>
+// Configurando a cor e largura do retângulo
+doc.setFillColor('orange');
+doc.setLineWidth(20);
+
+// Desenhando o retângulo
+doc.rect(x, y, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F');
+
+// Configurando a cor e largura do risco interno
+doc.setDrawColor('#000');
+doc.setLineWidth(5);
+
+// Desenhando o risco interno
+doc.rect(x + 10, y + 10, doc.internal.pageSize.getWidth() - 20, doc.internal.pageSize.getHeight() - 20, 'S');
+
+// Adicionando o logo
+var logo = new Image();
+logo.src = 'caminho/para/o/logo.png';
+doc.addImage(logo, 'PNG', x + 50, y + 50, 100, 100);
+
+// Adicionando o texto "Certificado de Conclusão"
+doc.setFontSize(24);
+doc.text('Certificado de Conclusão', x + 200, y + 100, { align: 'center' });
+
+// Adicionando o texto "Certificamos que"
+doc.setFontSize(18);
+doc.text('Certificamos que', x + 200, y + 150, { align: 'center' });
+
+// Adicionando o nome do aluno
+var nomeAluno = 'Alexandre Francisco ';
+doc.setFontSize(18);
+doc.text(nomeAluno, x + 200, y + 200, { align: 'center' });
+
+// Adicionando o texto do curso
+var nomeCurso = 'Curso de Programação';
+doc.setFontSize(12);
+doc.text(nomeCurso, x + 200, y + 230, { align: 'center' });
+
+// Adicionando as datas de início e término
+var dataInicio = '03 de Janeiro de 2022';
+var dataTermino = '04 de Março de 2022';
+doc.setFontSize(12);
+doc.text(`Duração: ${dataInicio} a ${dataTermino}`, x + 200, y + 260, { align: 'center' });
+
+// Adicionando as assinaturas
+var assinaturaTutor = 'Alexandre Francisco - Tutor CodeATOES';
+var assinaturaDiretora = 'Carlota Lassir Nage - Diretora Adjunta CodeATOES';
+doc.setFontSize(12);
+doc.text(assinaturaTutor, x + 100, y + 400, { align: 'left' });
+doc.text(assinaturaDiretora, x + 450, y + 400, { align: 'right' });
+
+// Adicionando o código individual
+var codigoIndividual = 'Código Individual: 12345';
+doc.setFontSize(12);
+doc.text(codigoIndividual, x + 200, y + 450, { align: 'center' });
+
+// Salvando o arquivo PDF
+doc.save('certificado.pdf');
+</script>                                                                    </
 </html>
