@@ -8,76 +8,70 @@
 
 <body>
 <script>
-function criarCertificado() {
-    // Criar o documento
-    var doc = new jsPDF("landscape", "px", "a4");
 
-    // Definir a cor do retângulo principal
-    doc.setFillColor("orange");
+// Criar um novo documento jspdf
+const doc = new jsPDF({
+  orientation: 'landscape',
+  unit: 'mm',
+  format: 'a4',
+});
 
-    // Desenhar o retângulo principal
-    doc.rect(100, 100, 800, 600, "F");
+// Definir as configurações de estilo
+const orangeColor = '#FFA500';
+const lineWidth = 20;
+const innerLineWidth = 5;
+const logoWidth = 35;
+const marginTop = 0;
+const certificateText = 'Certificado de Conclusão';
+const certificamosText = 'Certificamos que';
+const nome = 'Nome do Aluno';
+const courseText = 'concluiu com sucesso o curso em programacao, ministrado pelo CodeATOES, no ambito do projecto programador Mocambicano e de actividade de inclusao pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Marco online';
+const signature1 = 'Alexandre Francisco';
+const signature1Title = 'Tutor CodeATOES';
+const signature2 = 'Carlota Lassir Nage';
+const signature2Title = 'Directora Adjunta CodeATOES';
 
-    // Definir a cor do retângulo interno
-    doc.setFillColor("white");
+// Definir o início do conteúdo centralizado
+const contentWidth = doc.internal.pageSize.getWidth();
+const contentHeight = doc.internal.pageSize.getHeight();
+const contentStartX = (contentWidth - logoWidth) / 2;
+const contentStartY = contentHeight / 2;
 
-    // Desenhar o retângulo interno
-    doc.rect(105, 105, 790, 590, "F");
+// Desenhar os elementos do certificado
+doc.setLineWidth(lineWidth);
+doc.setDrawColor(orangeColor);
+doc.rect(contentStartX, contentStartY, logoWidth, lineWidth);
+doc.setLineWidth(innerLineWidth);
+doc.rect(contentStartX + ((lineWidth - innerLineWidth) / 2), contentStartY, innerLineWidth, lineWidth);
+doc.addImage('path/to/logo.png', 'PNG', contentStartX, contentStartY - logoWidth, logoWidth, logoWidth);
+doc.setFont('Arial', 'bold');
+doc.setFontSize(18);
+doc.text(certificateText, contentWidth / 2, contentStartY + 40, { align: 'center' });
+doc.setFont('Arial', 'normal');
+doc.setFontSize(14);
+doc.text(certificamosText, contentWidth / 2, contentStartY + 60, { align: 'center' });
+doc.text(nome, contentWidth / 2, contentStartY + 80, { align: 'center' });
+doc.setFont('Arial', 'normal');
+doc.setFontSize(12);
+doc.text(courseText, contentWidth / 2, contentStartY + 100, { align: 'center' });
+doc.setFont('Arial', 'italic');
+doc.text(signature1, 50, contentStartY + 150, { decoration: 'underline' });
+doc.setFont('Arial', 'normal');
+doc.setFontSize(12);
+doc.text(signature1, 50, contentStartY + 170);
+doc.setFont('Arial', 'normal');
+doc.setFontSize(10);
+doc.text(signature1Title, 50, contentStartY + 190);
+doc.setFont('Arial', 'italic');
+doc.text(signature2, contentWidth - 150, contentStartY + 150, { decoration: 'underline' });
+doc.setFont('Arial', 'normal');
+doc.setFontSize(12);
+doc.text(signature2, contentWidth - 150, contentStartY + 170);
+doc.setFont('Arial', 'normal');
+doc.setFontSize(10);
+doc.text(signature2Title, contentWidth - 150, contentStartY + 190);
 
-    // Adicionar o logotipo
-    var logo = new Image();
-    logo.src = "icon.png";
-    doc.addImage(logo, "PNG", 400, 150, 70, 70);
-
-    // Adicionar o texto "Certificado de Conclusão"
-    doc.setFontSize(24);
-    doc.setFontStyle("bold");
-    doc.text("Certificado de Conclusão", 400, 300, { align: "center" });
-
-    // Adicionar o texto "Certificamos que"
-    doc.setFontSize(16);
-    doc.setFontStyle("normal");
-    doc.text("Certificamos que", 400, 350, { align: "center" });
-
-    // Adicionar o nome do aluno
-    doc.setFontSize(18);
-    doc.setFontStyle("bold");
-    doc.text("Nome do Aluno", 400, 400, { align: "center" });
-
-    // Adicionar o texto de descrição
-    doc.setFontSize(12);
-    doc.setFontStyle("normal");
-    doc.text("Concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online", 200, 450, { align: "center" });
-
-    // Adicionar as assinaturas
-    doc.setFontSize(14);
-    doc.setFontStyle("italic");
-
-    // Assinatura 1
-    doc.text("Alexandre Francisco", 200, 550);
-
-    doc.setFontStyle("normal");
-    doc.setFont("Arial");
-    doc.text("Alexandre Francisco", 200, 570);
-
-    doc.setFontStyle("italic");
-    doc.text("Tutor CodeATOES", 200, 590);
-
-    // Assinatura 2
-    doc.setFontStyle("italic");
-    doc.text("Carlota Lassir Nage", 600, 550);
-
-    doc.setFontStyle("normal");
-    doc.setFont("Arial");
-    doc.text("Carlota Lassir Nage", 600, 570);
-
-    doc.setFontStyle("italic");
-    doc.text("Diretora Adjunta CodeATOES", 600, 590);
-
-    // Gerar o arquivo PDF
-    doc.save("certificado.pdf");
-}
-
-
+// Salvar o arquivo PDF
+doc.save('certificado.pdf');
        </script>                                                                </
 </html>
