@@ -10,29 +10,69 @@
     <button onclick="gerarPDF()">Gerar PDF</button>
 
     <script>
-        function gerarPDF() {
-            var doc = new jsPDF();
+        // Criando um documento PDF
+var doc = new jsPDF('landscape');
+var x = 0;
+var y = 0;
 
-            doc.setFontSize(20);
-            doc.text("Exemplo de PDF com jspdf", 10, 20);
+// Configurando a cor e largura do retângulo
+doc.setFillColor('orange');
+doc.setLineWidth(20);
 
-            doc.setFontSize(12);
-            doc.text("Este é um exemplo de como gerar um PDF usando jspdf.", 10, 30);
-            doc.text("Você pode adicionar texto, imagens, tabelas e muito mais.", 10, 40);
+// Desenhando o retângulo
+doc.rect(x, y, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F');
 
-            // Exemplo de estilo CSS inline
-            doc.setFontSize(16);
-            doc.setTextColor("#FF0000");
-            doc.text("Texto vermelho", 10, 60);
+// Configurando a cor e largura do risco interno
+doc.setDrawColor('#000');
+doc.setLineWidth(5);
 
-            // Exemplo de estilo CSS usando classes
-            doc.setFontSize(14);
-            doc.setTextColor("#0000FF");
-            doc.setFontStyle("italic");
-            doc.textWithLink("Texto azul itálico", 10, 70, {url: "https://www.example.com"});
+// Desenhando o risco interno
+doc.rect(x + 10, y + 10, doc.internal.pageSize.getWidth() - 20, doc.internal.pageSize.getHeight() - 20, 'S');
 
-            doc.save("exemplo.pdf");
-        }
+// Adicionando o logo
+var logo = new Image();
+logo.src = 'icon.png';
+doc.addImage(logo, 'PNG', x + 50, y + 50, 100, 100);
+
+// Adicionando o texto "Certificado de Conclusão"
+doc.setFontSize(24);
+doc.text('Certificado de Conclusão', x + 200, y + 100, { align: 'center' });
+
+// Adicionando o texto "Certificamos que"
+doc.setFontSize(18);
+doc.text('Certificamos que', x + 200, y + 150, { align: 'center' });
+
+// Adicionando o nome do aluno
+var nomeAluno = 'Alexandre Francisco ';
+doc.setFontSize(18);
+doc.text(nomeAluno, x + 200, y + 200, { align: 'center' });
+
+// Adicionando o texto do curso
+var nomeCurso = 'Curso de Programação';
+doc.setFontSize(12);
+doc.text(nomeCurso, x + 200, y + 230, { align: 'center' });
+
+// Adicionando as datas de início e término
+var dataInicio = '03 de Janeiro de 2022';
+var dataTermino = '04 de Março de 2022';
+doc.setFontSize(12);
+doc.text(`Duração: ${dataInicio} a ${dataTermino}`, x + 200, y + 260, { align: 'center' });
+
+// Adicionando as assinaturas
+var assinaturaTutor = 'Alexandre Francisco - Tutor CodeATOES';
+var assinaturaDiretora = 'Carlota Lassir Nage - Diretora Adjunta CodeATOES';
+doc.setFontSize(12);
+doc.text(assinaturaTutor, x + 100, y + 400, { align: 'left' });
+doc.text(assinaturaDiretora, x + 450, y + 400, { align: 'right' });
+
+// Adicionando o código individual
+var codigoIndividual = 'Código Individual: 12345';
+doc.setFontSize(12);
+doc.text(codigoIndividual, x + 200, y + 450, { align: 'center' });
+
+// Salvando o arquivo PDF
+doc.save('certificado.pdf');
+
     </script>
 </body>
 </html>
