@@ -15,6 +15,7 @@ var doc = new jsPDF('l', 'pt', 'a4');
 var rectColor = 'orange';
 var rectWidth = 20;
 var rectMargin=10;
+var rectPadding=10;
 var innerRectWidth = 5;
 
 // Definir a posição inicial do certificado
@@ -75,7 +76,7 @@ logoImage.onload = function() {
     var assinaturaDireita = new Image();
     assinaturaDireita.src = 'icon.png';
     assinaturaDireita.onload = function() {
-      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 300, assinaturaY, assinaturaWidth, assinaturaHeight);
+      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 200, assinaturaY, assinaturaWidth, assinaturaHeight);
       doc.setFontSize(14);
       doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
