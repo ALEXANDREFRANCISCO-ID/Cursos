@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>Exemplo jspdf</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 <body>
-    <h1>Exemplo jspdf</h1>
+    <input type="text" id="tt">;
 
     <button onclick="gerarPDF()">Gerar PDF</button>
 
@@ -42,17 +43,12 @@ const centerY = pageHeight / 2;
 // Desenhar o risco retangular externo
 doc.setLineWidth(rectWidth);
 doc.setDrawColor(rectColor);
-doc.rect(centerX - 300, centerY - 200, 600, 400);
-
-// Desenhar o risco retangular interno
-doc.setLineWidth(innerRectWidth);
-doc.rect(centerX - 295, centerY - 195, 590, 390);
-
+doc.rect(centerX - 300, centerY - 200, 600, 400;
 // Adicionar o logo
 const logoImage = new Image();
 logoImage.src = 'icon.png';
 logoImage.onload = function() {
-  const logoWidth = 200;
+  const logoWidth = 90;
   const logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   const logoX = centerX - (logoWidth / 2);
   const logoY = centerY - 180;
@@ -68,7 +64,7 @@ logoImage.onload = function() {
   doc.text('Certificamos que', centerX, centerY - 50, { align: 'center' });
 
   // Adicionar o nome
-  const nome = 'Nome do Aluno';
+  const nome = document.getElementById("tt");
   doc.setFontSize(24);
   doc.text(nome, centerX, centerY, { align: 'center' });
 
@@ -81,7 +77,7 @@ logoImage.onload = function() {
   const assinaturaEsquerda = new Image();
   assinaturaEsquerda.src = 'icon.png';
   assinaturaEsquerda.onload = function() {
-    const assinaturaWidth = 150;
+    const assinaturaWidth = 90;
     const assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
     const assinaturaX = centerX - 250;
     const assinaturaY = centerY + 120;
@@ -106,7 +102,7 @@ logoImage.onload = function() {
 
 </body>
 </html>
-Algum problema? Posso baixar pdf? 
+
     </script>
 </body>
 </html>
