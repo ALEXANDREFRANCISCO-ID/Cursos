@@ -91,6 +91,22 @@ logoImage.onload = function() {
   };
 };
 </script>
+  <script   src="jquery-1.7.1.min.js"></script>
 
+		<script type="polyfills.umd.js"></script>
+		<script type="jspdf.umd.js"></script>
+
+		<script type="text/javascript">
+			var jsPDF = window.jspdf.jsPDF;
+			$(document).ready(function() {
+				if(jsPDF && jsPDF.version) {
+					$('#dversion').text('Version ' + jsPDF.version);
+				}
+			});
+		<script src="./examples/js/ace.js" type="text/javascript" charset="utf-8"></script>
+
+		<!-- Scripts in development mode -->
+		<script type="text/javascript" src="js/pdfobject.min.js"></script>
+		<script type="text/javascript" src="editor.js"></script>
 </body>
 </html>
