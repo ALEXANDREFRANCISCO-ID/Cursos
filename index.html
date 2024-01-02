@@ -8,73 +8,87 @@
 
 <body>
 <script>
-// Criar um novo documento jspdf
-var doc = new jsPDF('l', 'pt', 'a4');
+// Criação do objeto jspdf
+var doc = new jsPDF({
+  orientation: "landscape",
+  unit: "px",
+  format: "a4",
+});
 
-// Definir as configurações do risco retangular
-var rectColor = 'orange';
-var rectWidth = 20;
-var rectMargin=10;
-var innerRectWidth = 5;
+// Definição das cores
+var laranja = "#FFA500";
 
-// Definir a posição inicial do certificado
-var pageWidth = doc.internal.pageSize.getWidth();
-var pageHeight = doc.internal.pageSize.getHeight();
-var centerX = pageWidth / 2;
-var centerY = pageHeight / 2;
+// Definição das medidas
+var larguraPagina = doc.internal.pageSize.getWidth();
+var alturaPagina = doc.internal.pageSize.getHeight();
 
-// Desenhar o risco retangular externo
-doc.setLineWidth(rectWidth);
-doc.setDrawColor(rectColor);
-doc.rect(centerX - 300, centerY - 200, 600, 400);
+// Criação do retângulo externo
+doc.setFillColor(laranja);
+doc.setDrawColor(laranja);
+doc.rect(0, 0, larguraPagina, 20, "F");
 
+// Criação do retângulo interno
+doc.setLineWidth(5);
+doc.setDrawColor("#000000");
+doc.rect(10, 5, larguraPagina - 20, 10);
 
+// Adição do logo
+var logo = new Image();
+logo.src = "icon.png";
+logo.onload = function() {
+  doc.addImage(logo, "PNG", larguraPagina / 2 - 17.5, 40, 35, 35);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(18);
+  doc.text("Certificado de Conclusão", larguraPagina / 2, 120, {
+    align: "center"
+  });
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(12);
+  doc.text("Certificamos que", larguraPagina / 2, 150, {
+    align: "center"
+  });
+  doc.setFont("arial", "bold");
+  doc.setFontSize(14);
+  doc.text("Nome", larguraPagina / 2, 180, {
+    align: "center"
+  });
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(12);
+  doc.text(
+    "concluiu com sucesso o curso em programacao, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online",
+    larguraPagina / 2,
+    210, {
+      align: "center"
+    }
+  );
 
-// Adicionar o logo
-var logoImage = new Image();
-logoImage.src = 'icon.png';
-logoImage.onload = function() {
-  var logoWidth = 200;
-  var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
-  var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 180;
+  // Adição da primeira assinatura
+  doc.setFont("helvetica", "italic");
+  doc.setFontStyle("underline");
+  doc.setFontSize(12);
+  doc.text("Alexandre Francisco", 50, alturaPagina - 50);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(12);
+  doc.text("Alexandre Francisco", 50, alturaPagina - 30);
+  doc.setFont("arial", "normal");
+  doc.setFontSize(10);
+  doc.text("Tutor CodeATOES", 50, alturaPagina - 10);
 
-  doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
+  // Adição da segunda assinatura
+  doc.setFont("helvetica", "italic");
+  doc.setFontStyle("underline");
+  doc.setFontSize(12);
+  doc.text("Carlota Lassir Nage", larguraPagina - 200, alturaPagina - 50);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(12);
+  doc.text("Carlota Lassir Nage", larguraPagina - 200, alturaPagina - 30);
+  doc.setFont("arial", "normal");
+  doc.setFontSize(10);
+  doc.text("Diretora Adjunta CodeATOES", larguraPagina - 200, alturaPagina - 10);
 
-  // Adicionar o texto "Certificado de Conclusão"
-  doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 100, { align: 'center' });
-
-  // Adicionar o texto "Certificamos que"
-  doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 30, { align: 'center' });
-
-  // Adicionar o nome
-  var nome = 'Nome do Aluno';
-  doc.setFontSize(24);
-  doc.text(nome, centerX, centerY, { align: 'center' });
-
-  // Adicionar o texto da descrição do curso
-  var descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
-  doc.setFontSize(16);
-  doc.text(descricaoCurso, centerX, centerY + 50, { align: 'center', maxWidth: 500 });
-
-// Adicionar assinatura à esquerda
-doc.setFontStyle('italic');
-doc.setFontType('underline');
-doc.text("Alexandre Francisco", 200, 300, 'center');
-doc.setFontStyle('normal');
-doc.text("Alexandre Francisco\nTutor CodeATOES", 200, 320, 'center');
-
-// Adicionar assinatura à direita
-doc.setFontStyle('italic');
-doc.setFontType('underline');
-doc.text("Carlota Lassir Nage", 550, 300, 'center');
-doc.setFontStyle('normal');
-doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", 550, 320, 'center');
-
-// Salvar o documento
-doc.save('certificado.pdf');
+  // Salvamento do certificado em PDF
+  doc.save("certificado.pdf");
+};
 
        </script>                                                                </
 </html>
