@@ -8,84 +8,76 @@
 
 <body>
 <script>
-// Criar documento PDF
-var doc = new jsPDF('landscape', 'px', 'a4');
+function criarCertificado() {
+    // Criar o documento
+    var doc = new jsPDF("landscape", "px", "a4");
 
-// Configurar cor e largura do retângulo
-doc.setFillColor('orange');
-doc.setLineWidth(20);
+    // Definir a cor do retângulo principal
+    doc.setFillColor("orange");
 
-// Desenhar retângulo com conteúdo centralizado
-var marginX = 50; // Margem esquerda
-var marginY = 50; // Margem superior
-var contentWidth = doc.internal.pageSize.getWidth() - (marginX * 2); // Largura total do conteúdo
+    // Desenhar o retângulo principal
+    doc.rect(100, 100, 800, 600, "F");
 
-doc.rect(marginX, marginY, contentWidth, 500, 'F');
+    // Definir a cor do retângulo interno
+    doc.setFillColor("white");
 
-// Configurar risco interno
-doc.setLineWidth(5);
+    // Desenhar o retângulo interno
+    doc.rect(105, 105, 790, 590, "F");
 
-// Desenhar risco interno
-var innerMarginX = marginX + 50;
-var innerMarginY = marginY + 50;
-var innerContentWidth = contentWidth - 100;
+    // Adicionar o logotipo
+    var logo = new Image();
+    logo.src = "icon.png";
+    doc.addImage(logo, "PNG", 400, 150, 70, 70);
 
-doc.rect(innerMarginX, innerMarginY, innerContentWidth, 400, 'F');
+    // Adicionar o texto "Certificado de Conclusão"
+    doc.setFontSize(24);
+    doc.setFontStyle("bold");
+    doc.text("Certificado de Conclusão", 400, 300, { align: "center" });
 
-// Adicionar logo
-var logoWidth = 35;
-var logoMarginTop = 0;
-var logoMarginLeft = (contentWidth - logoWidth) / 2;
+    // Adicionar o texto "Certificamos que"
+    doc.setFontSize(16);
+    doc.setFontStyle("normal");
+    doc.text("Certificamos que", 400, 350, { align: "center" });
 
-doc.addImage('icon.png', 'PNG', marginX + logoMarginLeft, marginY + logoMarginTop, logoWidth, logoWidth);
+    // Adicionar o nome do aluno
+    doc.setFontSize(18);
+    doc.setFontStyle("bold");
+    doc.text("Nome do Aluno", 400, 400, { align: "center" });
 
-// Adicionar texto "certificado de conclusão"
-doc.setFont('helvetica', 'bold');
-doc.setFontSize(24);
-doc.text('Certificado de Conclusão', contentWidth / 2 + marginX, marginY + 120, { align: 'center' });
+    // Adicionar o texto de descrição
+    doc.setFontSize(12);
+    doc.setFontStyle("normal");
+    doc.text("Concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online", 200, 450, { align: "center" });
 
-// Adicionar texto "certificamos que"
-doc.setFont('helvetica', 'normal');
-doc.setFontSize(18);
-doc.text('Certificamos que', contentWidth / 2 + marginX, marginY + 170, { align: 'center' });
+    // Adicionar as assinaturas
+    doc.setFontSize(14);
+    doc.setFontStyle("italic");
 
-// Adicionar nome
-doc.setFont('helvetica', 'bold');
-doc.setFontSize(18);
-doc.text('Nome do Aluno', contentWidth / 2 + marginX, marginY + 200, { align: 'center' });
+    // Assinatura 1
+    doc.text("Alexandre Francisco", 200, 550);
 
-// Adicionar texto com informações do curso
-doc.setFont('helvetica', 'normal');
-doc.setFontSize(12);
-doc.text('Concluiu com sucesso o curso em programação,', marginX + 100, marginY + 250);
-doc.text('ministrado pelo CodeATOES, no âmbito do projeto', marginX + 100, marginY + 270);
-doc.text('Programador Moçambicano e de atividade de', marginX + 100, marginY + 290);
-doc.text('inclusão pela tecnologia, decorrido dos dias 03', marginX + 100, marginY + 310);
-doc.text('de janeiro a 4 de março online.', marginX + 100, marginY + 330);
+    doc.setFontStyle("normal");
+    doc.setFont("Arial");
+    doc.text("Alexandre Francisco", 200, 570);
 
-// Adicionar assinaturas
-doc.setFont('helvetica', 'italic');
-doc.setFontSize(12);
+    doc.setFontStyle("italic");
+    doc.text("Tutor CodeATOES", 200, 590);
 
-var signatureMarginX = marginX + 100;
-var signatureMarginY = marginY + 400;
+    // Assinatura 2
+    doc.setFontStyle("italic");
+    doc.text("Carlota Lassir Nage", 600, 550);
 
-// Assinatura 1
-doc.text('Alexandre Francisco', signatureMarginX, signatureMarginY);
-doc.setFont('arial', 'normal');
-doc.setFontSize(12);
-doc.text('Alexandre Francisco', signatureMarginX, signatureMarginY + 20);
-doc.text('Tutor CodeATOES', signatureMarginX, signatureMarginY + 40);
+    doc.setFontStyle("normal");
+    doc.setFont("Arial");
+    doc.text("Carlota Lassir Nage", 600, 570);
 
-// Assinatura 2
-doc.text('Carlota Lassir Nage', signatureMarginX + 200, signatureMarginY);
-doc.setFont('arial', 'normal');
-doc.setFontSize(12);
-doc.text('Carlota Lassir Nage', signatureMarginX + 200, signatureMarginY + 20);
-doc.text('Diretora Adjunta CodeATOES', signatureMarginX + 200, signatureMarginY + 40);
+    doc.setFontStyle("italic");
+    doc.text("Diretora Adjunta CodeATOES", 600, 590);
 
-// Salvar o PDF
-doc.save('certificado.pdf');
+    // Gerar o arquivo PDF
+    doc.save("certificado.pdf");
+}
+
 
        </script>                                                                </
 </html>
