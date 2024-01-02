@@ -10,69 +10,103 @@
     <button onclick="gerarPDF()">Gerar PDF</button>
 
     <script>
-        // Criando um documento PDF
-var doc = new jsPDF('landscape');
-var x = 0;
-var y = 0;
+        <!DOCTYPE html>
+<html>
 
-// Configurando a cor e largura do retângulo
-doc.setFillColor('orange');
-doc.setLineWidth(20);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="jspdf.umd.min.js"></script>
+  <script src="babel.min.js"></script>?
+  <title>Certifique-se </title>
+</head>
 
-// Desenhando o retângulo
-doc.rect(x, y, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F');
+<body>
+<script>
 
-// Configurando a cor e largura do risco interno
-doc.setDrawColor('#000');
-doc.setLineWidth(5);
 
-// Desenhando o risco interno
-doc.rect(x + 10, y + 10, doc.internal.pageSize.getWidth() - 20, doc.internal.pageSize.getHeight() - 20, 'S');
+// Criar um novo documento jspdf
+const doc = new jsPDF('l', 'pt', 'a4');
 
-// Adicionando o logo
-var logo = new Image();
-logo.src = 'icon.png';
-doc.addImage(logo, 'PNG', x + 50, y + 50, 100, 100);
+// Definir as configurações do risco retangular
+const rectColor = 'orange';
+const rectWidth = 20;
+const innerRectWidth = 5;
 
-// Adicionando o texto "Certificado de Conclusão"
-doc.setFontSize(24);
-doc.text('Certificado de Conclusão', x + 200, y + 100, { align: 'center' });
+// Definir a posição inicial do certificado
+const pageWidth = doc.internal.pageSize.getWidth();
+const pageHeight = doc.internal.pageSize.getHeight();
+const centerX = pageWidth / 2;
+const centerY = pageHeight / 2;
 
-// Adicionando o texto "Certificamos que"
-doc.setFontSize(18);
-doc.text('Certificamos que', x + 200, y + 150, { align: 'center' });
+// Desenhar o risco retangular externo
+doc.setLineWidth(rectWidth);
+doc.setDrawColor(rectColor);
+doc.rect(centerX - 300, centerY - 200, 600, 400);
 
-// Adicionando o nome do aluno
-var nomeAluno = 'Alexandre Francisco ';
-doc.setFontSize(18);
-doc.text(nomeAluno, x + 200, y + 200, { align: 'center' });
+// Desenhar o risco retangular interno
+doc.setLineWidth(innerRectWidth);
+doc.rect(centerX - 295, centerY - 195, 590, 390);
 
-// Adicionando o texto do curso
-var nomeCurso = 'Curso de Programação';
-doc.setFontSize(12);
-doc.text(nomeCurso, x + 200, y + 230, { align: 'center' });
+// Adicionar o logo
+const logoImage = new Image();
+logoImage.src = 'icon.png';
+logoImage.onload = function() {
+  const logoWidth = 200;
+  const logoHeight = (logoImage.height * logoWidth) / logoImage.width;
+  const logoX = centerX - (logoWidth / 2);
+  const logoY = centerY - 180;
 
-// Adicionando as datas de início e término
-var dataInicio = '03 de Janeiro de 2022';
-var dataTermino = '04 de Março de 2022';
-doc.setFontSize(12);
-doc.text(`Duração: ${dataInicio} a ${dataTermino}`, x + 200, y + 260, { align: 'center' });
+  doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
-// Adicionando as assinaturas
-var assinaturaTutor = 'Alexandre Francisco - Tutor CodeATOES';
-var assinaturaDiretora = 'Carlota Lassir Nage - Diretora Adjunta CodeATOES';
-doc.setFontSize(12);
-doc.text(assinaturaTutor, x + 100, y + 400, { align: 'left' });
-doc.text(assinaturaDiretora, x + 450, y + 400, { align: 'right' });
+  // Adicionar o texto "Certificado de Conclusão"
+  doc.setFontSize(30);
+  doc.text('Certificado de Conclusão', centerX, centerY - 100, { align: 'center' });
 
-// Adicionando o código individual
-var codigoIndividual = 'Código Individual: 12345';
-doc.setFontSize(12);
-doc.text(codigoIndividual, x + 200, y + 450, { align: 'center' });
+  // Adicionar o texto "Certificamos que"
+  doc.setFontSize(20);
+  doc.text('Certificamos que', centerX, centerY - 50, { align: 'center' });
 
-// Salvando o arquivo PDF
-doc.save('certificado.pdf');
+  // Adicionar o nome
+  const nome = 'Nome do Aluno';
+  doc.setFontSize(24);
+  doc.text(nome, centerX, centerY, { align: 'center' });
 
+  // Adicionar o texto da descrição do curso
+  const descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
+  doc.setFontSize(16);
+  doc.text(descricaoCurso, centerX, centerY + 50, { align: 'center', maxWidth: 500 });
+
+  // Adicionar as assinaturas
+  const assinaturaEsquerda = new Image();
+  assinaturaEsquerda.src = 'icon.png';
+  assinaturaEsquerda.onload = function() {
+    const assinaturaWidth = 150;
+    const assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
+    const assinaturaX = centerX - 250;
+    const assinaturaY = centerY + 120;
+
+    doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
+    doc.setFontSize(14);
+    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+
+    const assinaturaDireita = new Image();
+    assinaturaDireita.src = 'icon.png';
+    assinaturaDireita.onload = function() {
+      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 300, assinaturaY, assinaturaWidth, assinaturaHeight);
+      doc.setFontSize(14);
+      doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+
+      // Salvar o certificado como PDF
+      doc.save('certificado.pdf');
+    };
+  };
+};
+</script>
+
+</body>
+</html>
+Algum problema? Posso baixar pdf? 
     </script>
 </body>
 </html>
