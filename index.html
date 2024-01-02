@@ -15,7 +15,6 @@ var doc = new jsPDF('l', 'pt', 'a4');
 var rectColor = 'orange';
 var rectWidth = 20;
 var rectMargin=10;
-var rectPadding=10;
 var innerRectWidth = 5;
 
 // Definir a posição inicial do certificado
@@ -27,7 +26,7 @@ var centerY = pageHeight / 2;
 // Desenhar o risco retangular externo
 doc.setLineWidth(rectWidth);
 doc.setDrawColor(rectColor);
-doc.rect(centerX - 200, centerY - 100, 500, 300);
+doc.rect(centerX - 300, centerY - 200, 600, 400);
 
 
 
@@ -61,33 +60,32 @@ logoImage.onload = function() {
   doc.text(descricaoCurso, centerX, centerY + 50, { align: 'center', maxWidth: 500 });
 
   // Adicionar as assinaturas
-  var assinaturaEsquerda = new Image();
-  assinaturaEsquerda.src = 'icon.png';
-  assinaturaEsquerda.onload = function() {
-    var assinaturaWidth = 150;
-    var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
-    var assinaturaX = centerX - 250;
-    var assinaturaY = centerY + 120;
+ // Assinaturas
+doc.setFont('cursive');
+doc.setFontSize(18);
 
-    doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
-    doc.setFontSize(14);
-    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+var assinaturaEsquerdaX = assinaturaX;
+var assinaturaEsquerdaY = assinaturaY + assinaturaHeight + 10;
+doc.text("Assinatura do Tutor", assinaturaEsquerdaX, assinaturaEsquerdaY, { align: 'center' });
 
-    // Importar a fonte cursiva
-doc.addFont('cursiveFont.ttf', 'Cursive', 'normal');
+doc.setFont('normal');
+doc.setFontSize(12);
+doc.text("Alexandre Francisco", assinaturaEsquerdaX, assinaturaEsquerdaY + 20, { align: 'center' });
+doc.text("Tutor-Codeatoes", assinaturaEsquerdaX, assinaturaEsquerdaY + 40, { align: 'center' });
 
-// Definir a fonte para o nome cursivo
-doc.setFont('Cursive');
+var assinaturaDireitaX = assinaturaX + 300;
+var assinaturaDireitaY = assinaturaY + assinaturaHeight + 10;
+doc.setFont('cursive');
+doc.setFontSize(18);
+doc.text("Assinatura da Diretora Adjunta", assinaturaDireitaX, assinaturaDireitaY, { align: 'center' });
 
-// Definir o tamanho da fonte e o estilo sublinhado para o nome cursivo
-doc.setFontSize(14);
-doc.setFontStyle('underline');
-
-// Adicionar o nome em letras cursivas com sublinhado
-doc.text('Alexandre Francisco', x, y);
+doc.setFont('normal');
+doc.setFontSize(12);
+doc.text("Carlota Lassir Nage", assinaturaDireitaX, assinaturaDireitaY + 20, { align: 'center' });
+doc.text("Diretora Adjunta CodeATOES", assinaturaDireitaX, assinaturaDireitaY + 40, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('co.pdf');
+      doc.save('certificado.pdf');
     };
   };
 };
