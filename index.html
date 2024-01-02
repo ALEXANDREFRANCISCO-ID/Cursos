@@ -43,7 +43,7 @@ doc.rect(rectX, rectY, rectWidth, 200, 'F');
 
 // Carregar o logo PNG
 var logoImg = new Image();
-logoImg.src = 'caminho/do/logo.png';
+logoImg.src = 'icon.png';
 
 // Definir posição e tamanho do logo
 var logoX = rectX + 20;
@@ -75,10 +75,10 @@ doc.text('concluiu com sucesso o curso em programação, ministrado pelo CodeATO
 
 // Carregar as imagens das assinaturas
 var signature1Img = new Image();
-signature1Img.src = 'caminho/da/assinatura1.png';
+signature1Img.src = 'icon.png';
 
 var signature2Img = new Image();
-signature2Img.src = 'caminho/da/assinatura2.png';
+signature2Img.src = 'icon.png';
 
 // Definir posição e tamanho das assinaturas
 var signature1X = rectX + 50;
@@ -98,7 +98,6 @@ doc.text('Carlota Lassir Nage', signature2X, signature2Y + 100, { align: 'center
 
 // Salvar o certificado em um arquivo PDF
 doc.save('certificado.pdf');
-
     </script>
 </body>
 </html>
