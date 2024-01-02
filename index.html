@@ -11,91 +11,85 @@
 </head>
 
 <body>
-    <form>
-  <label for="nome">Nome do Estudante:</label>
-  <input type="text" id="nome" name="nome">
-  
-  <label for="curso">Curso:</label>
-  <input type="text" id="curso" name="curso">
-  
-  <label for="duracao">Duração:</label>
-  <input type="text" id="duracao" name="duracao">
-  
-  <button type="button" onclick="gerarCertificado()">Baixar Certificado</button>
-</form>
+    
 
 <script>
 
 
-// Importar o jspdf e o logo png
-import jsPDF from 'jspdf';
-import logo from 'icon.png';
+// Criar instância do jsPDF
+var doc = new jsPDF('landscape');
 
-// Função para gerar o certificado
-function gerarCertificado() {
-  // Verificar se o nome está na lista de estudantes
-  const nome = document.getElementById('nome').value;
-  const listaEstudantes = ['Nome1', 'Nome2', 'Nome3']; // Lista de estudantes permitidos
-  
-  if (!listaEstudantes.includes(nome)) {
-    alert('Você não tem permissão para baixar o certificado.');
-    return;
-  }
-  
-  // Criar um novo PDF
-  const doc = new jsPDF('l', 'pt', 'a4');
-  
-  // Barras laterais
-  doc.setFillColor('orange');
-  doc.rect(0, 0, doc.internal.pageSize.getWidth(), 10, 'F');
-  doc.rect(0, 0, 10, doc.internal.pageSize.getHeight(), 'F');
-  doc.rect(doc.internal.pageSize.getWidth() - 10, 0, 10, doc.internal.pageSize.getHeight(), 'F');
-  doc.rect(0, doc.internal.pageSize.getHeight() - 10, doc.internal.pageSize.getWidth(), 10, 'F');
-  
-  // Logo
-  doc.addImage(logo, 'PNG', 50, 50, 100, 100);
-  
-  // Texto "Certificado de Conclusão"
-  doc.setFontSize(24);
-  doc.setFont('Arial', 'bold');
-  doc.text('Certificado de Conclusão', doc.internal.pageSize.getWidth() / 2, 200, { align: 'center' });
-  
-  // Texto "Certificamos que"
+// Desenhar o retângulo laranja
+doc.setFillColor(255, 165, 0);
+doc.rect(10, 10, doc.internal.pageSize.getWidth() - 20, 10, 'F');
+
+// Adicionar logo png
+var imgData = 'icon.png';
+
+// Configurações para centralizar o conteúdo
+var pageWidth = doc.internal.pageSize.getWidth();
+var pageHeight = doc.internal.pageSize.getHeight();
+var textWidth = pageWidth - 50;
+var startX = (pageWidth - textWidth) / 2;
+var startY = (pageHeight - 25) / 2;
+
+// Adicionar título "Certificado de Conclusão"
+doc.setFontSize(20);
+doc.setFontStyle("bold");
+doc.text("Certificado de Conclusão", startX, startY);
+
+// Adicionar linha "Certificamos que [nome] concluiu com sucesso..."
+doc.setFontSize(14);
+doc.setFontStyle("normal");
+var nome = "João Silva";
+var curso = "programação";
+var duracao = "3 meses";
+var projeto = "programador Moçambicano";
+var datas = "15 a 30 de Novembro";
+var text = "Certificamos que " + nome + " concluiu com sucesso o curso em " + curso + ", ministrado pelo CodeATOES, no âmbito do projeto " + projeto + " e de atividade de inclusão pela tecnologia, decorrido aos dias " + datas + " online.";
+doc.text(text, startX, startY + 25);
+
+// Adicionar assinaturas e logos
+var logo1 = 'icon.png';
+var assinatura1 = "Alexandre Francisco tutor CodeATOES";
+var logo2 = 'path_to_logo2.png';
+var assinatura2 = "Carlota Lassir Nage Directora Adjunta CodeATOES";
+
+// Adicionar imagens e texto das assinaturas
+doc.addImage(logo1, startX, pageHeight - 40, 40, 40);
+doc.text(assinatura1, startX, pageHeight - 30, { align: "center" });
+
+doc.addImage(logo2, pageWidth - 50, pageHeight - 40, 40, 40);
+doc.text(assinatura2, pageWidth - textWidth, pageHeight - 30, { align: "center" });
+
+// Adicionar botão para baixar certificado
+if (nome == "João Silva") {
+  // Se o nome estiver na lista de estudantes
   doc.setFontSize(16);
-  doc.setFont('Arial', 'normal');
-  doc.text('Certificamos que', doc.internal.pageSize.getWidth() / 2, 250, { align: 'center' });
-  
-  // Nome do estudante
-  doc.setFontSize(16);
-  doc.setFont('Arial', 'bold');
-  doc.text(nome, doc.internal.pageSize.getWidth() / 2, 300, { align: 'center' });
-  
-  // Texto de descrição
-  const descricao = 'concluiu com sucesso o curso em programacao, ministrado pelo CodeATOES, no ambito do projeto programador Mocambicano e de atividade de inclusao pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Marco online';
-  doc.setFontSize(14);
-  doc.setFont('Arial', 'normal');
-  doc.text(descricao, doc.internal.pageSize.getWidth() / 2, 350, { align: 'center' });
-  
-  // Assinaturas
-  // Logo e descrição do tutor
-  const tutorLogo = 'icon.png';
-  doc.addImage(tutorLogo, 'PNG', 100, 500, 50, 50);
-  doc.setFontSize(12);
-  doc.setFont('Arial', 'normal');
-  doc.text('Alexandre Francisco', 100, 570, { align: 'center' });
-  doc.text('Tutor CodeATOES', 100, 590, { align: 'center' });
-  
-  // Logo e descrição do diretor adjunto
-  const diretorLogo ='icon.png';
-  doc.addImage(diretorLogo, 'PNG', 500, 500, 50, 50);
-  doc.setFontSize(12);
-  doc.setFont('Arial', 'normal');
-  doc.text('Carlota Lassir Nage', 500, 570, { align: 'center' });
-  doc.text('Directora Adjunta CodeATOES', 500, 590, { align: 'center' });
-  
-  // Baixar o certificado
-  doc.save('certificado.pdf');
+  doc.setTextColor(0, 0, 255);
+
+  var downloadButton = "<button onclick='downloadCertificate()'>Baixar Certificado</button>";
+  doc.fromHTML(
+    "<div id='downloadButtonDiv'>" + downloadButton + "</div>",
+    startX,
+    startY + 100,
+    { align: "center" },
+    function () {
+      var downloadButtonDiv = document.getElementById("downloadButtonDiv");
+      downloadButtonDiv.style.display = "none";
+      doc.save('certificado.pdf');
+    }
+  );
 }
+
+// Função chamada quando o botão é clicado
+function downloadCertificate() {
+  alert('Certificado baixado com sucesso!');
+}
+
+// Salvar o documento como PDF
+doc.save('certificado.pdf');
+
 
     </script>
 </body>
