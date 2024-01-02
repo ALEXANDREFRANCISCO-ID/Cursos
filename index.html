@@ -8,45 +8,50 @@
 
 <body>
 <script>
+// Importar a biblioteca jspdf
+import jsPDF from 'jspdf';
 
 // Criar um novo documento
-var doc = new jsPDF('landscape');
+const doc = new jsPDF('landscape', 'px', 'a4');
 
 // Adicionar um retângulo laranja
 doc.setFillColor(255, 165, 0);
-doc.rect(50, 100, 750, 10, 'F');
+doc.rect(50, 100, 500, 10, 'F');
 
-// Adicionar texto "certificado de conclusão"
-doc.setFontSize(20);
-doc.text("Certificado de Conclusão", 375, 150, 'center');
+// Adicionar um logo centralizado
+const logo = new Image();
+logo.src = 'caminho/do/seu/logo.png';
+logo.onload = function() {
+  const width = 35;
+  const height = (logo.height * width) / logo.width;
+  const x = (doc.internal.pageSize.width - width) / 2;
+  doc.addImage(logo, 'PNG', x, 120, width, height);
+  // Adicionar texto "certificado de conclusão"
+  doc.setFontSize(20);
+  doc.text('Certificado de Conclusão', doc.internal.pageSize.width / 2, 200, { align: 'center' });
 
-// Adicionar texto "certificamos que"
-doc.setFontSize(14);
-doc.text("Certificamos que", 375, 180, 'center');
+  // Adicionar texto "Certificamos que"
+  doc.setFontSize(14);
+  doc.text('Certificamos que', doc.internal.pageSize.width / 2, 240, { align: 'center' });
 
-// Adicionar nome
-var nome = "Alexandre Francisco ";
-doc.text(nome, 375, 200, 'center');
+  // Adicionar nome
+  const nome = 'Nome do Aluno';
+  doc.text(nome, doc.internal.pageSize.width / 2, 280, { align: 'center' });
 
-// Adicionar texto "concluiu com sucesso o curso em programacao..."
-var texto = "Concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias online";
-doc.text(texto, 375, 230, 'center');
+  // Adicionar texto sobre a conclusão do curso
+  const texto = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias online';
+  doc.text(texto, doc.internal.pageSize.width / 2, 320, { align: 'center' });
 
-// Adicionar assinatura à esquerda
-doc.setFontStyle('italic');
-doc.setFontType('underline');
-doc.text("Alexandre Francisco", 200, 300, 'center');
-doc.setFontStyle('normal');
-doc.text("Alexandre Francisco\nTutor CodeATOES", 200, 320, 'center');
+  // Adicionar assinaturas
+  doc.setFontStyle('italic');
+  doc.text('Alexandre Francisco', 100, 400);
+  doc.text('Alexandre Francisco, Tutor CodeATOES', 100, 420);
 
-// Adicionar assinatura à direita
-doc.setFontStyle('italic');
-doc.setFontType('underline');
-doc.text("Carlota Lassir Nage", 550, 300, 'center');
-doc.setFontStyle('normal');
-doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", 550, 320, 'center');
+  doc.text('Carlota Lassir Nage', doc.internal.pageSize.width - 200, 400);
+  doc.text('Carlota Lassir Nage, Diretora Adjunta CodeATOES', doc.internal.pageSize.width - 200, 420);
 
-// Salvar o documento
-doc.save('certificado.pdf');
-          </script>                                                                </
+  // Salvar o documento
+  doc.save('certificado.pdf');
+};
+       </script>                                                                </
 </html>
