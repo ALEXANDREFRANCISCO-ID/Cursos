@@ -26,82 +26,78 @@
 <script>
 
 
-// Criar um novo documento jspdf
-const doc = new jsPDF('l', 'pt', 'a4');
+// Criar documento jspdf
+var doc = new jsPDF('landscape', 'px', 'a4');
 
-// Definir as configurações do risco retangular
-const rectColor = 'orange';
-const rectWidth = 20;
-const innerRectWidth = 5;
+// Definir cor e largura do retângulo
+var rectColor = '#FFA500';
+var rectWidth = 10;
 
-// Definir a posição inicial do certificado
-const pageWidth = doc.internal.pageSize.getWidth();
-const pageHeight = doc.internal.pageSize.getHeight();
-const centerX = pageWidth / 2;
-const centerY = pageHeight / 2;
+// Definir posição inicial do retângulo
+var rectX = (doc.internal.pageSize.width - rectWidth) / 2;
+var rectY = (doc.internal.pageSize.height - 200) / 2;
 
-// Desenhar o risco retangular externo
-doc.setLineWidth(rectWidth);
-doc.setDrawColor(rectColor);
-doc.rect(centerX - 300, centerY - 200, 600, 400;
-// Adicionar o logo
-const logoImage = new Image();
-logoImage.src = 'icon.png';
-logoImage.onload = function() {
-  const logoWidth = 90;
-  const logoHeight = (logoImage.height * logoWidth) / logoImage.width;
-  const logoX = centerX - (logoWidth / 2);
-  const logoY = centerY - 180;
+// Desenhar o retângulo
+doc.setFillColor(rectColor);
+doc.rect(rectX, rectY, rectWidth, 200, 'F');
 
-  doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
+// Carregar o logo PNG
+var logoImg = new Image();
+logoImg.src = 'caminho/do/logo.png';
 
-  // Adicionar o texto "Certificado de Conclusão"
-  doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 100, { align: 'center' });
+// Definir posição e tamanho do logo
+var logoX = rectX + 20;
+var logoY = rectY + 20;
+var logoWidth = 100;
 
-  // Adicionar o texto "Certificamos que"
-  doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 50, { align: 'center' });
+// Adicionar o logo ao documento
+doc.addImage(logoImg, 'PNG', logoX, logoY, logoWidth, 0);
 
-  // Adicionar o nome
-  const nome = document.getElementById("tt");
-  doc.setFontSize(24);
-  doc.text(nome, centerX, centerY, { align: 'center' });
+// Definir estilo para o texto centralizado
+doc.setFont('helvetica');
+doc.setFontType('bold');
+doc.setFontSize(24);
+doc.setTextColor('#000000');
+doc.text('CERTIFICADO DE CONCLUSÃO', rectX, rectY + 150, { align: 'center', maxWidth: rectWidth });
 
-  // Adicionar o texto da descrição do curso
-  const descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
-  doc.setFontSize(16);
-  doc.text(descricaoCurso, centerX, centerY + 50, { align: 'center', maxWidth: 500 });
+// Definir estilo para o texto abaixo do título
+doc.setFontSize(16);
+doc.text('CERTIFICAMOS QUE', rectX, rectY + 180, { align: 'center', maxWidth: rectWidth });
 
-  // Adicionar as assinaturas
-  const assinaturaEsquerda = new Image();
-  assinaturaEsquerda.src = 'icon.png';
-  assinaturaEsquerda.onload = function() {
-    const assinaturaWidth = 90;
-    const assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
-    const assinaturaX = centerX - 250;
-    const assinaturaY = centerY + 120;
+// Definir estilo para o nome
+doc.setFontType('normal');
+doc.setFontSize(18);
+doc.text('Nome do Aluno', rectX, rectY + 210, { align: 'center', maxWidth: rectWidth });
 
-    doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
-    doc.setFontSize(14);
-    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+// Definir estilo para o texto do curso
+doc.setFontSize(12);
+doc.text('concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online.', rectX, rectY + 240, { align: 'center', maxWidth: rectWidth });
 
-    const assinaturaDireita = new Image();
-    assinaturaDireita.src = 'icon.png';
-    assinaturaDireita.onload = function() {
-      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 300, assinaturaY, assinaturaWidth, assinaturaHeight);
-      doc.setFontSize(14);
-      doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+// Carregar as imagens das assinaturas
+var signature1Img = new Image();
+signature1Img.src = 'caminho/da/assinatura1.png';
 
-      // Salvar o certificado como PDF
-      doc.save('certificado.pdf');
-    };
-  };
-};
-</script>
+var signature2Img = new Image();
+signature2Img.src = 'caminho/da/assinatura2.png';
 
-</body>
-</html>
+// Definir posição e tamanho das assinaturas
+var signature1X = rectX + 50;
+var signature1Y = rectY + 280;
+var signature1Width = 100;
+
+var signature2X = rectX + rectWidth - 150;
+var signature2Y = rectY + 280;
+var signature2Width = 100;
+
+// Adicionar as assinaturas ao documento
+doc.addImage(signature1Img, 'PNG', signature1X, signature1Y, signature1Width, 0);
+doc.text('Alexandre Francisco', signature1X, signature1Y + 100, { align: 'center', maxWidth: signature1Width });
+
+doc.addImage(signature2Img, 'PNG', signature2X, signature2Y, signature2Width, 0);
+doc.text('Carlota Lassir Nage', signature2X, signature2Y + 100, { align: 'center', maxWidth: signature2Width });
+
+// Salvar o certificado em um arquivo PDF
+doc.save('certificado.pdf');
 
     </script>
 </body>
