@@ -1,141 +1,126 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Cadastro e Pagamento</title>
-   <style>
-       body {
-    font-family: Arial, sans-serif;
-}
-
-h1 {
-    text-align: center;
-}
-
-#register-form, #payment-form, #success-message, #error-message {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 50px;
-}
-
-input, button {
-    margin-top: 10px;
-}
-
-button {
-    padding: 5px 10px;
-}
-
-#success-message, #error-message {
-    color: white;
-    background-color: #27ae60;
-    padding: 10px;
-}
-
-#error-message {
-    background-color: #c0392b;
-}
-
-   </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
 </head>
+
 <body>
-    <h1>Cadastro e Pagamento</h1>
-
-    <div id="register-form">
-        <h2>Cadastro</h2>
-        <input type="text" id="name" placeholder="Nome"><br>
-        <input type="text" id="email" placeholder="Email"><br>
-        <input type="text" id="phone" placeholder="Telefone"><br>
-        <button onclick="register()">Cadastrar</button>
-    </div>
-
-    <div id="payment-form" style="display:none;">
-        <h2>Pagamento</h2>
-        <input type="text" id="mpesa-number" placeholder="Número da conta Mpesa"><br>
-        <button onclick="processPayment()">Pagar</button>
-    </div>
-
-    <div id="success-message" style="display:none;">
-        <h2>Pagamento efetuado com sucesso!</h2>
-        <p>Você pode acessar a página agora.</p>
-    </div>
-
-    <div id="error-message" style="display:none;">
-        <h2>Falha no pagamento!</h2>
-        <p>Você precisa fazer o pagamento para acessar a página.</p>
-    </div>
-
-    <script>
-    function register() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-    localStorage.setItem("phone", phone);
-
-    document.getElementById("register-form").style.display = "none";
-    document.getElementById("payment-form").style.display = "block";
-}
-
-function processPayment() {
-    var mpesaNumber = document.getElementById("mpesa-number").value;
-
-    // Aqui você pode adicionar a lógica de pagamento via Mpesa
-// Importar o módulo 'request' para fazer requisições HTTP
-const request = require('request');
-
-// URL da API de pagamento M-pesa
-const apiUrl = 'https://api.m-pesa.com/payment';
-
-// Dados do pagamento
-const amount = 100; // Valor do pagamento
-const phoneNumber = '849431020'; // Número de telefone do cliente
-
-// Gerar um número de transação único
-const transactionId = Math.floor(Math.random() * 1000000000);
-
-// Construir o payload da requisição
-const payload = {
-  amount: amount,
-  phoneNumber: phoneNumber,
-  transactionId: transactionId
+<script>
+// Defina o conteúdo do certificado
+const docDefinition = {
+  pageSize: 'A4',
+  pageOrientation: 'landscape',
+  content: [
+    {
+      canvas: [
+        {
+          type: 'rect',
+          x: 0,
+          y: 0,
+          w: 841.89,
+          h: 595.28,
+          lineWidth: 20,
+          lineColor: 'orange'
+        },
+        {
+          type: 'rect',
+          x: 10,
+          y: 10,
+          w: 821.89,
+          h: 575.28,
+          lineWidth: 5,
+          lineColor: 'orange'
+        }
+      ]
+    },
+    {
+      image: 'icon.png',
+      width: 200,
+      alignment: 'center',
+      margin: [0, 50, 0, 0]
+    },
+    {
+      text: 'Certificado de Conclusão',
+      style: 'header',
+      alignment: 'center',
+      margin: [0, 50, 0, 0]
+    },
+    {
+      text: 'Certificamos que',
+      style: 'subtitle',
+      alignment: 'center',
+      margin: [0, 50, 0, 0]
+    },
+    {
+      text: 'ALEXANDRE FRANCISCO ',
+      style: 'name',
+      alignment: 'center',
+      margin: [0, 50, 0, 0]
+    },
+    {
+      text: 'Concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online',
+      style: 'description',
+      alignment: 'center',
+      margin: [0, 50, 0, 0]
+    },
+    {
+      columns: [
+        {
+          image: 'icon.png',
+          width: 100,
+          alignment: 'center'
+        },
+        {
+          image: 'icon.png',
+          width: 100,
+          alignment: 'center'
+        }
+      ]
+    },
+    {
+      columns: [
+        {
+          text: 'Alexandre Francisco',
+          style: 'signatureText',
+          alignment: 'center'
+        },
+        {
+          text: 'Carlota Lassir Nage',
+          style: 'signatureText',
+          alignment: 'center'
+        }
+      ]
+    }
+  ],
+  styles: {
+    header: {
+      fontSize: 24,
+      bold: true
+    },
+    subtitle: {
+      fontSize: 18
+    },
+    name: {
+      fontSize: 36,
+      bold: true
+    },
+    description: {
+      fontSize: 18
+    },
+    signatureText: {
+      fontSize: 12,
+      margin: [0, 10, 0, 0]
+    }
+  }
 };
 
-// Enviar a requisição para a API de pagamento
-request.post(apiUrl, { json: payload }, (error, response, body) => {
-  if (error) {
-    console.error('Erro ao realizar o pagamento:', error);
-  } else if (response.statusCode !== 200) {
-    console.error('Falha na requisição:', response.statusCode, body);
-  } else {
-    console.log('Pagamento realizado com sucesso:', body);
-  }
-});
-
-    var paid = true; // Altere para false para testar a lógica de não pagamento
-
-    if (paid) {
-        document.getElementById("payment-form").style.display = "none";
-        document.getElementById("success-message").style.display = "block";
-        document.getElementById("error-message").style.display = "none";
-    } else {
-        document.getElementById("payment-form").style.display = "none";
-        document.getElementById("success-message").style.display = "none";
-        document.getElementById("error-message").style.display = "block";
-    }
-}
-
-var name = localStorage.getItem("name");
-var email = localStorage.getItem("email");
-var phone = localStorage.getItem("phone");
-
-if (name && email && phone) {
-    document.getElementById("register-form").style.display = "none";
-    document.getElementById("payment-form").style.display = "block";
-}
-
-    </script>
+// Gerar o certificado em PDF
+pdfMake.createPdf(docDefinition).download('certificado.pdf');
+</script>
+<script src="pdfmake.min.js"></script>
+<script src="vfs_fonts.js"></script>
 </body>
 </html>
