@@ -4,17 +4,7 @@
     <title>Exemplo jspdf</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-</head>
-<body>
-    <input type="text" id="tt">;
 
-    <button onclick="gerarPDF()">Gerar PDF</button>
-
-    <script>
-        <!DOCTYPE html>
-<html>
-
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="jspdf.umd.min.js"></script>
@@ -23,81 +13,92 @@
 </head>
 
 <body>
+    <form>
+  <label for="nome">Nome do Estudante:</label>
+  <input type="text" id="nome" name="nome">
+  
+  <label for="curso">Curso:</label>
+  <input type="text" id="curso" name="curso">
+  
+  <label for="duracao">Duração:</label>
+  <input type="text" id="duracao" name="duracao">
+  
+  <button type="button" onclick="gerarCertificado()">Baixar Certificado</button>
+</form>
+
 <script>
 
 
-// Criar documento jspdf
-var doc = new jsPDF('landscape', 'px', 'a4');
+// Importar o jspdf e o logo png
+import jsPDF from 'jspdf';
+import logo from 'icon.png';
 
-// Definir cor e largura do retângulo
-var rectColor = '#FFA500';
-var rectWidth = 10;
+// Função para gerar o certificado
+function gerarCertificado() {
+  // Verificar se o nome está na lista de estudantes
+  const nome = document.getElementById('nome').value;
+  const listaEstudantes = ['Nome1', 'Nome2', 'Nome3']; // Lista de estudantes permitidos
+  
+  if (!listaEstudantes.includes(nome)) {
+    alert('Você não tem permissão para baixar o certificado.');
+    return;
+  }
+  
+  // Criar um novo PDF
+  const doc = new jsPDF('l', 'pt', 'a4');
+  
+  // Barras laterais
+  doc.setFillColor('orange');
+  doc.rect(0, 0, doc.internal.pageSize.getWidth(), 10, 'F');
+  doc.rect(0, 0, 10, doc.internal.pageSize.getHeight(), 'F');
+  doc.rect(doc.internal.pageSize.getWidth() - 10, 0, 10, doc.internal.pageSize.getHeight(), 'F');
+  doc.rect(0, doc.internal.pageSize.getHeight() - 10, doc.internal.pageSize.getWidth(), 10, 'F');
+  
+  // Logo
+  doc.addImage(logo, 'PNG', 50, 50, 100, 100);
+  
+  // Texto "Certificado de Conclusão"
+  doc.setFontSize(24);
+  doc.setFont('Arial', 'bold');
+  doc.text('Certificado de Conclusão', doc.internal.pageSize.getWidth() / 2, 200, { align: 'center' });
+  
+  // Texto "Certificamos que"
+  doc.setFontSize(16);
+  doc.setFont('Arial', 'normal');
+  doc.text('Certificamos que', doc.internal.pageSize.getWidth() / 2, 250, { align: 'center' });
+  
+  // Nome do estudante
+  doc.setFontSize(16);
+  doc.setFont('Arial', 'bold');
+  doc.text(nome, doc.internal.pageSize.getWidth() / 2, 300, { align: 'center' });
+  
+  // Texto de descrição
+  const descricao = 'concluiu com sucesso o curso em programacao, ministrado pelo CodeATOES, no ambito do projeto programador Mocambicano e de atividade de inclusao pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Marco online';
+  doc.setFontSize(14);
+  doc.setFont('Arial', 'normal');
+  doc.text(descricao, doc.internal.pageSize.getWidth() / 2, 350, { align: 'center' });
+  
+  // Assinaturas
+  // Logo e descrição do tutor
+  const tutorLogo = 'icon.png';
+  doc.addImage(tutorLogo, 'PNG', 100, 500, 50, 50);
+  doc.setFontSize(12);
+  doc.setFont('Arial', 'normal');
+  doc.text('Alexandre Francisco', 100, 570, { align: 'center' });
+  doc.text('Tutor CodeATOES', 100, 590, { align: 'center' });
+  
+  // Logo e descrição do diretor adjunto
+  const diretorLogo ='icon.png';
+  doc.addImage(diretorLogo, 'PNG', 500, 500, 50, 50);
+  doc.setFontSize(12);
+  doc.setFont('Arial', 'normal');
+  doc.text('Carlota Lassir Nage', 500, 570, { align: 'center' });
+  doc.text('Directora Adjunta CodeATOES', 500, 590, { align: 'center' });
+  
+  // Baixar o certificado
+  doc.save('certificado.pdf');
+}
 
-// Definir posição inicial do retângulo
-var rectX = (doc.internal.pageSize.width - rectWidth) / 2;
-var rectY = (doc.internal.pageSize.height - 200) / 2;
-
-// Desenhar o retângulo
-doc.setFillColor(rectColor);
-doc.rect(rectX, rectY, rectWidth, 200, 'F');
-
-// Carregar o logo PNG
-var logoImg = new Image();
-logoImg.src = 'icon.png';
-
-// Definir posição e tamanho do logo
-var logoX = rectX + 20;
-var logoY = rectY + 20;
-var logoWidth = 100;
-
-// Adicionar o logo ao documento
-doc.addImage(logoImg, 'PNG', logoX, logoY, logoWidth, 0);
-
-// Definir estilo para o texto centralizado
-doc.setFont('helvetica');
-doc.setFontType('bold');
-doc.setFontSize(24);
-doc.setTextColor('#000000');
-doc.text('CERTIFICADO DE CONCLUSÃO', rectX, rectY + 150, { align: 'center', maxWidth: rectWidth });
-
-// Definir estilo para o texto abaixo do título
-doc.setFontSize(16);
-doc.text('CERTIFICAMOS QUE', rectX, rectY + 180, { align: 'center', maxWidth: rectWidth });
-
-// Definir estilo para o nome
-doc.setFontType('normal');
-doc.setFontSize(18);
-doc.text('Nome do Aluno', rectX, rectY + 210, { align: 'center', maxWidth: rectWidth });
-
-// Definir estilo para o texto do curso
-doc.setFontSize(12);
-doc.text('concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online.', rectX, rectY + 240, { align: 'center', maxWidth: rectWidth });
-
-// Carregar as imagens das assinaturas
-var signature1Img = new Image();
-signature1Img.src = 'icon.png';
-
-var signature2Img = new Image();
-signature2Img.src = 'icon.png';
-
-// Definir posição e tamanho das assinaturas
-var signature1X = rectX + 50;
-var signature1Y = rectY + 280;
-var signature1Width = 100;
-
-var signature2X = rectX + rectWidth - 150;
-var signature2Y = rectY + 280;
-var signature2Width = 100;
-
-// Adicionar as assinaturas ao documento
-doc.addImage(signature1Img, 'PNG', signature1X, signature1Y, signature1Width, 0);
-doc.text('Alexandre Francisco', signature1X, signature1Y + 100, { align: 'center', maxWidth: signature1Width });
-
-doc.addImage(signature2Img, 'PNG', signature2X, signature2Y, signature2Width, 0);
-doc.text('Carlota Lassir Nage', signature2X, signature2Y + 100, { align: 'center', maxWidth: signature2Width });
-
-// Salvar o certificado em um arquivo PDF
-doc.save('certificado.pdf');
     </script>
 </body>
 </html>
