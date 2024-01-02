@@ -8,88 +8,84 @@
 
 <body>
 <script>
-// Criação do objeto jspdf
-var doc = new jsPDF({
-  orientation: "landscape",
-  unit: "px",
-  format: "a4",
-});
+// Criar documento PDF
+var doc = new jsPDF('landscape', 'px', 'a4');
 
-// Definição das cores
-var laranja = "#FFA500";
+// Configurar cor e largura do retângulo
+doc.setFillColor('orange');
+doc.setLineWidth(20);
 
-// Definição das medidas
-var larguraPagina = doc.internal.pageSize.getWidth();
-var alturaPagina = doc.internal.pageSize.getHeight();
+// Desenhar retângulo com conteúdo centralizado
+var marginX = 50; // Margem esquerda
+var marginY = 50; // Margem superior
+var contentWidth = doc.internal.pageSize.getWidth() - (marginX * 2); // Largura total do conteúdo
 
+doc.rect(marginX, marginY, contentWidth, 500, 'F');
 
-    var rectColor = 'orange';
-var rectWidth = 20;
-var rectMargin=10;
-var innerRectWidth = 5;
-
-// Criação do retângulo interno
+// Configurar risco interno
 doc.setLineWidth(5);
-doc.setDrawColor("#000000");
-doc.rect(10, 5, larguraPagina - 20, 10);
 
-// Adição do logo
-var logo = new Image();
-logo.src = "icon.png";
-logo.onload = function() {
-  doc.addImage(logo, "PNG", larguraPagina / 2 - 17.5, 40, 35, 35);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text("Certificado de Conclusão", larguraPagina / 2, 120, {
-    align: "center"
-  });
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(12);
-  doc.text("Certificamos que", larguraPagina / 2, 150, {
-    align: "center"
-  });
-  doc.setFont("arial", "bold");
-  doc.setFontSize(14);
-  doc.text("Nome", larguraPagina / 2, 180, {
-    align: "center"
-  });
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(12);
-  doc.text(
-    "concluiu com sucesso o curso em programacao, /n ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia,/n decorrido aos dias 03 de Janeiro a 4 de Março online",
-    larguraPagina / 2,
-    210, {
-      align: "center"
-    }
-  );
+// Desenhar risco interno
+var innerMarginX = marginX + 50;
+var innerMarginY = marginY + 50;
+var innerContentWidth = contentWidth - 100;
 
-  // Adição da primeira assinatura
-  doc.setFont("helvetica", "italic");
-  doc.setFontStyle("underline");
-  doc.setFontSize(12);
-  doc.text("Alexandre Francisco", 50, alturaPagina - 50);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(12);
-  doc.text("Alexandre Francisco", 50, alturaPagina - 30);
-  doc.setFont("arial", "normal");
-  doc.setFontSize(10);
-  doc.text("Tutor CodeATOES", 50, alturaPagina - 10);
+doc.rect(innerMarginX, innerMarginY, innerContentWidth, 400, 'F');
 
-  // Adição da segunda assinatura
-  doc.setFont("helvetica", "italic");
-  doc.setFontStyle("underline");
-  doc.setFontSize(12);
-  doc.text("Carlota Lassir Nage", larguraPagina - 200, alturaPagina - 50);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(12);
-  doc.text("Carlota Lassir Nage", larguraPagina - 200, alturaPagina - 30);
-  doc.setFont("arial", "normal");
-  doc.setFontSize(10);
-  doc.text("Diretora Adjunta CodeATOES", larguraPagina - 200, alturaPagina - 10);
+// Adicionar logo
+var logoWidth = 35;
+var logoMarginTop = 0;
+var logoMarginLeft = (contentWidth - logoWidth) / 2;
 
-  // Salvamento do certificado em PDF
-  doc.save("certificado.pdf");
-};
+doc.addImage('logo.png', 'PNG', marginX + logoMarginLeft, marginY + logoMarginTop, logoWidth, logoWidth);
+
+// Adicionar texto "certificado de conclusão"
+doc.setFont('helvetica', 'bold');
+doc.setFontSize(24);
+doc.text('Certificado de Conclusão', contentWidth / 2 + marginX, marginY + 120, { align: 'center' });
+
+// Adicionar texto "certificamos que"
+doc.setFont('helvetica', 'normal');
+doc.setFontSize(18);
+doc.text('Certificamos que', contentWidth / 2 + marginX, marginY + 170, { align: 'center' });
+
+// Adicionar nome
+doc.setFont('helvetica', 'bold');
+doc.setFontSize(18);
+doc.text('Nome do Aluno', contentWidth / 2 + marginX, marginY + 200, { align: 'center' });
+
+// Adicionar texto com informações do curso
+doc.setFont('helvetica', 'normal');
+doc.setFontSize(12);
+doc.text('Concluiu com sucesso o curso em programação,', marginX + 100, marginY + 250);
+doc.text('ministrado pelo CodeATOES, no âmbito do projeto', marginX + 100, marginY + 270);
+doc.text('Programador Moçambicano e de atividade de', marginX + 100, marginY + 290);
+doc.text('inclusão pela tecnologia, decorrido dos dias 03', marginX + 100, marginY + 310);
+doc.text('de janeiro a 4 de março online.', marginX + 100, marginY + 330);
+
+// Adicionar assinaturas
+doc.setFont('helvetica', 'italic');
+doc.setFontSize(12);
+
+var signatureMarginX = marginX + 100;
+var signatureMarginY = marginY + 400;
+
+// Assinatura 1
+doc.text('Alexandre Francisco', signatureMarginX, signatureMarginY);
+doc.setFont('arial', 'normal');
+doc.setFontSize(12);
+doc.text('Alexandre Francisco', signatureMarginX, signatureMarginY + 20);
+doc.text('Tutor CodeATOES', signatureMarginX, signatureMarginY + 40);
+
+// Assinatura 2
+doc.text('Carlota Lassir Nage', signatureMarginX + 200, signatureMarginY);
+doc.setFont('arial', 'normal');
+doc.setFontSize(12);
+doc.text('Carlota Lassir Nage', signatureMarginX + 200, signatureMarginY + 20);
+doc.text('Diretora Adjunta CodeATOES', signatureMarginX + 200, signatureMarginY + 40);
+
+// Salvar o PDF
+doc.save('certificado.pdf');
 
        </script>                                                                </
 </html>
