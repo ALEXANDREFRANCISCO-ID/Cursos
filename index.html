@@ -22,10 +22,11 @@ var laranja = "#FFA500";
 var larguraPagina = doc.internal.pageSize.getWidth();
 var alturaPagina = doc.internal.pageSize.getHeight();
 
-// Criação do retângulo externo
-doc.setFillColor(laranja);
-doc.setDrawColor(laranja);
-doc.rect(0, 0, larguraPagina, 20, "F");
+
+    var rectColor = 'orange';
+var rectWidth = 20;
+var rectMargin=10;
+var innerRectWidth = 5;
 
 // Criação do retângulo interno
 doc.setLineWidth(5);
@@ -55,7 +56,7 @@ logo.onload = function() {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(12);
   doc.text(
-    "concluiu com sucesso o curso em programacao, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online",
+    "concluiu com sucesso o curso em programacao, /n ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia,/n decorrido aos dias 03 de Janeiro a 4 de Março online",
     larguraPagina / 2,
     210, {
       align: "center"
