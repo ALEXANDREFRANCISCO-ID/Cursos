@@ -47,13 +47,13 @@ logoImage.onload = function() {
   var logoWidth = 90;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 100;
+  var logoY = centerY - 500;
 
   doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
   // Adicionar o texto "Certificado de Conclusão"
   doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 90, { align: 'center' });
+  doc.text('Certificado de Conclusão', centerX, centerY - 400, { align: 'center' });
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
@@ -90,7 +90,7 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 250, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('cio.pdf');
+      doc.save('y.pdf');
     };
   };
 };
