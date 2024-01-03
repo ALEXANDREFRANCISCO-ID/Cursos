@@ -87,7 +87,7 @@ logoImage.onload = function() {
     assinaturaDireita.onload = function() {
       doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 300, assinaturaY, assinaturaWidth, assinaturaHeight);
       doc.setFontSize(14);
-      doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+      doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 250, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
       doc.save('cio.pdf');
