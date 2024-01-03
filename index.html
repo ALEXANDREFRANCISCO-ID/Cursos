@@ -73,7 +73,7 @@ logoImage.onload = function() {
   // Adicionar as assinaturas
   
   var assinaturaEsquerda = new Image();
-  assinaturaEsquerda.src = 'icon.png';
+  assinaturaEsquerda.src = 'assinatura.png';
   assinaturaEsquerda.onload = function() {
     var assinaturaWidth = 150;
     var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
@@ -85,7 +85,7 @@ logoImage.onload = function() {
     doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
     
     var assinaturaDireita = new Image();
-    assinaturaDireita.src = 'icon.png';
+    assinaturaDireita.src = 'assinatura_directora.png';
     assinaturaDireita.onload = function() {
       doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 310, assinaturaY, assinaturaWidth, assinaturaHeight);
       doc.setFontSize(14);
