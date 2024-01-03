@@ -5,19 +5,37 @@
     <title>Certificado</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 
-</head
-
-<body>
-<script>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Certificado</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-
 </head>
+<form id="certificadoForm">
+  <label for="nome">Nome do Aluno:</label>
+  <input type="text" id="nome" name="nome" required><br>
+
+  <label for="curso">Curso:</label>
+  <input type="text" id="curso" name="curso" required><br>
+
+  <label for="data">Data:</label>
+  <input type="date" id="data" name="data" required><br>
+
+  <button type="submit">Gerar Certificado</button>
+</form>
+
 <body>
+
 <script>
+
+document.getElementById("certificadoForm").addEventListener("submit", function(event){
+  event.preventDefault();
+  
+  var nome = document.getElementById("nome").value;
+  var curso = document.getElementById("curso").value;
+  var data = document.getElementById("data").value;
+  
+  
+  
+  
+  
+  
+  
 // Criar um novo documento jspdf
 var doc = new jsPDF('l', 'pt', 'a4');
 
@@ -61,7 +79,7 @@ logoImage.onload = function() {
   doc.text('Certificamos que', centerX, centerY - 130, { align: 'center' });
 
   // Adicionar o nome
-  var nome = 'Nome do Aluno';
+  var nome = nome;
   doc.setFontSize(24);
   doc.text(nome, centerX, centerY-30, { align: 'center' });
 
@@ -96,8 +114,8 @@ logoImage.onload = function() {
     };
   };
 };
+});
 </script>
 </body>
 </html>
                                           
-
