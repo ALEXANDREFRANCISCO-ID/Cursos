@@ -47,13 +47,13 @@ logoImage.onload = function() {
   var logoWidth = 90;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 10;
+  var logoY = centerY - 100;
 
   doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
   // Adicionar o texto "Certificado de Conclusão"
   doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 20, { align: 'center' });
+  doc.text('Certificado de Conclusão', centerX, centerY - 90, { align: 'center' });
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
