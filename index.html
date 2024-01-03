@@ -8,29 +8,23 @@
   <body>
   <script>
     
-        
-
-
-
-
-// Importar a biblioteca jsPDF
-
+    
 // Criar um novo documento
-const doc = new jsPDF('landscape');
+var doc = new jsPDF('landscape');
 
-// Adicionar o retÃ¢ngulo laranja com borda
+// Adicionar o retângulo laranja com borda
 doc.setFillColor('#FFA500');
 doc.rect(20, 20, 545, 770, 'FD');
 
-// Adicionar o logo no centro
-const logo = new Image();
-logo.src = 'icon.png';
-doc.addImage(logo, 'PNG', 297.5 - 17.5, 50, 35, 35);
+// Adicionar o logo principal no centro
+var logoPrincipal = new Image();
+logoPrincipal.src = 'icon.png';
+doc.addImage(logoPrincipal, 'PNG', 297.5 - 17.5, 50, 35, 35);
 
-// Adicionar texto "Certificado de ConclusÃ£o"
+// Adicionar texto "Certificado de Conclusão"
 doc.setFont('Arial', 'bold');
 doc.setFontSize(18);
-doc.text('Certificado de ConclusÃ£o', 297.5, 120, { align: 'center' });
+doc.text('Certificado de Conclusão', 297.5, 120, { align: 'center' });
 
 // Adicionar texto "Certificamos que"
 doc.setFont('Arial', 'normal');
@@ -38,27 +32,33 @@ doc.setFontSize(14);
 doc.text('Certificamos que', 297.5, 150, { align: 'center' });
 
 // Adicionar nome e texto do curso
-const nome = 'Seu Nome';
-const curso = 'Curso de ProgramaÃ§Ã£o';
-const textoCurso = `concluiu com sucesso o curso em programaÃ§Ã£o, ministrado pelo CodeATOES, no Ã¢mbito do projeto programador MoÃ§ambicano e de atividade de inclusÃ£o pela tecnologia, decorrido de 3 de Janeiro a 4 de MarÃ§o online.`;
-const textoFinal = `${nome} ${curso} ${textoCurso}`;
+var nome = 'Seu Nome';
+var curso = 'Curso de Programação';
+var textoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido de 3 de Janeiro a 4 de Março online.';
+var textoFinal = nome + ' ' + curso + ' ' + textoCurso;
 doc.text(textoFinal, 297.5, 180, { align: 'center' });
 
-// Adicionar assinaturas
+// Adicionar logo e texto da assinatura 1 (Alexandre Francisco)
+var logoAssinatura1 = new Image();
+logoAssinatura1.src = 'icon.png';
+doc.addImage(logoAssinatura1, 'PNG', 100, 250, 35, 35);
+
 doc.setFont('Arial', 'italic');
 doc.setFontSize(12);
-
-// Assinatura 1
 doc.text('_________________________', 100, 300);
 doc.text('Alexandre Francisco', 100, 320);
 doc.text('Tutor CodeATOES', 100, 340);
 
-// Assinatura 2
+// Adicionar logo e texto da assinatura 2 (Carlota Lassir Nage)
+var logoAssinatura2 = new Image();
+logoAssinatura2.src = 'icon.png';
+doc.addImage(logoAssinatura2, 'PNG', 400, 250, 35, 35);
+
 doc.text('_________________________', 400, 300);
 doc.text('Carlota Lassir Nage', 400, 320);
 doc.text('Diretora Adjunta CodeATOES', 400, 340);
 
-// Salvar ou exibir o documento
+// Exibir ou salvar o documento
 doc.save('certificado.pdf');
 </script>
 </body>
