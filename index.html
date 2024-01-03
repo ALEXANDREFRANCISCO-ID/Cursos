@@ -35,10 +35,10 @@ doc.rect(centerX - 295, centerY - 195, 590, 390);
 var logoImage = new Image();
 logoImage.src = 'icon.png';
 logoImage.onload = function() {
-  var logoWidth = 200;
+  var logoWidth = 90;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 180;
+  var logoY = centerY - 100;
 
   doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
