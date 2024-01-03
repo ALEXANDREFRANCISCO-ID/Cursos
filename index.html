@@ -75,7 +75,7 @@ logoImage.onload = function() {
   assinaturaEsquerda.onload = function() {
     var assinaturaWidth = 150;
     var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
-    var assinaturaX = centerX - 400;
+    var assinaturaX = centerX - 300;
     var assinaturaY = centerY + 100;
 
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
@@ -90,7 +90,7 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora-Adjunta CodeATOES", assinaturaX + 380, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('uuuuuuuo.pdf');
+      doc.save('hhuuuuuuuo.pdf');
     };
   };
 };
