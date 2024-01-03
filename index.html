@@ -93,6 +93,15 @@ logoImage.onload = function() {
     
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
     doc.setFontSize(14);
+      
+      const x1 = 20;
+const y1 = 150;
+const x2 = 190;
+const y2 = 150;
+
+// Desenha a linha no documento
+doc.line(x1, y1, x2, y2);
+      
     doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX+76, assinaturaY + assinaturaHeight + 10, { align: 'center' });
     
     var assinaturaDireita = new Image();
