@@ -22,14 +22,11 @@ var pageHeight = doc.internal.pageSize.getHeight();
 var centerX = pageWidth / 2;
 var centerY = pageHeight / 2;
 
-// Desenhar o risco retangular externo
-doc.setLineWidth(rectWidth);
-doc.setDrawColor(rectColor);
-doc.rect(centerX - 300, centerY - 200, 650, 450);
+
 
 // Desenhar o risco retangular interno
 doc.setLineWidth(innerRectWidth);
-doc.rect(centerX - 295, centerY - 195, 590, 390);
+doc.rect(centerX - 295, centerY - 195, 650, 500);
 
 // Adicionar o logo
 var logoImage = new Image();
@@ -38,7 +35,7 @@ logoImage.onload = function() {
   var logoWidth = 90;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 100;
+  var logoY = centerY - 10;
 
   doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
@@ -81,7 +78,7 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('Francisco.pdf');
+      doc.save('Fr.pdf');
     };
   };
 };
