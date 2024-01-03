@@ -11,45 +11,56 @@
 
 
 
-// Criar um novo documento com orientação horizontal e tamanho A4
-var doc = new jsPDF({
-  orientation: 'landscape',
-  unit: 'mm',
-  format: 'a4'
-});
+// Criar um novo documento PDF
+var doc = new jsPDF('l', 'pt', 'a4');
 
-// Adicionar o retângulo laranja
-doc.setDrawColor(255, 165, 0); // Cor laranja
-doc.setLineWidth(20); // Largura do retângulo
-doc.rect(50, 80, 260, 150); // Posição e tamanho do retângulo
+// Definir a cor e as dimensões do retângulo de fundo
+doc.setFillColor(255, 165, 0);
+doc.rect(0, 0, 842, 595, 'F');
 
-// Adicionar o retângulo interno
-doc.setLineWidth(5); // Largura do retângulo interno
-doc.rect(60, 90, 240, 130); // Posição e tamanho do retângulo interno
+// Adicionar o logotipo PNG
+var imgData = 'icon.png';
+doc.addImage(imgData, 'PNG', 394, 0, 35, 35);
 
-// Adicionar o logo no centro
-var logo = new Image();
-logo.src = 'icon.png';
-doc.addImage(logo, 'PNG', 145, 25, 35, 35); // Posição e tamanho do logo
-
-// Adicionar o texto "Certificado de Conclusão"
+// Adicionar o texto centralizado "Certificado de Conclusão"
 doc.setFontSize(20);
-doc.text('Certificado de Conclusão', 150, 70, null, null, 'center');
+doc.setTextColor(0, 0, 0);
+doc.text('Certificado de Conclusão', 0, 200, { align: 'center' });
 
-// Adicionar o texto "Certificamos que Nome Sobrenome..."
-doc.setFontSize(14);
-doc.text('Certificamos que\nNome Sobrenome\nconcluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online', 150, 110, null, null, 'center');
+// Adicionar o texto "Certificamos que" seguido pelo nome do aluno
+doc.setFontSize(12);
+doc.setTextColor(0, 0, 0);
+doc.text('Certificamos que', 0, 250, { align: 'center' });
+doc.text('NOME DO ALUNO', 0, 275, { align: 'center' });
+
+// Adicionar o texto com os detalhes do curso
+doc.setFontSize(12);
+doc.setTextColor(0, 0, 0);
+doc.text('concluiu com sucesso o curso em programação,', 50, 325, { align: 'left' });
+doc.text('ministrado pelo CodeATOES, no âmbito do projeto', 50, 350, { align: 'left' });
+doc.text('Programador Moçambicano e de atividade de', 50, 375, { align: 'left' });
+doc.text('inclusão pela tecnologia, decorrido aos dias 03', 50, 400, { align: 'left' });
+doc.text('de Janeiro a 4 de Março online.', 50, 425, { align: 'left' });
 
 // Adicionar as assinaturas
-doc.setFont('arial', 'normal');
 doc.setFontSize(12);
-doc.text('Assinatura Alexandre Francisco', 100, 250);
-doc.text('Tutor CodeATOES', 110, 255);
+doc.setTextColor(0, 0, 0);
+doc.setFont('cursive', 'normal');
+doc.text('Alexandre Francisco', 50, 500, { align: 'left', decoration: 'underline' });
+doc.setFont('Arial', 'normal');
+doc.text('Alexandre Francisco', 50, 525, { align: 'left' });
+doc.text('Tutor CodeATOES', 50, 550, { align: 'left' });
 
-doc.text('Assinatura Carlota Lassir Nage', 250, 250);
-doc.text('Diretora Adjunta CodeATOES', 255, 255);
+doc.setFontSize(12);
+doc.setTextColor(0, 0, 0);
+doc.setFont('cursive', 'normal');
+doc.text('Carlota Lassir Nage', 450, 500, { align: 'left', decoration: 'underline' });
+doc.setFont('Arial', 'normal');
+doc.text('Carlota Lassir Nage', 450, 525, { align: 'left' });
+doc.text('Diretora Adjunta CodeATOES', 450, 550, { align: 'left' });
 
-// Salvar o PDF
+// Salvar o documento PDF
 doc.save('certificado.pdf');
+
        </script>                                                                </
 </html>
