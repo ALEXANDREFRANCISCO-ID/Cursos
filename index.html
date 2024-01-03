@@ -44,7 +44,7 @@ doc.rect(15, 15, pageWidth - 30, pageHeight - 30);
 var logoImage = new Image();
 logoImage.src = 'icon.png';
 logoImage.onload = function() {
-  var logoWidth = 90;
+  var logoWidth = 100;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
   var logoX = centerX - (logoWidth / 2);
   var logoY = centerY - 270;
@@ -53,7 +53,7 @@ logoImage.onload = function() {
 
   // Adicionar o texto "Certificado de Conclusão"
   doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 170, { align: 'center' });
+  doc.text('Certificado de Conclusão', centerX, centerY - 150, { align: 'center' });
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
