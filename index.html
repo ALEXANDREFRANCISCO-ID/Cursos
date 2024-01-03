@@ -53,11 +53,11 @@ logoImage.onload = function() {
 
   // Adicionar o texto "Certificado de Conclusão"
   doc.setFontSize(30);
-  doc.text('Certificado de Conclusão', centerX, centerY - 140, { align: 'center' });
+  doc.text('Certificado de Conclusão', centerX, centerY - 150, { align: 'center' });
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 100, { align: 'center' });
+  doc.text('Certificamos que', centerX, centerY - 150, { align: 'center' });
 
   // Adicionar o nome
   var nome = 'Nome do Aluno';
@@ -85,12 +85,12 @@ logoImage.onload = function() {
     var assinaturaDireita = new Image();
     assinaturaDireita.src = 'icon.png';
     assinaturaDireita.onload = function() {
-      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 300, assinaturaY, assinaturaWidth, assinaturaHeight);
+      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 400, assinaturaY, assinaturaWidth, assinaturaHeight);
       doc.setFontSize(14);
-      doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 350, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+      doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 450, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('lllp.pdf');
+      doc.save('ooo.pdf');
     };
   };
 };
