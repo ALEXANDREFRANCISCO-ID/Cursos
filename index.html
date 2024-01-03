@@ -72,14 +72,18 @@ logoImage.onload = function() {
 
   // Adicionar as assinaturas
   
-    // Assinatura esquerda
   var assinaturaEsquerda = new Image();
-  assinaturaEsquerda.src = 'assinatura.png'; // Substitua pelo caminho da sua imagem
+  assinaturaEsquerda.src = 'assinatura.png';
   assinaturaEsquerda.onload = function() {
+    var assinaturaWidth = 150;
+    var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
+    var assinaturaX = centerX - 250;
+    var assinaturaY = centerY + 300;
+    
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
     doc.setFontSize(14);
-    doc.text("Nome do SignatÃ¡rio\nCargo do SignatÃ¡rio", assinaturaX + 70, assinaturaY + assinaturaHeight + 10, { align: 'center' });
-      
+    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+    
     var assinaturaDireita = new Image();
     assinaturaDireita.src = 'assinatura_directora.png';
     assinaturaDireita.onload = function() {
@@ -88,7 +92,7 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora-Adjunta CodeATOES", assinaturaX + 380, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('lindr.pdf');
+      doc.save('yuuuu.pdf');
     };
   };
 };
@@ -96,3 +100,4 @@ logoImage.onload = function() {
 </body>
 </html>
                                           
+
