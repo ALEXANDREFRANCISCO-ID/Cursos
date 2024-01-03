@@ -57,17 +57,17 @@ logoImage.onload = function() {
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 50, { align: 'center' });
+  doc.text('Certificamos que', centerX, centerY - 70, { align: 'center' });
 
   // Adicionar o nome
   var nome = 'Nome do Aluno';
   doc.setFontSize(24);
-  doc.text(nome, centerX, centerY, { align: 'center' });
+  doc.text(nome, centerX, centerY-10, { align: 'center' });
 
   // Adicionar o texto da descrição do curso
   var descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
   doc.setFontSize(16);
-  doc.text(descricaoCurso, centerX, centerY + 50, { align: 'center', maxWidth: 500 });
+  doc.text(descricaoCurso, centerX, centerY + 70, { align: 'center', maxWidth: 500 });
 
   // Adicionar as assinaturas
   var assinaturaEsquerda = new Image();
@@ -85,7 +85,7 @@ logoImage.onload = function() {
     var assinaturaDireita = new Image();
     assinaturaDireita.src = 'icon.png';
     assinaturaDireita.onload = function() {
-      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 300, assinaturaY, assinaturaWidth, assinaturaHeight);
+      doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 150, assinaturaY, assinaturaWidth, assinaturaHeight);
       doc.setFontSize(14);
       doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 250, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
