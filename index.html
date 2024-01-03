@@ -43,7 +43,7 @@ doc.rect(15, 15, pageWidth - 30, pageHeight - 30);
 */
 // Adicionar o logo
 var logoImage = new Image();
-logoImage.src = 'icon.png';
+logoImage.src = 'logo-oficial.jpg';
 logoImage.onload = function() {
   var logoWidth = 100;
   var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
@@ -82,10 +82,10 @@ logoImage.onload = function() {
     
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
     doc.setFontSize(14);
-    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX+50, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX+80, assinaturaY + assinaturaHeight + 10, { align: 'center' });
     
     var assinaturaDireita = new Image();
-    assinaturaDireita.src = 'assinatura_directora.png';
+    assinaturaDireita.src = 'assinatura_direct.png';
     assinaturaDireita.onload = function() {
       doc.addImage(assinaturaDireita, 'PNG', assinaturaX + 310, assinaturaY, assinaturaWidth, assinaturaHeight);
       doc.setFontSize(14);
