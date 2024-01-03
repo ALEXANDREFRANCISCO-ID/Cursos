@@ -8,6 +8,15 @@
 
 <body>
 <script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificado</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+</head>
+<body>
+<script>
 // Criar um novo documento jspdf
 var doc = new jsPDF('l', 'pt', 'a4');
 
@@ -22,12 +31,15 @@ var pageHeight = doc.internal.pageSize.getHeight();
 var centerX = pageWidth / 2;
 var centerY = pageHeight / 2;
 
+// Desenhar o risco retangular externo com margem de 10px
+doc.setLineWidth(rectWidth);
+doc.setDrawColor(rectColor);
+doc.rect(10, 10, pageWidth - 20, pageHeight - 20);
 
-
-// Desenhar o risco retangular interno
+/* Desenhar o risco retangular interno com margem de 10px
 doc.setLineWidth(innerRectWidth);
-doc.rect(centerX - 295, centerY - 195, 650, 500);
-
+doc.rect(15, 15, pageWidth - 30, pageHeight - 30);
+*/
 // Adicionar o logo
 var logoImage = new Image();
 logoImage.src = 'icon.png';
@@ -78,9 +90,12 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora Adjunta CodeATOES", assinaturaX + 300, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('Fr.pdf');
+      doc.save('cio.pdf');
     };
   };
 };
+</script>
+</body>
+</html>
           </script>                                                                
 </html>
