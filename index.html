@@ -78,11 +78,11 @@ logoImage.onload = function() {
     var assinaturaWidth = 150;
     var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
     var assinaturaX = centerX - 250;
-    var assinaturaY = centerY + 300;
+    var assinaturaY = centerY + 150;
     
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
     doc.setFontSize(14);
-    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX, assinaturaY + assinaturaHeight + 10, { align: 'center' });
+    doc.text("Alexandre Francisco\nTutor CodeATOES", assinaturaX+50, assinaturaY + assinaturaHeight + 10, { align: 'center' });
     
     var assinaturaDireita = new Image();
     assinaturaDireita.src = 'assinatura_directora.png';
