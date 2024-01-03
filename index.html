@@ -57,12 +57,12 @@ logoImage.onload = function() {
 
   // Adicionar o texto "Certificamos que"
   doc.setFontSize(20);
-  doc.text('Certificamos que', centerX, centerY - 150, { align: 'center' });
+  doc.text('Certificamos que', centerX, centerY - 125, { align: 'center' });
 
   // Adicionar o nome
   var nome = 'Nome do Aluno';
   doc.setFontSize(24);
-  doc.text(nome, centerX, centerY-20, { align: 'center' });
+  doc.text(nome, centerX, centerY-30, { align: 'center' });
 
   // Adicionar o texto da descrição do curso
   var descricaoCurso = 'concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online';
@@ -76,7 +76,7 @@ logoImage.onload = function() {
     var assinaturaWidth = 150;
     var assinaturaHeight = (assinaturaEsquerda.height * assinaturaWidth) / assinaturaEsquerda.width;
     var assinaturaX = centerX - 250;
-    var assinaturaY = centerY + 120;
+    var assinaturaY = centerY + 200;
 
     doc.addImage(assinaturaEsquerda, 'PNG', assinaturaX, assinaturaY, assinaturaWidth, assinaturaHeight);
     doc.setFontSize(14);
