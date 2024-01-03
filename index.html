@@ -72,7 +72,7 @@ logoImage.onload = function() {
   doc.text('Certificamos que', centerX, centerY - 130, { align: 'center' });
 
   // Adicionar o nome
-  var nome = nom;
+  var nome = '' +nom;
   doc.setFontSize(24);
   doc.text(nome, centerX, centerY-30, { align: 'center' });
 
@@ -106,7 +106,7 @@ logoImage.onload = function() {
       doc.save('Odont.pdf');
     };
   };
-        
+        };    
 });
 </script>
 </body>
