@@ -7,67 +7,126 @@
 </head>
   <script>
     
-        // draw a rectangular border
-    doc.rect(40, 40, 720, 520); // adjust the position and size according to your requirements
-    doc.setFillColor(255, 165, 0); // orange color
-    doc.rect(60, 60, 680, 480, 'F'); // adjust the position and size according to your requirements
+        
+// Importar o jsPDF
+import jsPDF from 'jspdf';
 
-    // add the logo
-    var imgData = 'icon.png'; // replace with the actual path to your logo
-    doc.addImage(imgData, 'PNG', 380, 100, 35, 0);
-    
-    // add the "certificado de conclusão" text
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(24);
-    doc.text('Certificado de Conclusão', 420, 250); // adjust the position according to your requirements
-    
-    // add the "certificamos que" text
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(16);
-    doc.text('Certificamos que', 400, 300); // adjust the position according to your requirements
+// Criar o objeto PDF
+const doc = new jsPDF('landscape', 'px', 'a4');
 
-    // add the name text
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(18);
-    doc.text('Nome', 420, 340); // adjust the position according to your requirements
-    
-    // add the course description text
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(14);
-    doc.text('concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido aos dias 03 de Janeiro a 4 de Março online', 200, 380); // adjust the position according to your requirements
-    
-    // add the first signature
-    doc.setFont('cursive', 'underline');
-    doc.setFontSize(16);
-    doc.text('Alexandre Francisco', 100, 500); // adjust the position according to your requirements
-    
-    // add the first signature label
-    doc.setFont('arial', 'normal');
-    doc.setFontSize(14);
-    doc.text('Alexandre Francisco', 120, 520); // adjust the position according to your requirements
-    
-    // add the first signature position
-    doc.setFont('arial', 'normal');
-    doc.setFontSize(14);
-    doc.text('Tutor CodeATOES', 130, 540); // adjust the position according to your requirements
-    
-    // add the second signature
-    doc.setFont('cursive', 'underline');
-    doc.setFontSize(16);
-    doc.text('Carlota Lassir Nage', 550, 500); // adjust the position according to your requirements
-    
-    // add the second signature label
-    doc.setFont('arial', 'normal');
-    doc.setFontSize(14);
-    doc.text('Carlota Lassir Nage', 570, 520); // adjust the position according to your requirements
-    
-    // add the second signature position
-    doc.setFont('arial', 'normal');
-    doc.setFontSize(14);
-    doc.text('Directora Adjunta CodeATOES', 580, 540); // adjust the position according to your requirements
+// Definir as configurações do certificado
+const margin = 20;
+const rectWidth = doc.internal.pageSize.getWidth() - 2 * margin;
+const rectHeight = doc.internal.pageSize.getHeight() - 2 * margin;
+const rectColor = 'orange';
+const rectLineWidth = 20;
 
-    // save the document
-    doc.save('certificado.pdf');
+// Desenhar o retângulo
+doc.setDrawColor(rectColor);
+doc.setLineWidth(rectLineWidth);
+doc.rect(margin, margin, rectWidth, rectHeight);
+
+// Adicionar o logo
+const logoImg = new Image();
+logoImg.src = 'icon.png';
+
+logoImg.onload = function() {
+  const logoWidth = 35;
+  const logoX = doc.internal.pageSize.getWidth() / 2 - logoWidth / 2;
+  const logoY = margin;
+
+  doc.addImage(logoImg, 'PNG', logoX, logoY, logoWidth, logoWidth);
+
+  // Adicionar o texto
+  doc.setFont('arial', 'bold');
+  const titleText = 'Certificado de Conclusão';
+  const titleFontSize = 16;
+  const titleX = doc.internal.pageSize.getWidth() / 2;
+  const titleY = margin + logoWidth + 20;
+
+  doc.setFontSize(titleFontSize);
+  doc.text(titleText, titleX, titleY, {
+    align: 'center',
+    baseline: 'middle'
+  });
+
+  const contentText = 'Certificamos que ';
+  const nameText = 'JOÃO DA SILVA';
+  const courseText =
+    ' concluiu com sucesso o curso em programação, ministrado pelo CodeATOES, no âmbito do projeto Programador Moçambicano e de atividade de inclusão pela tecnologia, decorrido de 03 de Janeiro a 04 de Março online.';
+  const contentFontSize = 12;
+  const contentX = margin + 20;
+  const contentY = titleY + titleFontSize + 30;
+  const contentWidth = rectWidth - 2 * contentX;
+
+  doc.setFontSize(contentFontSize);
+  doc.text(contentText, contentX, contentY, {
+    align: 'left',
+    baseline: 'middle',
+    maxWidth: contentWidth
+  });
+  
+  doc.setFont('arial', 'normal');
+  doc.setTextColor(0, 0, 0); // Text color: black
+  doc.setFontSize(11);
+  
+  doc.text(nameText, contentX + doc.getTextWidth(contentText), contentY, {
+    align: 'left',
+    baseline: 'middle',
+    maxWidth: contentWidth,
+    decoration: 'underline',
+    fontStyle: 'italic'
+  });
+  
+  doc.text(courseText, contentX, contentY + 15, {
+    align: 'left',
+    baseline: 'middle',
+    maxWidth: contentWidth
+  });
+  
+  // Adicionar as assinaturas
+  doc.setFont('arial', 'italic');
+  doc.setTextColor(0, 0, 0); // Text color: black
+  doc.setFontSize(11);
+  
+  const signature1Text = 'Alexandre Francisco';
+  const signature1Title = 'Tutor CodeATOES';
+  const signature2Text = 'Carlota Lassir Nage';
+  const signature2Title = 'Diretora Adjunta CodeATOES';
+  
+  const signatureWidth = rectWidth / 2;
+  const signatureHeight = 50;
+  const signatureX = margin;
+  const signatureY = doc.internal.pageSize.getHeight() - margin - signatureHeight;
+  
+  doc.setFontSize(contentFontSize);
+  doc.text(signature1Text, signatureX, signatureY, {
+    align: 'left',
+    baseline: 'middle',
+    maxWidth: signatureWidth,
+    decoration: 'underline',
+    fontStyle: 'italic'
+  });
+  
+  doc.setFont('arial', 'normal');
+  doc.text(signature1Title, signatureX, signatureY + contentFontSize + 5, {
+    align: 'left',
+    baseline: 'middle',
+    maxWidth: signatureWidth
+  });
+
+  doc.setFontSize(contentFontSize);
+  doc.text(signature2Text, signatureX + signatureWidth, signatureY, {
+    align: 'left',
+    baseline: 'middle',
+    maxWidth: signatureWidth,
+    decoration: 'underline',
+    fontStyle: 'italic'
+  });
+  
+  doc.setFont('arial', 'normal');
+  doc.text(signature2Title, signatureX + signatureWidth, signatureY + contentFontSize + 5
+    doc.save('canvasas.pdf');
 </script>
 
 
