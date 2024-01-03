@@ -10,11 +10,6 @@
   <label for="nome">Nome do Aluno:</label>
   <input type="text" id="nome" name="nome" required><br>
 
-  <label for="curso">Curso:</label>
-  <input type="text" id="curso" name="curso" required><br>
-
-  <label for="data">Data:</label>
-  <input type="date" id="data" name="data" required><br>
 
   <button type="submit">Gerar Certificado</button>
 </form>
@@ -27,8 +22,6 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
   event.preventDefault();
   
   var nome = document.getElementById("nome").value;
-  var curso = document.getElementById("curso").value;
-  var data = document.getElementById("data").value;
   
   
   
@@ -110,7 +103,7 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora-Adjunta CodeATOES", assinaturaX + 380, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
       // Salvar o certificado como PDF
-      doc.save('yuuuu.pdf');
+      doc.save('Odont.pdf');
     };
   };
 };
