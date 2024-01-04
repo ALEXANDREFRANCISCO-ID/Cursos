@@ -33,14 +33,12 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
 var doc = new jsPDF('l', 'pt', 'a4');
 
 
-// Carrega a imagem de fundo
-var background = new Image();
-background.src = 'certificad.png';
-
-background.onload = function() {
-  // Desenha a imagem de fundo no documento PDF
-  doc.addImage(background, 'PNG', 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
-
+// Criar um elemento de imagem no HTML
+var img = new Image();
+img.src = 'certificad.png';
+img.onload = function() {
+  var imgData = img.src;
+  doc.addImage(imgData, 'JPEG', 0, 0, 210, 297);
 
 
 
