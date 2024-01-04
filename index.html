@@ -25,7 +25,10 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
   
   
   
-  
+  // Adicionar uma imagem ao PDF
+    var imgData = 'icon.png'; // Substitua com o caminho da sua imagem
+    doc.addImage(imgData, 'JPEG', 10, 10, 100, 75); // (imagem, formato, x, y, largura, altura)
+
   
   
   
