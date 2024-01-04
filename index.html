@@ -4,7 +4,7 @@
 <head>
     <title>Certificado</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
 </head>
 <form id="certificadoForm">
   <label for="nome">Nome do Aluno g:</label>
@@ -33,22 +33,15 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
 var doc = new jsPDF('l', 'pt', 'a4');
 
 
+var logoImage = new Image();
+logoImage.src = 'certificad.png';
+logoImage.onload = function() {
+  var logoWidth = 800;
+  var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
+  var logoX = centerX - (logoWidth / 2);
+  var logoY = centerY - 270;
 
-// Criando um elemento de certificado A4
-var certificado = document.createElement('div');
-certificado.style.width = '297mm'; // Largura do certificado
-certificado.style.height = '210mm'; // Altura do certificado
-certificado.style.backgroundImage = 'url(certificad.png)'; // URL da imagem de plano de fundo
-certificado.style.backgroundSize = 'cover'; // Redimensionar imagem de plano de fundo para cobrir o elemento
-certificado.style.backgroundRepeat = 'no-repeat'; // Evitar repetição da imagem de plano de fundo
-certificado.style.backgroundPosition = 'center'; // Centralizar imagem de plano de fundo
 
-// Converter o elemento do certificado em uma imagem
-html2canvas(certificado).then(function(canvas) {
-  var imgData = canvas.toDataURL('image/png');
-
-  // Adicionar a imagem do certificado ao documento PDF
-  doc.addImage(imgData, 'PNG', 10, 10, 187, 131);
 
     
 
