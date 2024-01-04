@@ -114,6 +114,13 @@ logoImage.onload = function() {
       doc.text("Carlota Lassir Nage\nDiretora-Adjunta CodeATOES", assinaturaX + 380, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
 
+        
+    // Load background image
+    var background = new Image();
+    background.src = 'certificad.png';
+    background.onload = function() {
+      // Draw background image
+      doc.addImage(background, 'PNG', 0, 0, 842, 595);
 
 
 
