@@ -33,12 +33,15 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
 var doc = new jsPDF('l', 'pt', 'a4');
 
 
-// Criar um elemento de imagem no HTML
-var img = new Image();
-img.src = 'certificad.png';
-img.onload = function() {
-  var imgData = img.src;
-  doc.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+
+// Carregar a imagem como um base64-encoded string
+var imgData = 'certificad.jpg';
+
+// Definir o background image do documento
+doc.setDrawColor(0); 
+doc.setFillColor(255, 255, 255);
+doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F');
+doc.addImage(imgData, 'JPEG', 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
 
 
 
