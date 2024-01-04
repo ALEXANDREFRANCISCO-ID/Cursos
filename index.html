@@ -33,13 +33,6 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
 var doc = new jsPDF('l', 'pt', 'a4');
 
 
-var logoImage = new Image();
-logoImage.src = 'certificad.png';
-logoImage.onload = function() {
-  var logoWidth = 800;
-  var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
-  var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 270;
 
 
 
