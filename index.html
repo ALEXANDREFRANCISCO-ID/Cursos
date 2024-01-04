@@ -25,17 +25,16 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
   
   
   
-  // Adicionar uma imagem ao PDF
-    var imgData = 'icon.png'; // Substitua com o caminho da sua imagem
-    doc.addImage(imgData, 'JPEG', 10, 10, 100, 75); // (imagem, formato, x, y, largura, altura)
 
-  
   
   
 // Criar um novo documento jspdf
 var doc = new jsPDF('l', 'pt', 'a4');
 
 
+  // Adicionar uma imagem ao PDF
+    var imgData = 'icon.png'; // Substitua com o caminho da sua imagem
+    doc.addImage(imgData, 'JPEG', 10, 10, 100, 75); // (imagem, formato, x, y, largura, altura)
 
 
 
@@ -62,6 +61,16 @@ doc.setLineWidth(innerRectWidth);
 doc.rect(15, 15, pageWidth - 30, pageHeight - 30);
 */
 
+// Adicionar o logo
+var logoImage = new Image();
+logoImage.src = 'logo-oficial.jpg';
+logoImage.onload = function() {
+  var logoWidth = 100;
+  var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
+  var logoX = centerX - (logoWidth / 2);
+  var logoY = centerY - 270;
+
+  doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
 
 
 
