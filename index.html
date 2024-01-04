@@ -43,9 +43,12 @@ certificado.style.backgroundSize = 'cover'; // Redimensionar imagem de plano de 
 certificado.style.backgroundRepeat = 'no-repeat'; // Evitar repetição da imagem de plano de fundo
 certificado.style.backgroundPosition = 'center'; // Centralizar imagem de plano de fundo
 
-// Adicionando o elemento de certificado ao corpo da página
-document.body.appendChild(certificado);
+// Converter o elemento do certificado em uma imagem
+html2canvas(certificado).then(function(canvas) {
+  var imgData = canvas.toDataURL('image/png');
 
+  // Adicionar a imagem do certificado ao documento PDF
+  doc.addImage(imgData, 'PNG', 10, 10, 187, 131);
 
     
 
