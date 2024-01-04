@@ -9,12 +9,13 @@
 <form id="certificadoForm">
   <label for="nome">Nome do Aluno:</label>
   <input type="text" id="nome" name="nome" required><br>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <button type="submit">Gerar Certificado</button>
 </form>
 
 <body>
+<div id="background-image" style="background-image: url('certificad.png');"></div>
 
 <script>
 
@@ -56,9 +57,7 @@ doc.rect(15, 15, pageWidth - 30, pageHeight - 30);
 
 
 
-    // Adicione a imagem de fundo (substitua 'sua-imagem.jpg' pelo caminho da sua imagem)
-    doc.addImage('certificad.png', 'JPEG', 0, 0, doc.internal.pageSize.height, doc.internal.pageSize.width);
-
+    
 
     
 // Adicionar o logo
@@ -115,6 +114,22 @@ logoImage.onload = function() {
       doc.setFontSize(14);
       doc.text("Carlota Lassir Nage\nDiretora-Adjunta CodeATOES", assinaturaX + 380, assinaturaY + assinaturaHeight + 10, { align: 'center' });
 
+
+
+
+
+
+
+
+    // Carregando a imagem de fundo usando html2canvas
+  html2canvas(document.getElementById("background-image"), {
+    scale: 2, // Ajustando a escala para melhor qualidade
+  }).then(function (canvas) {
+    var imgData = canvas.toDataURL("image/png"); // Convertendo o canvas em uma string de base64 (imagem PNG)
+    
+    // Definindo a imagem de fundo no documento PDF
+    doc.addImage(imgData, "PNG", 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+   
       // Salvar o certificado como PDF
       doc.save('Certificado.pdf');
     };
