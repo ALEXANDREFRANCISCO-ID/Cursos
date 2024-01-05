@@ -4,6 +4,7 @@
 <head>
     <title>Certificado</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.2.13/jspdf.plugin.autotable.js"></script>
 
 </head>
 <form id="certificadoForm">
@@ -55,18 +56,6 @@ doc.rect(10, 10, pageWidth - 20, pageHeight - 20);
 doc.setLineWidth(innerRectWidth);
 doc.rect(15, 15, pageWidth - 30, pageHeight - 30);
 */
-
-// Adicionar o logo
-var logoImage = new Image();
-logoImage.src = 'logo-oficial.jpg';
-logoImage.onload = function() {
-  var logoWidth = 200;
-  var logoHeight = (logoImage.height * logoWidth) / logoImage.width;
-  var logoX = centerX - (logoWidth / 2);
-  var logoY = centerY - 270;
-
-  doc.addImage(logoImage, 'PNG', logoX, logoY, logoWidth, logoHeight);
-
 
 
     
