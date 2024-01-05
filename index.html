@@ -31,6 +31,27 @@ document.getElementById("certificadoForm").addEventListener("submit", function(e
 // Criar um novo documento jspdf
 var doc = new jsPDF('l', 'pt', 'a4');
 
+// Função para carregar a imagem de plano de fundo
+function loadBackgroundImage(url) {
+  var img = new Image();
+  img.src = url;
+  img.setAttribute('crossOrigin', 'anonymous'); // Necessário caso a imagem esteja em outro domínio
+
+  img.onload = function() {
+    // Define a imagem de plano de fundo no documento
+    doc.addImage(img, 'JPEG', 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+
+    // Chama a função para adicionar o conteúdo do certificado ao PDF
+    addCertificateContent();
+  };
+}
+
+// Função para adicionar o conteúdo do certificado ao PDF
+function addCertificateContent() {
+  // Define o estilo de fonte
+  doc.setFont('helvetica');
+  doc.setFontSize(36);
+  doc.setTextColor(0, 0, 0);
 
 
 
@@ -130,6 +151,10 @@ logoImage.onload = function() {
  // Salvar o certificado como PDF
       doc.save('Certificado.pdf');
     };
+      
+// Carrega a imagem de plano de fundo e inicia o processo de criação do certificado
+loadBackgroundImage('certificad.png');
+Cert
   };
         };    
 });
