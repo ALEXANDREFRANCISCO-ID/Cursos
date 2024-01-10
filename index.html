@@ -7,14 +7,185 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.2.13/jspdf.plugin.autotable.js"></script>
 
 </head>
-<form id="certificadoForm">
+
+
+
+  <style>
+
+    /* Seu estilo aqui... */
+
+    
+
+    Body{
+
+            Background:#fff;
+
+            Text-align:center;
+
+            Justify-content:center;
+
+            Justify-items:center;
+
+            
+
+        }
+
+       .d{
+
+            Background-color:#fff;
+
+            Padding:12px;
+
+            Margin:10px;
+
+            Min-height:400px;
+
+            Border:3px;
+
+            Border-radius:10px;
+
+            border-color:orange;
+
+        }
+
+        Input{
+
+            
+
+            Padding:12px;
+
+            Margin:10px;
+
+            Border:none;
+
+        }
+
+        Button{
+
+            Width:40%;
+
+            Height:50px;
+
+            Border-radius:20px;
+
+            Border:none;
+
+        }
+
+       .u1{
+
+            Color:#fff;
+
+            Background:orange;
+
+            Border-radius:15px 0 15px 0;
+
+            
+
+        }
+
+       .u2{
+
+            font-family:cursive;
+
+            Font-size:60px;
+
+            Underline:10px;
+
+        }
+
+        a{
+
+        Text-decoration:none;
+
+       } 
+
+       P{
+
+           Padding:0;
+
+       }
+
+       }
+
+      .u3{
+
+          Font-size:80px
+
+      }
+
+      
+
+    .divider {
+
+      display: flex;
+
+      align-items: center;
+
+    }
+
+
+
+    .line {
+
+      flex-grow: 1;
+
+      border-top: 1px solid #000;
+
+    }
+
+
+
+    .or {
+
+      padding: 0 10px;
+
+    }
+
+   .certificdo{
+
+     width:100%;
+
+     height:150px;
+
+     background-image:src("certificado.png")
+
+     background-size:cover;
+
+   }
+
+    </style>
+
+    
+
+  
+
+  
+
+</head>
+
+
+
+<body>
+
+    <div class="d">
+
+    <h1><span class="u1">Code</span>ATOES</h1>
+
+  <div class="certificdo"></div>
+
+    <h2>
+
+      <span class="u2">C</span>ertificado de Conclusão 
+
+    </h2>
+        <form id="certificadoForm">
   <label for="nome">Nome do Aluno:</label>
   <input type="text" id="nome" name="nome" required><br>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <button type="submit">Gerar Certificado</button>
-</form>
-
+        </form>
 <body>
 
 <script>
